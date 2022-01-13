@@ -1,0 +1,40 @@
+import styled, { css } from "styled-components";
+
+export const Wrapper = styled.form`
+  ${({ theme }) => css`
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.white};
+    /* font-size: 1.5rem; */
+  `}
+`;
+
+export const UserIcon = styled.div`
+  width: min-content;
+  padding: 30px;
+  color: #c3c3c3;
+  background-color: #ffffff2b;
+  border-radius: 200px;
+  margin-bottom: 30px;
+  svg {
+    width: 50px;
+  }
+`;
+
+export const Submit = styled.div`
+  ${({ theme }) => css`
+    button {
+      font-size: 16px;
+      color: ${theme.colors.darkGray};
+      margin: 20px 0;
+    }
+
+    svg {
+      color: ${theme.colors.darkGray};
+    }
+  `}
+`;

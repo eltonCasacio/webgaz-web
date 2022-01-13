@@ -1,0 +1,11 @@
+import * as S from "./styles";
+
+type ViewProps = {
+  title: string;
+};
+
+const View: React.FC<ViewProps> = (props) => (
+  <S.Wrapper>{props.title}</S.Wrapper>
+);
+
+export default View;

@@ -1,0 +1,8 @@
+import styled, { css } from "styled-components";
+
+export const Wrapper = styled.form`
+  ${({ theme }) => css`
+    display: flex;
+    background-color: ${theme.colors.primary};
+  `}
+`;
