@@ -1,43 +1,76 @@
 import React, { createContext, useEffect, useState } from "react";
-import * as auth from '../srvices/auth'
+import * as auth from "../srvices/auth";
+import API from "../srvices/api";
 
 type AuthContextProps = {
-  children?: React.ReactNode;
-  isAuthenticate: Boolean;
-  handleSignin: () => void;
-  handleSignout: () => void;
+  isAuthenticate: boolean;
+  user: object | null;
+  loading: boolean;
+  handleSignin({
+    email,
+    password,
+  }: auth.RequestSignInProps): Promise<auth.ResponseSignInProps>;
+  handleSignout(): Promise<boolean>;
 };
 
-const authContext = createContext({} as AuthContextProps);
+const AuthContext = createContext({} as AuthContextProps);
 
 const AuthProvider: React.FC = ({ children }) => {
-  const [isAuthenticate, setIsAuthenticate] = useState(false);
+  const [user, setUser] = useState<object | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setLoading(false);
+    async function run() {
+      const storageToken = localStorage.getItem("token");
+      const storageUser = localStorage.getItem("user");
+
+      if (storageToken && storageUser) {
+        API.defaults.headers.common["Authorization"] = `Bearer ${storageToken}`;
+        setUser(JSON.parse(storageUser));
+        setLoading(false);
+      }
+    }
+
+    run();
   }, []);
 
-  const handleSignin = async () => {
-    const result = await auth.signin()
-    setIsAuthenticate(true);
+  const handleSignin = async ({
+    email = "",
+    password = "",
+  }: auth.RequestSignInProps): Promise<auth.ResponseSignInProps> => {
+    const response = await auth.signin({ email, password });
+
+    API.defaults.headers.common["Authorization"] = `Bearer ${response.token}`;
+    localStorage.setItem("token", response.token);
+    localStorage.setItem("user", JSON.stringify(response.user));
+
+    setUser(response.user);
+    console.log("handleSignin", response);
+    return response;
   };
 
-  const handleSignout = async ():Promise<void> => {
-    const result = await auth.signout()
-    setIsAuthenticate(false);
+  const handleSignout = async (): Promise<boolean> => {
+    localStorage.clear();
+    setUser(null);
+
+    return true;
   };
 
-  if(loading) (<h1>Loading</h1>)
+  // if (loading) return <h1>Loading</h1>;
 
   return (
-    <authContext.Provider
-      value={{ isAuthenticate, handleSignin, handleSignout }}
+    <AuthContext.Provider
+      value={{
+        isAuthenticate: !!user,
+        user,
+        loading,
+        handleSignin,
+        handleSignout,
+      }}
     >
       {children}
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
-export { authContext, AuthProvider };
+export { AuthContext, AuthProvider };

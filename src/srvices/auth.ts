@@ -1,3 +1,25 @@
-export const signin = async () => {};
+import API from "./api";
 
-export const signout = async () => {};
+export type ResponseSignInProps = {
+  token: string;
+  user: {
+    name: string;
+  };
+};
+
+export type RequestSignInProps = {
+  email: string;
+  password: string;
+};
+
+export async function signin({
+  email,
+  password,
+}: RequestSignInProps): Promise<ResponseSignInProps> {
+  try {
+    // const { data } = await Api.post("/signin", { email, password });    
+  } catch (error) {
+    console.debug("Erro ao tentar realizar o SIGNIN");
+  }
+  return { token: "token", user: { name: "elton" } };
+}

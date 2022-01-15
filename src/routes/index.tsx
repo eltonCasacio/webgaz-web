@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
+import { AuthContext } from "../context/auth";
+
 import AuthRoutes from "./auth.routes";
 import AppRoutes from "./app.routes";
 import { Base } from "../components";
-import { authContext } from "../context/auth";
 
 const Index: React.FC = () => {
-  const { isAuthenticate } = useContext(authContext);
-
+  const { isAuthenticate } = useContext(AuthContext);
   return isAuthenticate ? (
     <Base>
       <AppRoutes />
