@@ -16,19 +16,38 @@ const MenuModifier = {
 export const Wrapper = styled.nav<MenuProps>`
   ${({ orientation }) => css`
     display: flex;
+    flex-direction: column;
     ${!!orientation && MenuModifier[orientation]()}
     flex: 1;
     font-size: 1.2rem;
-    font-weight: 600;
+  `}
+`;
+
+export const MenuItem = styled.li`
+  display: flex;
+  padding: 10px 0;
+  border-bottom: solid 1px #ffffff2d;
+  color: #ffffffae;
+
+  cursor: pointer;
+
+  :hover {
+    background-color: #ffffff1f;
+    color: #ffffff;
 
     a {
-      text-decoration: none;
-      margin: 0 5px;
-      color: rgb(255, 255, 255);
-
-      :hover {
-        color: #ffffffdd;
-      }
+      color: #ffffff;
     }
-  `}
+  }
+
+  svg {
+    width: 1rem;
+    margin-right: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    width: 100%;
+    color: #ffffffae;
+  }
 `;

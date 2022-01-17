@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import * as auth from "../srvices/auth";
 import API from "../srvices/api";
+import { useNavigate } from "react-router-dom";
 
 type AuthContextProps = {
   isAuthenticate: boolean;
@@ -16,6 +17,7 @@ type AuthContextProps = {
 const AuthContext = createContext({} as AuthContextProps);
 
 const AuthProvider: React.FC = ({ children }) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState<object | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -28,10 +30,15 @@ const AuthProvider: React.FC = ({ children }) => {
         API.defaults.headers.common["Authorization"] = `Bearer ${storageToken}`;
         setUser(JSON.parse(storageUser));
         setLoading(false);
+        console.log("seila?");
+
+      }else {
+        navigate("sign-in");
       }
     }
 
     run();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSignin = async ({

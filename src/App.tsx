@@ -7,14 +7,14 @@ import { AuthProvider } from "./context/auth";
 
 const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <ThemeProvider theme={Theme}>
-        <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
+        <ThemeProvider theme={Theme}>
           <GlobalStyles />
           <Routes />
-        </BrowserRouter>
-      </ThemeProvider>
-    </AuthProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 };
 

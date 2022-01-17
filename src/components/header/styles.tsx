@@ -2,30 +2,29 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  height: 10vh; 
-  max-height: 8vh;
-  padding: 0 45px;
-  box-shadow: 0 0 10px 3px #767676f8;
-  background-color: #0f3ffd;
 `;
 
-export const Logo = styled.img`
-  width: 180px;
-  float: left;
-  object-fit: contain;
+export const WrapperTitle = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-export const Menus = styled.section`
-  flex: 1;
-  margin-left: 20px;
+export const Title = styled.h1`
+  font-size: 1.3rem;
+  color: #535353;
+`;
+
+export const SubTitle = styled.h2`
+  font-size: 1.3rem;
+  color: #58555b;
 `;
 
 export const Signout = styled.div`
   display: flex;
   align-items: center;
-  color: aliceblue;
+  color: #000000;
   cursor: pointer;
   svg {
     margin-left: 3px;
