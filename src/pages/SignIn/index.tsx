@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
 import View from "./View";
 
@@ -13,9 +13,7 @@ const SignIn: React.FC = () => {
     event.preventDefault();
     const res = await handleSignin({ email, password });
 
-    console.log("SignIn::handleSubmit::", res);
-
-    if (res.token) navigate("/");
+    if (res.token) navigate("/", { replace: true });
   };
 
   return (

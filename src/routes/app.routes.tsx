@@ -5,7 +5,7 @@ import Home from "../pages/Home";
 const authRoutes: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
     </Routes>
   );
 };

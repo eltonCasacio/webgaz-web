@@ -1,15 +1,16 @@
 import React from "react";
-import Header from "../header";
-import { Wrapper } from "./styles";
+import Sidebar from "../Sidebar";
+import * as S from "./styles";
 
 type BaseProps = {
   children: React.ReactNode;
 };
 export default function Base({ children }: BaseProps) {
   return (
-    <Wrapper>
-      <Header />
-      {children}
-    </Wrapper>
+    <S.Wrapper>
+      <Sidebar />
+
+      <S.Content>{children}</S.Content>
+    </S.Wrapper>
   );
 }
