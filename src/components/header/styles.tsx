@@ -13,12 +13,13 @@ export const WrapperTitle = styled.div`
 
 export const Title = styled.h1`
   font-size: 1.3rem;
-  color: #535353;
+  color: #565b65;
+  margin-bottom: 5px;
 `;
 
 export const SubTitle = styled.h2`
-  font-size: 1.3rem;
-  color: #58555b;
+  font-size: 0.9rem;
+  color: #686c82;
 `;
 
 export const Signout = styled.div`

@@ -5,7 +5,11 @@ export default {
     gutter: "3.2rem",
   },
   border: {
-    radius: "0.4rem",
+    radius: {
+      small: "0.4rem",
+      medium: "0.6rem",
+      large: "0.6rem",
+    },
   },
   font: {
     family:
@@ -23,8 +27,8 @@ export default {
     },
   },
   colors: {
-    primary: "#033E8C",
-    secondary: "#F2CB05",
+    primary: "#064263",
+    secondary: "#0b7bb8",
     mainBg: "#06092B",
     white: "#FAFAFA",
     black: "#030517",
@@ -34,9 +38,8 @@ export default {
     border: "#f2cb05d8",
   },
   spacings: {
-    xxsmall: "0.5rem",
-    xsmall: "1.6rem",
-    small: "2.4rem",
+    xsmall: "1rem",
+    small: "2rem",
     medium: "3.2rem",
     large: "4.0rem",
     xlarge: "4.8rem",

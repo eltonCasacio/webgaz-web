@@ -6,11 +6,12 @@ import { AuthContext } from "../../context/auth";
 import { SignOut } from "styled-icons/fluentui-system-regular";
 import * as S from "./styles";
 
-type HeaderProps = {
-  title: string;
+export type HeaderProps = {
+  title?: string;
+  subtitle?: string;
 };
 
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
   const navigate = useNavigate();
   const { handleSignout } = useContext(AuthContext);
 
@@ -24,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
     <S.Wrapper>
       <S.WrapperTitle>
         <S.Title>{title}</S.Title>
-        <S.SubTitle>Subtitulo</S.SubTitle>
+        <S.SubTitle>{subtitle}</S.SubTitle>
       </S.WrapperTitle>
       <S.Signout onClick={logout}>
         Sign-out

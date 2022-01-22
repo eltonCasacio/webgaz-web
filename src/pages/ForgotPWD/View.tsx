@@ -7,9 +7,10 @@ import * as S from "./styles";
 type ViewProps = {
   handleSubmit?: React.FormEventHandler;
   setEmail?: any;
+  callback: () => void;
 };
 
-const View: React.FC<ViewProps> = ({ handleSubmit, setEmail }) => (
+const View: React.FC<ViewProps> = ({ handleSubmit, setEmail, callback }) => (
   <S.Wrapper onSubmit={handleSubmit}>
     <S.UserIcon>
       <LockPassword />
@@ -25,11 +26,11 @@ const View: React.FC<ViewProps> = ({ handleSubmit, setEmail }) => (
       />
 
       <S.Submit>
-        <Button size="small" fullWidth>
+        <Button size="small" fullWidth callback={callback}>
           Enviar
         </Button>
       </S.Submit>
-      
+
       <ForgotPassword>
         <Link to={"/sign-in"}>Voltar</Link>
       </ForgotPassword>

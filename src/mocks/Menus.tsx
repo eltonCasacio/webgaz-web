@@ -8,11 +8,11 @@ import {
 
 export const Menus = [
   { name: "Inicio", url: "home", icon: <Home /> },
-  { name: "Clientes", url: "client", icon: <UserGroup /> },
-  { name: "Produtos", url: "product", icon: <LocalGasStation /> },
-  { name: "Fornecedores", url: "provider", icon: <TransferWithinAStation /> },
-  { name: "Usuários", url: "user", icon: <Users /> },
-  { name: "Transportadoras", url: "shipping", icon: <LocalShipping /> },
-  { name: "Relatórios", url: "report", icon: <DocumentReport /> },
-  { name: "Configurações", url: "setting", icon: <Settings /> },
+  { name: "Clientes", url: "clients", icon: <UserGroup /> },
+  { name: "Produtos", url: "products", icon: <LocalGasStation /> },
+  { name: "Fornecedores", url: "suppliers", icon: <TransferWithinAStation /> },
+  { name: "Usuários", url: "users", icon: <Users /> },
+  { name: "Transportadoras", url: "shippings", icon: <LocalShipping /> },
+  { name: "Relatórios", url: "reports", icon: <DocumentReport /> },
+  { name: "Configurações", url: "settings", icon: <Settings /> },
 ];
