@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { ButtonProps } from ".";
-import Theme from "../../styles/theme";
+import Theme from "../../../styles/theme";
 
 type WrapperProps = Pick<ButtonProps, "size" | "typeStyle">;
 type ThemeProps = typeof Theme;

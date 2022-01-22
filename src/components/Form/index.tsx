@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components";
-import * as InputStyle from "../Input/styles";
-import * as ButtonStyle from "../Button/styles";
+import * as InputStyle from "../Inputs/Input/styles";
+import * as ButtonStyle from "../Buttons/Button/styles";
 
 export const FormWrapper = styled.div`
   ${({ theme }) => css`
     ${InputStyle.Wrapper} {
-      margin: ${theme.spacings.xxsmall} 0;
+      margin-top: 20px;
     }
     ${ButtonStyle.Wrapper} {
-      margin: ${theme.spacings.medium} auto ${theme.spacings.xsmall};
+      margin: ${theme.spacings.small} auto ${theme.spacings.xsmall};
     }
   `}
 `;
@@ -17,7 +17,7 @@ export const ForgotPassword = styled.div`
   ${({ theme }) => css`
     a {
       display: block;
-      font-size: ${theme.font.sizes.xsmall};
+      font-size: 12px;
       color: ${theme.colors.white};
       text-decoration: none;
       text-align: center;

@@ -8,9 +8,9 @@ import ForgotPWD from "../pages/ForgotPWD";
 const authRoutes: React.FC = () => {
   return (
     <Routes>
-      <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/forgot-pwd" element={<ForgotPWD />} />
+      <Route path="sign-in" element={<SignIn />} />
+      <Route path="sign-up" element={<SignUp />} />
+      <Route path="forgot-pwd" element={<ForgotPWD />} />
     </Routes>
   );
 };

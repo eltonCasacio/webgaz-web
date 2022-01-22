@@ -1,7 +1,16 @@
 import Base from "./Base";
-import Button from "./Button";
-import ButtonSearch from "./ButtonSearch";
-import Input from "./Input";
-import {ForgotPassword, FormWrapper} from "./Form";
+import { Button, ButtonSearch } from "./Buttons";
+import { Input, InputSearch } from "./Inputs";
+import { ForgotPassword, FormWrapper } from "./Form";
+import { Card } from "./Cards";
 
-export { Base, ButtonSearch, Input, Button, ForgotPassword, FormWrapper };
+export {
+  Base,
+  Button,
+  ButtonSearch,
+  Input,
+  InputSearch,
+  Card,
+  ForgotPassword,
+  FormWrapper
+};

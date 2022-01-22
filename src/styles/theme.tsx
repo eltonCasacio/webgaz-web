@@ -18,6 +18,7 @@ export default {
     normal: 400,
     bold: 600,
     sizes: {
+      xxsmall: "0.8rem",
       xsmall: "1rem",
       small: "1.4rem",
       medium: "1.6rem",
@@ -38,6 +39,7 @@ export default {
     border: "#f2cb05d8",
   },
   spacings: {
+    xxsmall: "0.3rem",
     xsmall: "1rem",
     small: "2rem",
     medium: "3.2rem",
@@ -53,6 +55,7 @@ export default {
     alwaysOnTop: 50,
   },
   sizes: {
+    xxsmall: "1rem",
     small: "5rem",
     medium: "10rem",
     large: "20rem",

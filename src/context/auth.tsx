@@ -30,9 +30,7 @@ const AuthProvider: React.FC = ({ children }) => {
         API.defaults.headers.common["Authorization"] = `Bearer ${storageToken}`;
         setUser(JSON.parse(storageUser));
         setLoading(false);
-        console.log("seila?");
-
-      }else {
+      } else {
         navigate("sign-in");
       }
     }
@@ -52,14 +50,14 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(response.user));
 
     setUser(response.user);
-    console.log("handleSignin", response);
+    navigate("/home", { replace: true });
     return response;
   };
 
   const handleSignout = async (): Promise<boolean> => {
     localStorage.clear();
     setUser(null);
-
+    navigate("sign-in");
     return true;
   };
 

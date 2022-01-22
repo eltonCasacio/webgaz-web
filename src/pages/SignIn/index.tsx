@@ -13,7 +13,7 @@ const SignIn: React.FC = () => {
     event.preventDefault();
     const res = await handleSignin({ email, password });
 
-    if (res.token) navigate("/", { replace: true });
+    if (res.token) navigate("/home", { replace: true });
   };
 
   return (

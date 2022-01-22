@@ -1,5 +1,7 @@
 import React from "react";
 import Input from "../Input";
+import { Search } from "styled-icons/remix-line";
+import styled from "styled-components";
 
 export type InputSearchProps = {
   filter: string;
@@ -7,14 +9,20 @@ export type InputSearchProps = {
 };
 const InputSearch: React.FC<InputSearchProps> = ({ filter, callback }) => {
   return (
-    <div>
+    <Wrapper>
       <Input
         placeholder="Type for search..."
         onChange={(e) => callback(e.target.value)}
         value={filter}
+        icon={<Search />}
+        iconPosition="right"
       />
-    </div>
+    </Wrapper>
   );
 };
 
+const Wrapper = styled.div`
+  display: flex;
+  flex: 1;
+`;
 export default InputSearch;

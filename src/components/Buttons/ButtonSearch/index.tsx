@@ -9,7 +9,7 @@ export type ButtonProps = {
   size?: "small" | "medium" | "large";
   typeStyle?: "primary" | "secoundary";
   icon?: JSX.Element;
-  as?: React.ElementType
+  as?: React.ElementType;
 } & ButtonTypes;
 
 const Button = ({

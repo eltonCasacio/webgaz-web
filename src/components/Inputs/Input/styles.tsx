@@ -43,7 +43,7 @@ export const InputWrapper = styled.div`
     display: flex;
     align-items: center;
     background: ${theme.colors.lightGray};
-    border-radius: 0.2rem;
+    border-radius: 0.1rem;
     padding: 0 ${theme.spacings.xxsmall};
     border-bottom: solid 2px ${theme.colors.gray};
     &:focus-within {
@@ -56,8 +56,8 @@ export const Input = styled.input<IconPositionProps>`
   ${({ theme, iconPosition }) => css`
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
-    font-size: ${theme.font.sizes.xsmall};
-    padding: ${theme.spacings.xxsmall} 0;
+    font-size: ${theme.font.sizes.xxsmall};
+    padding: ${theme.spacings.xxsmall};
     background: transparent;
     border: 0;
     outline: none;
@@ -76,7 +76,7 @@ export const Input = styled.input<IconPositionProps>`
 
 export const Label = styled.label`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.small};
+    font-size: ${theme.font.sizes.xsmall};
     color: ${theme.colors.white};
     cursor: pointer;
   `}
@@ -88,7 +88,7 @@ export const Icon = styled.div<IconPositionProps>`
     color: ${theme.colors.gray};
     order: ${iconPosition === "right" ? 1 : 0};
     & > svg {
-      width: ${theme.font.sizes.small};
+      width: ${theme.font.sizes.xsmall};
     }
   `}
 `;

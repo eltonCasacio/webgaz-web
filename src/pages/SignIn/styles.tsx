@@ -17,7 +17,7 @@ export const Form = styled.form`
 export const UserIcon = styled.div`
   width: min-content;
   padding: 30px;
-  background-color: #ffffff2b;
+  background-color: #ffffff1a;
   border-radius: 200px;
 
   svg {

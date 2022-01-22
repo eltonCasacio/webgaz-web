@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import View from "./View";
+import { useNavigate } from "react-router-dom";
 
-const shippings: React.FC = () => {
-  return <View title="Transportadoras" subtitle="Lista de Transportadoras Cadastradas" />;
+const Products: React.FC = () => {
+  let navigate = useNavigate();
+
+  const [filter, setFilter] = useState("");
+
+  useEffect(() => {
+    async function run() {
+      console.log("FILTRAR::", filter);
+    }
+
+    run();
+  }, [filter]);
+
+  return (
+    <View
+      title="Transportadora"
+      subtitle="Lista de Transportadora"
+      handleDetails={() => navigate("/shippings/details/1")}
+      handleUpdate={() => navigate("/shippings/update/1")}
+      InputSearchChange={setFilter}
+      filter={filter}
+    />
+  );
 };
 
-export default shippings;
+export default Products;

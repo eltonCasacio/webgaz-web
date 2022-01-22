@@ -1,4 +1,4 @@
-import Details from "./Details";
-import Update from "./Update";
+import ClientDetail from "./Details";
+import ClientUpdate from "./Update";
 
-export { Details, Update };
+export { ClientDetail, ClientUpdate };

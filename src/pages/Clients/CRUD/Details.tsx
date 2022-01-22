@@ -1,8 +1,8 @@
 import View from "./View";
-import { User } from "../../../mocks/User";
+import { Client } from "../../../mocks/Client";
 
 const Details: React.FC = () => (
-  <View type="details" data={User} title="Detalhes" subtitle={User.name} />
+  <View type="details" data={Client} title="Detalhes" subtitle={Client.name} />
 );
 
 export default Details;

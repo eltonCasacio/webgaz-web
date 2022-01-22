@@ -8,9 +8,10 @@ type WrapperProps = { hasIcon: boolean } & Pick<
 
 const ButtonModifier = {
   small: (theme: any) => css`
-    height: 1.5rem;
-    font-size: ${theme.font.sizes.xsmall};
-    padding: ${theme.spacings.xsmall};
+    height: 1.2rem;
+    font-size: ${theme.font.sizes.xxsmall};
+    padding: 14px 25px;
+    border-radius: 3px;
   `,
   medium: (theme: any) => css`
     height: 2rem;
@@ -40,7 +41,6 @@ export const Wrapper = styled.button<WrapperProps>`
     justify-content: center;
     background-color: ${theme.colors.secondary};
     border: none;
-    border-radius: ${theme.border.radius};
     color: ${theme.colors.white};
 
     ${!!size && ButtonModifier[size](theme)};

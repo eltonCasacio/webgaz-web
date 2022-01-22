@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
   const logout = async () => {
     const res = await handleSignout();
 
-    if (res) navigate("sign-in");
+    if (res) navigate("/sign-in");
   };
 
   return (

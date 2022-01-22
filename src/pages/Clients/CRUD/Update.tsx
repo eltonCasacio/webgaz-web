@@ -1,12 +1,12 @@
 import View from "./View";
-import { User } from "../../../mocks/User";
+import { Client } from "../../../mocks/Client";
 
 const Update: React.FC = () => (
   <View
     type="update"
-    data={User}
+    data={Client}
     title="Atualizar"
-    subtitle={` Dados do Cliente ${User.name}`}
+    subtitle={` Dados do Cliente ${Client.name}`}
   />
 );
 
