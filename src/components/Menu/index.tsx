@@ -9,28 +9,27 @@ type MenuItemType = {
   icon: any;
 };
 
-const createMenuItem = (menu: MenuItemType) => {
-  return (
-    <S.MenuItem>
-      {menu.icon}{" "}
-      <NavLink
-        style={({ isActive }) => {
-          return {
-            color: isActive ? "#ffee04" : "",
-            fontWeight: isActive ? "bold" : "",
-          };
-        }}
-        to={`/${menu.url}`}
-        key={menu.name}
-      >
-        {menu.name}
-      </NavLink>
-      <Outlet />
-    </S.MenuItem>
-  );
-};
+export default function Menu({ showMenu = true }) {
+  const createMenuItem = (menu: MenuItemType) => {
+    return (
+      <S.MenuItem showMenu={showMenu}>
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              color: isActive ? "#ffee04" : "",
+              fontWeight: isActive ? "bold" : "",
+            };
+          }}
+          to={`/${menu.url}`}
+          key={menu.name}
+        >
+          {menu.icon} {showMenu && menu.name}
+        </NavLink>
+        <Outlet />
+      </S.MenuItem>
+    );
+  };
 
-export default function Menu() {
   return (
     <S.Wrapper>
       <ul>{Menus.map((menu) => createMenuItem(menu))}</ul>

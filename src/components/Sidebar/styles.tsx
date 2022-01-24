@@ -1,20 +1,36 @@
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.form`
-  ${({ theme }) => css`
+export type MenuProps = {
+  showMenu: boolean;
+};
+
+export const Wrapper = styled.form<MenuProps>`
+  ${({ theme, showMenu }) => css`
     display: flex;
     flex-direction: column;
     background-color: ${theme.colors.primary};
-    padding: 20px;
+    padding: ${showMenu ? "20px 10px" : "20px"};
   `}
 `;
 
 export const Logo = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
     color: ${theme.colors.white};
     font-size: 22px;
     font-weight: bold;
-    height: 50px;
     margin-bottom: 20px;
   `}
+`;
+
+export const TitleLogo = styled.div<MenuProps>`
+  ${({ showMenu }) => css`
+    display: ${showMenu ? "flex" : "none"};
+  `}
+`;
+
+export const ArrowBack = styled.div`
+  cursor: pointer;
 `;

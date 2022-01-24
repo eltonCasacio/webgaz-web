@@ -1,10 +1,9 @@
-import React from "react";
-import View from "./View"
+import React, { useState } from "react";
+import View from "./View";
 
 const Sidebar: React.FC = () => {
-  return (
-    <View title="??"/>
-  );
+  const [showMenu, setShowMenu] = useState(true);
+  return <View title="Webgaz" setShowMenu={setShowMenu} showMenu={showMenu} />;
 };
 
 export default Sidebar;

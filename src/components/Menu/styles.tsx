@@ -1,53 +1,57 @@
 import styled, { css } from "styled-components";
 
-type MenuProps = {
-  orientation?: "horizontal" | "vertical";
+type MenuItemProps = {
+  showMenu: boolean;
 };
 
 const MenuModifier = {
-  horizontal: () => css`
-    flex-direction: row;
+  showMenu: () => css`
+    svg {
+      width: 1.2rem;
+      /* margin-right: 10px; */
+    }
   `,
-  vertical: () => css`
-    flex-direction: column;
+  hiddeMenu: () => css`
+    svg {
+      width: 1.5rem;
+      margin-top: 15px;
+    }
   `,
 };
 
-export const Wrapper = styled.nav<MenuProps>`
-  ${({ orientation }) => css`
+export const Wrapper = styled.nav`
+  ${() => css`
     display: flex;
     flex-direction: column;
-    ${!!orientation && MenuModifier[orientation]()}
     flex: 1;
     font-size: 1.2rem;
   `}
 `;
 
-export const MenuItem = styled.li`
-  display: flex;
-  padding: 10px 0;
-  border-bottom: solid 1px #ffffff2d;
-  color: #ffffffae;
+export const MenuItem = styled.li<MenuItemProps>`
+  ${({ showMenu }) => css`
+    display: flex;
+    padding: 10px 0;
+    border-bottom: solid 1px ${showMenu ? "#ffffff2d" : "none"};
+    color: #ffffffae;
 
-  cursor: pointer;
+    ${showMenu ? MenuModifier.showMenu() : MenuModifier.hiddeMenu()}
 
-  :hover {
-    background-color: #ffffff1f;
-    color: #ffffff;
+    cursor: pointer;
 
     a {
-      color: #ffffff;
+      text-decoration: none;
+      width: 100%;
+      color: #ffffffae;
     }
-  }
 
-  svg {
-    width: 1rem;
-    margin-right: 10px;
-  }
+    :hover {
+      background-color: #ffffff1f;
+      color: #ffffff;
 
-  a {
-    text-decoration: none;
-    width: 100%;
-    color: #ffffffae;
-  }
+      a {
+        color: #ffffff;
+      }
+    }
+  `}
 `;
