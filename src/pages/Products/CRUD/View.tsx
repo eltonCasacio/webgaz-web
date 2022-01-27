@@ -1,9 +1,9 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { Produto } from "../../../types/produto";
+import { Product } from "../../../types/product";
 
 type ViewProps = {
-  data?: Produto;
+  data?: Product;
   type: "update" | "details" | "create";
 } & HeaderProps;
 

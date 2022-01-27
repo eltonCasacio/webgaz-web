@@ -1,9 +1,9 @@
 export type clientType = {
     name: string
+    email: string
     cnpj: string
     address: string
     phoneNumber: string
-    email: string
     city: string
     uf: string
     observation: string

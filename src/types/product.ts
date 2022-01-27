@@ -1,4 +1,4 @@
-export type Produto = {
+export type Product = {
   tipo: string;
   fornecedor: string;
   litros: string;

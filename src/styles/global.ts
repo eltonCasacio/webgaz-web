@@ -1,7 +1,7 @@
 import { createGlobalStyle, css } from "styled-components";
-import Theme from './theme'
+import Theme from "./theme";
 
-const GlobalStyles = createGlobalStyle<{theme: typeof Theme}>`
+const GlobalStyles = createGlobalStyle<{ theme: typeof Theme }>`
 
 @font-face {
   font-family: 'Poppins';
@@ -46,7 +46,6 @@ const GlobalStyles = createGlobalStyle<{theme: typeof Theme}>`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

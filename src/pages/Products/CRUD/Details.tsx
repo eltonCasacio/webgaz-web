@@ -1,5 +1,5 @@
 import View from "./View";
-import { Produto } from "../../../mocks/Produto";
+import { Produto } from "../../../mocks/Product";
 
 const Details: React.FC = () => (
   <View

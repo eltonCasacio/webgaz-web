@@ -8,8 +8,10 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   padding: 20px 10px 20px 15px;
+  height: 100vh;
 `;
 
 export const Sidebar = styled.div`
   background-color: #033e8c;
+  height: 100vh;
 `;
