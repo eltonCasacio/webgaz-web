@@ -1,4 +1,4 @@
-export const Suppliers = {
+export const Supplier = {
   name: "Nome Fornecedor",
   cnpj: "134234545",
   address: "rua dos bobos numero zero",
@@ -9,3 +9,50 @@ export const Suppliers = {
   observation: "Observação",
   site: "site.com.br",
 };
+
+export const Suppliers = [
+  {
+    name: "Elton",
+    cnpj: "1",
+    address: "rua dos bobos numero zero",
+    phoneNumber: "19 2334234",
+    email: "mail@mail.com",
+    city: "Valinhos",
+    uf: "SP",
+    observation: "Observação",
+    site: "site.com.br",
+  },
+  {
+    name: "Roberto",
+    cnpj: "112",
+    address: "rua dos bobos numero zero",
+    phoneNumber: "19 2334234",
+    email: "mail@mail.com",
+    city: "Valinhos",
+    uf: "SP",
+    observation: "Observação",
+    site: "site.com.br",
+  },
+  {
+    name: "Daniel",
+    cnpj: "75",
+    address: "rua dos bobos numero zero",
+    phoneNumber: "19 2334234",
+    email: "mail@mail.com",
+    city: "Valinhos",
+    uf: "SP",
+    observation: "Observação",
+    site: "site.com.br",
+  },
+  {
+    name: "Casacio",
+    cnpj: "175",
+    address: "rua dos bobos numero zero",
+    phoneNumber: "19 2334234",
+    email: "mail@mail.com",
+    city: "Valinhos",
+    uf: "SP",
+    observation: "Observação",
+    site: "site.com.br",
+  },
+];

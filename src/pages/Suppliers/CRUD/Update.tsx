@@ -1,10 +1,10 @@
 import View from "./View";
-import { Suppliers } from "../../../mocks/Suppliers";
+import { Supplier } from "../../../mocks/Suppliers";
 
 const Update: React.FC = () => (
   <View
     type="update"
-    data={Suppliers}
+    data={Supplier}
     title="Fornecedores"
     subtitle={`Atualizar Informações do Fornecedores`}
   />

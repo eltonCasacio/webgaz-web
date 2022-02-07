@@ -14,7 +14,7 @@ const MenuModifier = {
   hiddeMenu: () => css`
     svg {
       width: 1.5rem;
-      margin-top: 15px;
+      margin: 10px 0;
     }
   `,
 };
@@ -31,7 +31,7 @@ export const Wrapper = styled.nav`
 export const MenuItem = styled.li<MenuItemProps>`
   ${({ showMenu }) => css`
     display: flex;
-    padding: 10px 0;
+    padding: 10px;
     border-bottom: solid 1px ${showMenu ? "#ffffff2d" : "none"};
     color: #ffffffae;
 

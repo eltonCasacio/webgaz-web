@@ -8,8 +8,9 @@ export const Wrapper = styled.form<MenuProps>`
   ${({ theme, showMenu }) => css`
     display: flex;
     flex-direction: column;
+    min-width: ${showMenu ? "250px" : "auto"};
     background-color: ${theme.colors.primary};
-    padding: ${showMenu ? "20px 10px" : "20px"};
+    padding: ${showMenu ? "20px 10px" : "20px 5px"};
   `}
 `;
 
@@ -22,6 +23,7 @@ export const Logo = styled.div`
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 20px;
+    padding-left: 10px;
   `}
 `;
 
