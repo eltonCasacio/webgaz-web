@@ -1,5 +1,5 @@
 export type CrudNavigationProps = {
-  handleDelete?: () => void;
-  handleDetails?: () => void;
-  handleUpdate?: () => void;
+  Delete?: () => void;
+  Details?: () => void;
+  Update?: () => void;
 };

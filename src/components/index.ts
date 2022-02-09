@@ -3,6 +3,7 @@ import { Button, ButtonSearch } from "./Buttons";
 import { Input, InputSearch } from "./Inputs";
 import { TableClients } from "./TableClients";
 import { TableProducts } from "./TableProducts";
+import { TableUsers } from "./TableUsers";
 import { Card } from "./Cards";
 import Base from "./Base";
 
@@ -17,4 +18,5 @@ export {
   FormWrapper,
   TableClients,
   TableProducts,
+  TableUsers,
 };

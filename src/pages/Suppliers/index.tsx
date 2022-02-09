@@ -2,42 +2,28 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { Suppliers as SuppliersMock } from "../../mocks/Suppliers";
-import { PaginationProps } from "../../types/pagination";
 
 const Suppliers: React.FC = () => {
   let navigate = useNavigate();
-  const [Suppliers, setSuppliers] = useState<typeof SuppliersMock>([]);
-  const [totalSuppliers, setTotalSuppliers] = useState<number>(0);
+  const [suppliers, setSuppliers] = useState<typeof SuppliersMock>([]);
+  const [filter, setFilter] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [limitPage, setLimitPage] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [filter, setFilter] = useState("");
 
   const functions = {} as ViewPropsFunctions;
-  functions.handleUpdate = () => navigate("/Suppliers/update/1");
-  functions.handleDetails = () => navigate("/Suppliers/details/1");
-
-  const pagination = {} as PaginationProps;
-  pagination.next = () => setCurrentPage(currentPage + 1);
-  pagination.preview = () => setCurrentPage(currentPage - 1);
-  pagination.goto = (pageNumber) => setCurrentPage(pageNumber);
-
-  const getSuppliers = async () => {
-    // await api.get(`/Suppliers?page=${currentPage}&limit=${limitPage}`);
-    setSuppliers(SuppliersMock);
-    setTotalSuppliers(SuppliersMock?.length);
-    setLimitPage(10);
-  };
+  functions.Update = () => navigate("/suppliers/update/1");
+  functions.Details = () => navigate("/suppliers/details/1");
 
   useEffect(() => {
-    const totalPage = Math.ceil(totalSuppliers / limitPage);
+    const totalPage = Math.ceil(suppliers.length / limitPage);
     const arrayPages = [];
     for (let i = 1; i <= totalPage; i++) {
       arrayPages.push(i);
     }
 
     setPages(arrayPages);
-  }, [totalSuppliers, limitPage]);
+  }, [suppliers, limitPage]);
 
   useEffect(() => {
     async function handleFilter() {
@@ -59,7 +45,9 @@ const Suppliers: React.FC = () => {
 
   useEffect(() => {
     async function run() {
-      await getSuppliers();
+      // await api.get(`/Suppliers?page=${currentPage}&limit=${limitPage}`);
+    setSuppliers(SuppliersMock);
+    setLimitPage(10);
     }
 
     run();
@@ -72,11 +60,11 @@ const Suppliers: React.FC = () => {
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}
-      suppliers={Suppliers}
-      pagination={pagination}
-      totalSuppliers={totalSuppliers}
+      suppliers={suppliers}
+      totalSuppliers={suppliers.length}
       pages={pages}
       currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
     />
   );
 };

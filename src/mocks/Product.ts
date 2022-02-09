@@ -8,25 +8,25 @@ export const Produto = {
 export const Products = [
   {
     tipo: "Gasolina",
-    fornecedor: "Fornecedor",
+    fornecedor: "a",
     litros: "250",
     preco: "3,00",
   },
   {
     tipo: "Gasolina",
-    fornecedor: "Fornecedor",
+    fornecedor: "b",
     litros: "250",
     preco: "3,00",
   },
   {
     tipo: "Gasolina",
-    fornecedor: "Fornecedor",
+    fornecedor: "as",
     litros: "250",
     preco: "3,00",
   },
   {
     tipo: "Gasolina",
-    fornecedor: "Fornecedor",
+    fornecedor: "w",
     litros: "250",
     preco: "3,00",
   },

@@ -1,32 +1,42 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
-import { Button, InputSearch } from "../../components";
+import { Button, InputSearch, TableUsers } from "../../components";
+import { User } from "../../types/user";
+import { CrudNavigationProps } from "../../types/crudNavigation";
+import Pagination from "../../components/Pagination";
 
-type ViewProps = {
-  handleDelete?: () => void;
-  handleDetails?: () => void;
-  handleUpdate?: () => void;
+export type ViewPropsFunctions = CrudNavigationProps;
+
+export type ViewProps = {
+  functions: ViewPropsFunctions;
   InputSearchChange: any;
   filter: string;
+  users: User[];
+  totalUsers: number;
+  pages: number[];
+  currentPage: number;
+  setCurrentPage: (value: number) => void;
 } & HeaderProps;
 
-const View: React.FC<ViewProps> = ({
-  title,
-  subtitle,
-  handleDelete,
-  handleDetails,
-  handleUpdate,
-  InputSearchChange,
-  filter,
-}) => (
+const View: React.FC<ViewProps> = (props) => (
   <S.Wrapper>
-    <Header title={title} subtitle={subtitle} />
-    <S.Content>
-      <S.ContentHeader>
-        <InputSearch callback={InputSearchChange} filter={filter} />
-      </S.ContentHeader>
-      <Button children="Novo" size="small" callback={handleUpdate} />
-    </S.Content>
+    <Header title={props.title} subtitle={props.subtitle} />
+    <S.ContentHeader>
+      <InputSearch callback={props.InputSearchChange} filter={props.filter} />
+    </S.ContentHeader>
+    <Button children="Novo" size="small" callback={props.functions.Update} />
+
+    <S.Table>
+      <TableUsers users={props.users} />
+    </S.Table>
+
+    <Pagination
+      limitPage={10}
+      pages={props.pages}
+      totalItems={props.totalUsers}
+      currentPage={props.currentPage}
+      setCurrentPage={props.setCurrentPage}
+    />
   </S.Wrapper>
 );
 

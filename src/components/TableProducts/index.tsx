@@ -20,6 +20,7 @@ export const TableProducts: React.FC<PagintionProps> = ({ products }) => {
   const makeRow = (item: produtoTypes) => (
     <>
       <S.TableRowBody key={item.tipo}>
+        <S.TableDataBody>{item.tipo}</S.TableDataBody>
         <S.TableDataBody>{item.fornecedor}</S.TableDataBody>
         <S.TableDataBody>{item.litros}</S.TableDataBody>
         <S.TableDataBody>{item.preco}</S.TableDataBody>
