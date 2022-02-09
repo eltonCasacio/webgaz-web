@@ -4,10 +4,6 @@ export const Wrapper = styled.div`
   height: 100%;
 `;
 
-export const Content = styled.div`
-  background-color: #3cff00;
-  height: inherit;
-`;
 export const ContentHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -16,7 +12,7 @@ export const ContentHeader = styled.div`
 
 export const Table = styled.div`
   margin-top: 40px;
-  height: 70%;
+  height: 65vh;
 
   overflow: auto;
 

@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  height: 10vh;
 `;
 
 export const WrapperTitle = styled.div`
