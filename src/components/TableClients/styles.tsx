@@ -32,8 +32,17 @@ export const TableRowBody = styled.tr`
 `;
 export const TableDataBody = styled.td`
   padding: 5px 10px;
-
   svg {
+    margin-left: 10px;
+    width: 12px;
+    cursor: pointer;
+  }
+`;
+
+export const TableDataBodyIcon = styled.td`
+width: 55px;
+  svg {
+    margin-left: 10px;
     width: 12px;
     cursor: pointer;
   }

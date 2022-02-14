@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./styles";
-import { Detail } from "styled-icons/boxicons-regular";
+import { Edit } from "styled-icons/boxicons-regular";
+import { Eye } from "styled-icons/bootstrap";
 
 import { clientType } from "../../types/client";
 
@@ -27,9 +28,10 @@ export const TableClients: React.FC<PagintionProps> = (params) => {
         <S.TableDataBody>{item.cnpj}</S.TableDataBody>
         <S.TableDataBody>{item.email}</S.TableDataBody>
         <S.TableDataBody>{item.site}</S.TableDataBody>
-        <S.TableDataBody>
-          <Detail size={15} onClick={() => params.callback(item)} />
-        </S.TableDataBody>
+        <S.TableDataBodyIcon>
+          <Eye size={15} onClick={() => params.callback(item)} />
+          <Edit size={15} onClick={() => params.callback(item)} />
+        </S.TableDataBodyIcon>
       </S.TableRowBody>
     </>
   );
