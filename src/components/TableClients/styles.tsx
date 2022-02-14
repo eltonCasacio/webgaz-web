@@ -22,14 +22,18 @@ export const TableDataHeader = styled.th`
 export const Tbody = styled.tbody``;
 
 export const TableRowBody = styled.tr`
+  font-size: 14px;
   :hover {
     opacity: 0.8;
+  }
+  :nth-child(even) {
+    background-color: #e6e8e978;
   }
 `;
 export const TableDataBody = styled.td`
   padding: 5px 10px;
 
-  svg{
+  svg {
     width: 12px;
     cursor: pointer;
   }

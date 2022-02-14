@@ -8,6 +8,7 @@ const HEADER = ["Nome", "CNPJ", "Email", "Site", ""];
 
 type PagintionProps = {
   clients: clientType[];
+  // eslint-disable-next-line no-empty-pattern
   callback: ({}) => void;
 };
 export const TableClients: React.FC<PagintionProps> = (params) => {

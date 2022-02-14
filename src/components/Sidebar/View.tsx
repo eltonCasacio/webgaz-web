@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import Menu from "../Menu";
-import { ArrowWithCircleLeft, ArrowWithCircleRight } from "styled-icons/entypo";
+import { Menu as MenuIcon } from "styled-icons/entypo";
 
 type ViewProps = {
   title: string;
@@ -14,11 +14,7 @@ const View: React.FC<ViewProps> = ({ title, showMenu, setShowMenu }) => (
       <S.TitleLogo showMenu={showMenu}>{title}</S.TitleLogo>
 
       <S.ArrowBack onClick={() => setShowMenu(!showMenu)}>
-        {showMenu ? (
-          <ArrowWithCircleLeft color="white" size={25} />
-        ) : (
-          <ArrowWithCircleRight color="white" size={25} />
-        )}
+        <MenuIcon color="white" size={25} />
       </S.ArrowBack>
     </S.Logo>
     <Menu showMenu={showMenu} />
