@@ -2,7 +2,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Clients from "../pages/Clients";
-import { ClientDetail, ClientUpdate } from "../pages/Clients/CRUD";
+import {
+  ClientDetail,
+  ClientUpdate,
+  ClientCreate,
+} from "../pages/Clients/CRUD";
 
 import Products from "../pages/Products";
 import { ProductDetails, ProductUpdate } from "../pages/Products/CRUD";
@@ -24,8 +28,9 @@ const authRoutes: React.FC = () => {
     <Routes>
       <Route path="/home" element={<Home />} />
       <Route path="/clients" element={<Clients />} />
-      <Route path="/clients/details/:id" element={<ClientDetail />} />
-      <Route path="/clients/update/:id" element={<ClientUpdate />} />
+      <Route path="/clients/details" element={<ClientDetail />} />
+      <Route path="/clients/update" element={<ClientUpdate />} />
+      <Route path="/clients/create" element={<ClientCreate />} />
 
       <Route path="/products" element={<Products />} />
       <Route path="/products/details/:id" element={<ProductDetails />} />

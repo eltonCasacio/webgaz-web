@@ -28,8 +28,8 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
         <S.SubTitle>{subtitle}</S.SubTitle>
       </S.WrapperTitle>
       <S.Signout onClick={logout}>
-        Sign-out
-        <SignOut size={25} />
+        Sair
+        <SignOut size={18} />
       </S.Signout>
     </S.Wrapper>
   );

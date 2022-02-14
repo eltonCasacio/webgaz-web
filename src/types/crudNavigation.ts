@@ -1,5 +1,7 @@
+/* eslint-disable no-empty-pattern */
 export type CrudNavigationProps = {
-  Delete?: () => void;
-  Details?: () => void;
-  Update?: () => void;
+  Delete: (id: string) => void;
+  Details: ({}) => void;
+  Update: ({}) => void;
+  Create: () => void;
 };

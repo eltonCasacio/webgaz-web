@@ -12,8 +12,9 @@ const Clients: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const functions = {} as ViewPropsFunctions;
-  functions.Update = () => navigate("/clients/update/1");
-  functions.Details = () => navigate("/clients/details/1");
+  functions.Update = (value) => navigate("/clients/update", { state: value });
+  functions.Details = (value) => navigate("/clients/details", { state: value });
+  functions.Create = () => navigate("/clients/create");
 
   useEffect(() => {
     const totalPage = Math.ceil(clients.length / limitPage);

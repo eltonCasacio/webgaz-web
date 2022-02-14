@@ -3,7 +3,7 @@ import { ButtonProps } from ".";
 
 type WrapperProps = { hasIcon: boolean } & Pick<
   ButtonProps,
-  "size" | "fullWidth"
+  "size" | "fullWidth" | "color" | "bgColor"
 >;
 
 const ButtonModifier = {
@@ -35,13 +35,13 @@ const ButtonModifier = {
   `,
 };
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon }) => css`
+  ${({ theme, size, fullWidth, hasIcon, color, bgColor }) => css`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${theme.colors.secondary};
+    background-color: ${bgColor};
     border: none;
-    color: ${theme.colors.white};
+    color: ${color};
 
     ${!!size && ButtonModifier[size](theme)};
     ${!!fullWidth && ButtonModifier.fullWidth()};

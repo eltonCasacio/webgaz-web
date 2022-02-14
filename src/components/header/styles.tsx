@@ -27,8 +27,10 @@ export const Signout = styled.div`
   display: flex;
   align-items: center;
   color: #000000;
+  font-size: small;
   cursor: pointer;
   svg {
     margin-left: 3px;
+    width: 16px;
   }
 `;

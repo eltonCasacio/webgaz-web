@@ -1,6 +1,5 @@
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { Client } from "../../../mocks/Client";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();
@@ -10,15 +9,16 @@ const Update: React.FC = () => {
   }
 
   function confirm() {
-    console.log("CONFIRMAR UPDATE");
+    console.log("CONFIRMAR NOVO");
   }
+
+
 
   return (
     <View
-      type="update"
-      client={Client}
-      title="Atualizar"
-      subtitle={` Dados do Cliente ${Client.name}`}
+      type="create"
+      title="Cliente"
+      subtitle={`Novo`}
       cancel={cancel}
       confirm={confirm}
     />

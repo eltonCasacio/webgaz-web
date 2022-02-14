@@ -28,4 +28,9 @@ export const TableRowBody = styled.tr`
 `;
 export const TableDataBody = styled.td`
   padding: 5px 10px;
+
+  svg{
+    width: 12px;
+    cursor: pointer;
+  }
 `;
