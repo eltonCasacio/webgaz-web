@@ -7,13 +7,18 @@ const Update: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [product, setProduct] = useState<ProductType>();
+  const [product, setProduct] = useState({} as ProductType);
 
   function cancel() {
     navigate("/products");
   }
 
   function confirm() {}
+
+  function updateFields(name: string, value: string) {
+    console.log("UPDATE FIELDS", name, value);
+    setProduct({ ...product, [name]: value });
+  }
 
   useEffect(() => {
     setProduct(location.state);
@@ -27,6 +32,7 @@ const Update: React.FC = () => {
       subtitle={product?.suppliers}
       cancel={cancel}
       confirm={confirm}
+      updateFields={updateFields}
     />
   );
 };

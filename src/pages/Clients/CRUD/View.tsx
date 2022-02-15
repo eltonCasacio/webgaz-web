@@ -1,13 +1,16 @@
+/* eslint-disable no-restricted-globals */
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
 import { clientType } from "../../../types/client";
 import { Button } from "../../../components";
+import React from "react";
 
 type ViewProps = {
   client?: clientType;
   type: "update" | "details" | "create";
   cancel: () => void;
   confirm: () => void;
+  updateFields: (name: string, value: string) => void;
 } & HeaderProps;
 
 const View: React.FC<ViewProps> = (props) => (
@@ -23,13 +26,14 @@ const View: React.FC<ViewProps> = (props) => (
     <S.Form>
       <S.Line cols="2fr 1fr">
         <S.LineItem>
-          <S.Label htmlFor="client">Cliente</S.Label>
+          <S.Label htmlFor="name">Cliente</S.Label>
           <S.Input
             disabled={props.type === "details"}
             type="text"
-            name="client"
+            name="name"
             id="client"
             value={props.client?.name}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value) }
           />
         </S.LineItem>
         <S.LineItem>
@@ -40,11 +44,12 @@ const View: React.FC<ViewProps> = (props) => (
             name="cnpj"
             id="cnpj"
             value={props.client?.cnpj}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
       </S.Line>
 
-      <S.Line cols="2fr 1fr 0.5fr">
+      <S.Line cols="2fr 0.72fr 60px">
         <S.LineItem>
           <S.Label htmlFor="address">Endereço</S.Label>
           <S.Input
@@ -53,6 +58,7 @@ const View: React.FC<ViewProps> = (props) => (
             name="address"
             id="address"
             value={props.client?.address}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
 
@@ -64,6 +70,7 @@ const View: React.FC<ViewProps> = (props) => (
             name="city"
             id="city"
             value={props.client?.city}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
         <S.LineItem>
@@ -74,19 +81,21 @@ const View: React.FC<ViewProps> = (props) => (
             name="uf"
             id="uf"
             value={props.client?.uf}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
       </S.Line>
 
       <S.Line cols="1fr 1fr">
         <S.LineItem>
-          <S.Label htmlFor="celphone">Telefone</S.Label>
+          <S.Label htmlFor="phoneNumber">Telefone</S.Label>
           <S.Input
             disabled={props.type === "details"}
             type="text"
-            name="celphone"
-            id="celphone"
+            name="phoneNumber"
+            id="phoneNumber"
             value={props.client?.phoneNumber}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
 
@@ -98,6 +107,7 @@ const View: React.FC<ViewProps> = (props) => (
             name="email"
             id="email"
             value={props.client?.email}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
       </S.Line>
@@ -109,6 +119,7 @@ const View: React.FC<ViewProps> = (props) => (
           placeholder="Observação"
           rows={5}
           value={props.client?.observation}
+          onChange={(e) => props.updateFields(e.target.name, e.target.value)}
         />
       </S.Line>
     </S.Form>

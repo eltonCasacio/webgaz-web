@@ -8,6 +8,7 @@ type ViewProps = {
   type: "update" | "details" | "create";
   cancel: () => void;
   confirm: () => void;
+  updateFields: (name: string, value: string) => void;
 } & HeaderProps;
 
 const View: React.FC<ViewProps> = (props) => (
@@ -30,6 +31,7 @@ const View: React.FC<ViewProps> = (props) => (
             name="suppliers"
             id="suppliers"
             value={props.product?.suppliers}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
         <S.LineItem>
@@ -40,6 +42,7 @@ const View: React.FC<ViewProps> = (props) => (
             name="type"
             id="type"
             value={props.product?.type}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
       </S.Line>
@@ -53,6 +56,7 @@ const View: React.FC<ViewProps> = (props) => (
             name="liters"
             id="liters"
             value={props.product?.liters}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
 
@@ -64,12 +68,10 @@ const View: React.FC<ViewProps> = (props) => (
             name="price"
             id="price"
             value={props?.product?.price}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
-       
       </S.Line>
-
-     
 
       <S.Line cols="1fr">
         <S.TextArea
@@ -78,6 +80,7 @@ const View: React.FC<ViewProps> = (props) => (
           placeholder="Observação"
           rows={5}
           value={props.product?.observation}
+          onChange={(e) => props.updateFields(e.target.name, e.target.value)}
         />
       </S.Line>
     </S.Form>
