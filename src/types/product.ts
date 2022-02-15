@@ -1,6 +1,7 @@
-export type Product = {
-  tipo: string;
-  fornecedor: string;
-  litros: string;
-  preco: string;
+export type ProductType = {
+  type: string;
+  suppliers: string;
+  liters: string;
+  price: string;
+  observation: string
 };

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
+import { clientType } from "../../types/client";
 import { Clients as ClientsMock } from "../../mocks/Client";
 
 const Clients: React.FC = () => {
   let navigate = useNavigate();
-  const [clients, setClients] = useState<typeof ClientsMock>([]);
+  const [clients, setClients] = useState<clientType[]>([]);
   const [filter, setFilter] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [limitPage, setLimitPage] = useState<number>(0);
@@ -57,7 +58,7 @@ const Clients: React.FC = () => {
   return (
     <View
       title="Clientes"
-      subtitle="Lista de Clientes Cadastrados"
+      subtitle="Clientes Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}

@@ -9,7 +9,11 @@ import {
 } from "../pages/Clients/CRUD";
 
 import Products from "../pages/Products";
-import { ProductDetails, ProductUpdate } from "../pages/Products/CRUD";
+import {
+  ProductDetails,
+  ProductUpdate,
+  ProductCreate,
+} from "../pages/Products/CRUD";
 
 import Users from "../pages/Users";
 import { UserDetails, UserUpdate } from "../pages/Users/CRUD";
@@ -35,6 +39,7 @@ const authRoutes: React.FC = () => {
       <Route path="/products" element={<Products />} />
       <Route path="/products/details" element={<ProductDetails />} />
       <Route path="/products/update" element={<ProductUpdate />} />
+      <Route path="/products/create" element={<ProductCreate />} />
 
       <Route path="/users" element={<Users />} />
       <Route path="/users/details" element={<UserDetails />} />

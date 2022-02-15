@@ -5,19 +5,17 @@ const Create: React.FC = () => {
   const navigate = useNavigate();
 
   function cancel() {
-    navigate("/clients");
+    navigate("/products");
   }
 
   function confirm() {
     console.log("CONFIRMAR NOVO");
   }
 
-
-
   return (
     <View
       type="create"
-      title="Cliente"
+      title="Produto"
       subtitle={`Novo`}
       cancel={cancel}
       confirm={confirm}

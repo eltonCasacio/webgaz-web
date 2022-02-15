@@ -3,12 +3,12 @@ import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
 import { CrudNavigationProps } from "../../types/crudNavigation";
-import { Product as produtoTypes } from "../../types/product";
+import { ProductType } from "../../types/product";
 
 const HEADER = ["Tipo", "Fornecedor", "Litros", "Preco", ""];
 
 type PagintionProps = {
-  products: produtoTypes[];
+  products: ProductType[];
   functions: CrudNavigationProps;
 };
 
@@ -21,13 +21,13 @@ export const TableProducts: React.FC<PagintionProps> = (params) => {
     </S.TableRowHeader>
   );
 
-  const makeRow = (item: produtoTypes) => (
+  const makeRow = (item: ProductType) => (
     <>
-      <S.TableRowBody key={item.tipo}>
-        <S.TableDataBody>{item.tipo}</S.TableDataBody>
-        <S.TableDataBody>{item.fornecedor}</S.TableDataBody>
-        <S.TableDataBody>{item.litros}</S.TableDataBody>
-        <S.TableDataBody>{item.preco}</S.TableDataBody>
+      <S.TableRowBody key={item.type}>
+        <S.TableDataBody>{item.suppliers}</S.TableDataBody>
+        <S.TableDataBody>{item.type}</S.TableDataBody>
+        <S.TableDataBody>{item.liters}</S.TableDataBody>
+        <S.TableDataBody>{item.price}</S.TableDataBody>
         <S.TableDataBodyIcon>
           <Eye size={15} onClick={() => params.functions.Details(item)} />
           <Edit size={15} onClick={() => params.functions.Update(item)} />

@@ -1,16 +1,13 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Client } from "../../../mocks/Client";
-import { useEffect } from "react";
-import { useState } from "react";
-
-export type ClientProps = typeof Client;
+import { useEffect, useState } from "react";
+import { clientType } from "../../../types/client";
 
 const Details: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [client, setClient] = useState();
+  const [client, setClient] = useState<clientType>();
 
   function cancel() {
     navigate("/clients");
@@ -19,20 +16,15 @@ const Details: React.FC = () => {
   function confirm() {}
 
   useEffect(() => {
-    console.log("Merda", location.state);
-    setClient(location.state)
-
-    // if(state){
-    //   setClient(JSON.parse(state));
-    // }
-  }, []);
+    setClient(location.state);
+  }, [location]);
 
   return (
     <View
       type="details"
       client={client}
       title="Detalhes"
-      subtitle={Client.name}
+      subtitle={client?.name}
       cancel={cancel}
       confirm={confirm}
     />

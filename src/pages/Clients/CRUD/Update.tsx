@@ -1,24 +1,30 @@
 import View from "./View";
-import { useNavigate } from "react-router-dom";
-import { Client } from "../../../mocks/Client";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { clientType } from "../../../types/client";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation() as any;
+
+  const [client, setClient] = useState<clientType>();
 
   function cancel() {
     navigate("/clients");
   }
 
-  function confirm() {
-    console.log("CONFIRMAR UPDATE");
-  }
+  function confirm() {}
+
+  useEffect(() => {
+    setClient(location.state);
+  }, [location]);
 
   return (
     <View
       type="update"
-      client={Client}
+      client={client}
       title="Atualizar"
-      subtitle={` Dados do Cliente ${Client.name}`}
+      subtitle={client?.name}
       cancel={cancel}
       confirm={confirm}
     />

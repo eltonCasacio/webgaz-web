@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
+import { ProductType } from "../../types/product";
 import { Products as ProductsMock } from "../../mocks/Product";
 
 const Products: React.FC = () => {
   let navigate = useNavigate();
-  const [products, setProducts] = useState<typeof ProductsMock>([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
   const [filter, setFilter] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [limitPage, setLimitPage] = useState<number>(0);
@@ -14,7 +15,7 @@ const Products: React.FC = () => {
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/products/update", { state: value });
   functions.Details = (value) => navigate("/products/details", { state: value });
-  functions.Create = () => navigate("/clients/create");
+  functions.Create = () => navigate("/products/create");
 
   useEffect(() => {
     const totalPage = Math.ceil(products.length / limitPage);
@@ -30,12 +31,12 @@ const Products: React.FC = () => {
     async function handleFilter() {
       let auxFilter = filter.toUpperCase();
 
-      const filtered = ProductsMock.filter((item) => {
+      const filtered = products.filter((item) => {
         return (
-          item.tipo.toUpperCase().includes(auxFilter) ||
-          item.fornecedor.toUpperCase().includes(auxFilter) ||
-          item.litros.includes(auxFilter) ||
-          item.preco.includes(auxFilter)
+          item.type.toUpperCase().includes(auxFilter) ||
+          item.suppliers.toUpperCase().includes(auxFilter) ||
+          item.liters.includes(auxFilter) ||
+          item.price.includes(auxFilter)
         );
       });
       setProducts(filtered);
@@ -56,8 +57,8 @@ const Products: React.FC = () => {
 
   return (
     <View
-      title="Clientes"
-      subtitle="Lista de Clientes Cadastrados"
+      title="Produtos"
+      subtitle="Produtos Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}
