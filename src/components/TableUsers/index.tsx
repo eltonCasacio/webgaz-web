@@ -2,13 +2,13 @@ import React from "react";
 import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
+import { UserType} from "../../types/user";
 import { CrudNavigationProps } from "../../types/crudNavigation";
-import { User as userType } from "../../types/user";
 
 const HEADER = ["Nome", "Email", "Telefone", ""];
 
 type PagintionProps = {
-  users: userType[];
+  users: UserType[];
   functions: CrudNavigationProps;
 };
 
@@ -21,7 +21,7 @@ export const TableUsers: React.FC<PagintionProps> = (params) => {
     </S.TableRowHeader>
   );
 
-  const makeRow = (item: userType) => (
+  const makeRow = (item: UserType) => (
     <>
       <S.TableRowBody key={item.email}>
         <S.TableDataBody>{item.name}</S.TableDataBody>

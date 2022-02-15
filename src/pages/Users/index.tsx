@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
-import { User, Users as UsersMock } from "../../mocks/User";
+import { UserType } from "../../types/user";
+import { Users as UsersMock } from "../../mocks/User";
 
 const Users: React.FC = () => {
   let navigate = useNavigate();
-  const [users, setUsers] = useState<typeof User[]>([]);
+  const [users, setUsers] = useState<UserType[]>([]);
   const [filter, setFilter] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [limitPage, setLimitPage] = useState<number>(0);
@@ -14,7 +15,7 @@ const Users: React.FC = () => {
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/users/update", { state: value });
   functions.Details = (value) => navigate("/users/details", { state: value });
-  functions.Create = () => navigate("/clients/create");
+  functions.Create = () => navigate("/users/create");
 
   useEffect(() => {
     const totalPage = Math.ceil(users.length / limitPage);

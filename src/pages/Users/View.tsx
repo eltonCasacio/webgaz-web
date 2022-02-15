@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
 import { Button, InputSearch, TableUsers } from "../../components";
-import { User } from "../../types/user";
+import { UserType } from "../../types/user";
 import { CrudNavigationProps } from "../../types/crudNavigation";
 import Pagination from "../../components/Pagination";
 
@@ -10,7 +10,7 @@ export type ViewProps = {
   functions: ViewPropsFunctions;
   InputSearchChange: any;
   filter: string;
-  users: User[];
+  users: UserType[];
   totalUsers: number;
   pages: number[];
   currentPage: number;
@@ -23,14 +23,10 @@ const View: React.FC<ViewProps> = (props) => (
     <S.ContentHeader>
       <InputSearch callback={props.InputSearchChange} filter={props.filter} />
     </S.ContentHeader>
-    <Button
-      children="Novo"
-      size="small"
-      callback={() => props.functions.Update(props.users)}
-    />
+    <Button children="Novo" size="small" callback={props.functions.Create} />
 
     <S.Table>
-      <TableUsers users={props.users} functions={props.functions}/>
+      <TableUsers users={props.users} functions={props.functions} />
     </S.Table>
 
     <Pagination

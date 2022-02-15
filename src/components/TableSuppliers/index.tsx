@@ -11,6 +11,7 @@ type PagintionProps = {
   suppliers: SuppliersType[];
   functions: CrudNavigationProps
 };
+
 export const TableSuppliers: React.FC<PagintionProps> = (params) => {
   const makeHeader = () => (
     <S.TableRowHeader>

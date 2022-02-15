@@ -16,7 +16,7 @@ import {
 } from "../pages/Products/CRUD";
 
 import Users from "../pages/Users";
-import { UserDetails, UserUpdate } from "../pages/Users/CRUD";
+import { UserDetails, UserUpdate, UserCreate } from "../pages/Users/CRUD";
 
 import Suppliers from "../pages/Suppliers";
 import {
@@ -48,6 +48,7 @@ const authRoutes: React.FC = () => {
       <Route path="/users" element={<Users />} />
       <Route path="/users/details" element={<UserDetails />} />
       <Route path="/users/update" element={<UserUpdate />} />
+      <Route path="/users/create" element={<UserCreate />} />
 
       <Route path="/suppliers" element={<Suppliers />} />
       <Route path="/suppliers/details" element={<SuppliersDetails />} />

@@ -23,17 +23,10 @@ const View: React.FC<ViewProps> = (props) => (
     <S.ContentHeader>
       <InputSearch callback={props.InputSearchChange} filter={props.filter} />
     </S.ContentHeader>
-    <Button
-      children="Novo"
-      size="small"
-      callback={props.functions.Create}
-    />
+    <Button children="Novo" size="small" callback={props.functions.Create} />
 
     <S.Table>
-      <TableClients
-        clients={props.clients}
-        functions={props.functions}
-      />
+      <TableClients clients={props.clients} functions={props.functions} />
     </S.Table>
 
     <Pagination
