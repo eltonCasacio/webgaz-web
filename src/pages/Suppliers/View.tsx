@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
 import { Button, InputSearch, TableSuppliers } from "../../components";
-import { Suppliers as suppliersType } from "../../types/suppliers";
+import { SuppliersType } from "../../types/suppliers";
 import { CrudNavigationProps } from "../../types/crudNavigation";
 import Pagination from "../../components/Pagination";
 
@@ -10,7 +10,7 @@ export type ViewProps = {
   functions: ViewPropsFunctions;
   InputSearchChange: any;
   filter: string;
-  suppliers: suppliersType[];
+  suppliers: SuppliersType[];
   totalSuppliers: number;
   pages: number[];
   currentPage: number;
@@ -26,14 +26,11 @@ const View: React.FC<ViewProps> = (props) => (
     <Button
       children="Novo"
       size="small"
-      callback={() => props.functions.Update(props.suppliers)}
+      callback={() => props.functions.Create()}
     />
 
     <S.Table>
-      <TableSuppliers
-        suppliers={props.suppliers}
-        functions={props.functions}
-      />
+      <TableSuppliers suppliers={props.suppliers} functions={props.functions} />
     </S.Table>
 
     <Pagination

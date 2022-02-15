@@ -2,13 +2,13 @@ import React from "react";
 import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
-import { Suppliers as suppliersType } from "../../types/suppliers";
+import { SuppliersType } from "../../types/suppliers";
 import { CrudNavigationProps} from "../../types/crudNavigation";
 
 const HEADER = ["Nome", "CNPJ", "Email", "Site", "Telefone", ""];
 
 type PagintionProps = {
-  suppliers: suppliersType[];
+  suppliers: SuppliersType[];
   functions: CrudNavigationProps
 };
 export const TableSuppliers: React.FC<PagintionProps> = (params) => {
@@ -20,7 +20,7 @@ export const TableSuppliers: React.FC<PagintionProps> = (params) => {
     </S.TableRowHeader>
   );
 
-  const makeRow = (item: suppliersType) => (
+  const makeRow = (item: SuppliersType) => (
     <>
       <S.TableRowBody key={item.cnpj}>
         <S.TableDataBody>{item.name}</S.TableDataBody>

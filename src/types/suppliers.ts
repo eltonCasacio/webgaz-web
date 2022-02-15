@@ -1,4 +1,4 @@
-export type Suppliers = {
+export type SuppliersType = {
   name: string;
   cnpj: string;
   address: string;

@@ -1,4 +1,5 @@
 import SuppliersDetails from "./Details";
 import SuppliersUpdate from "./Update";
+import SuppliersCreate from "./Create";
 
-export { SuppliersDetails, SuppliersUpdate };
+export { SuppliersDetails, SuppliersUpdate, SuppliersCreate };

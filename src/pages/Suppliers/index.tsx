@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
+import { SuppliersType } from "../../types/suppliers";
 import { Suppliers as SuppliersMock } from "../../mocks/Suppliers";
 
 const Suppliers: React.FC = () => {
   let navigate = useNavigate();
-  const [suppliers, setSuppliers] = useState<typeof SuppliersMock>([]);
+  const [suppliers, setSuppliers] = useState<SuppliersType[]>([]);
   const [filter, setFilter] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [limitPage, setLimitPage] = useState<number>(0);
