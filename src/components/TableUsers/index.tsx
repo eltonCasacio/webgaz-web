@@ -1,14 +1,18 @@
 import React from "react";
 import * as S from "./styles";
-
+import { Edit } from "styled-icons/boxicons-regular";
+import { Eye } from "styled-icons/bootstrap";
+import { CrudNavigationProps } from "../../types/crudNavigation";
 import { User as userType } from "../../types/user";
 
-const HEADER = ["Nome", "Email", "Telefone"];
+const HEADER = ["Nome", "Email", "Telefone", ""];
 
 type PagintionProps = {
   users: userType[];
+  functions: CrudNavigationProps;
 };
-export const TableUsers: React.FC<PagintionProps> = ({ users }) => {
+
+export const TableUsers: React.FC<PagintionProps> = (params) => {
   const makeHeader = () => (
     <S.TableRowHeader>
       {HEADER.map((item) => (
@@ -23,6 +27,10 @@ export const TableUsers: React.FC<PagintionProps> = ({ users }) => {
         <S.TableDataBody>{item.name}</S.TableDataBody>
         <S.TableDataBody>{item.email}</S.TableDataBody>
         <S.TableDataBody>{item.phone}</S.TableDataBody>
+        <S.TableDataBodyIcon>
+          <Eye size={15} onClick={() => params.functions.Details(item)} />
+          <Edit size={15} onClick={() => params.functions.Update(item)} />
+        </S.TableDataBodyIcon>
       </S.TableRowBody>
     </>
   );
@@ -30,7 +38,7 @@ export const TableUsers: React.FC<PagintionProps> = ({ users }) => {
   return (
     <S.Table>
       <S.Thead>{makeHeader()}</S.Thead>
-      <S.Tbody>{users.map((item) => makeRow(item))}</S.Tbody>
+      <S.Tbody>{params.users.map((item) => makeRow(item))}</S.Tbody>
     </S.Table>
   );
 };

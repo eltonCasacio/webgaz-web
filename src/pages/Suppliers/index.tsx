@@ -12,8 +12,9 @@ const Suppliers: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const functions = {} as ViewPropsFunctions;
-  functions.Update = () => navigate("/suppliers/update/1");
-  functions.Details = () => navigate("/suppliers/details/1");
+  functions.Update = (value) => navigate("/suppliers/update", { state: value });
+  functions.Details = (value) => navigate("/suppliers/details", { state: value });
+  functions.Create = () => navigate("/suppliers/create");
 
   useEffect(() => {
     const totalPage = Math.ceil(suppliers.length / limitPage);

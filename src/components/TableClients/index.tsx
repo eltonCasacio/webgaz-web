@@ -2,16 +2,16 @@ import React from "react";
 import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
-
+import { CrudNavigationProps } from "../../types/crudNavigation";
 import { clientType } from "../../types/client";
 
 const HEADER = ["Nome", "CNPJ", "Email", "Site", ""];
 
 type PagintionProps = {
   clients: clientType[];
-  // eslint-disable-next-line no-empty-pattern
-  callback: ({}) => void;
+  functions: CrudNavigationProps;
 };
+
 export const TableClients: React.FC<PagintionProps> = (params) => {
   const makeHeader = () => (
     <S.TableRowHeader>
@@ -29,8 +29,8 @@ export const TableClients: React.FC<PagintionProps> = (params) => {
         <S.TableDataBody>{item.email}</S.TableDataBody>
         <S.TableDataBody>{item.site}</S.TableDataBody>
         <S.TableDataBodyIcon>
-          <Eye size={15} onClick={() => params.callback(item)} />
-          <Edit size={15} onClick={() => params.callback(item)} />
+          <Eye size={15} onClick={() => params.functions.Details(item)} />
+          <Edit size={15} onClick={() => params.functions.Update(item)} />
         </S.TableDataBodyIcon>
       </S.TableRowBody>
     </>

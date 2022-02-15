@@ -4,6 +4,7 @@ import { Input, InputSearch } from "./Inputs";
 import { TableClients } from "./TableClients";
 import { TableProducts } from "./TableProducts";
 import { TableUsers } from "./TableUsers";
+import { TableSuppliers } from "./TableSuppliers";
 import { Card } from "./Cards";
 import Base from "./Base";
 
@@ -19,4 +20,5 @@ export {
   TableClients,
   TableProducts,
   TableUsers,
+  TableSuppliers,
 };

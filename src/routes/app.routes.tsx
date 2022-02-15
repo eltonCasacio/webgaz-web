@@ -33,20 +33,20 @@ const authRoutes: React.FC = () => {
       <Route path="/clients/create" element={<ClientCreate />} />
 
       <Route path="/products" element={<Products />} />
-      <Route path="/products/details/:id" element={<ProductDetails />} />
-      <Route path="/products/update/:id" element={<ProductUpdate />} />
+      <Route path="/products/details" element={<ProductDetails />} />
+      <Route path="/products/update" element={<ProductUpdate />} />
 
       <Route path="/users" element={<Users />} />
-      <Route path="/users/details/:id" element={<UserDetails />} />
-      <Route path="/users/update/:id" element={<UserUpdate />} />
+      <Route path="/users/details" element={<UserDetails />} />
+      <Route path="/users/update" element={<UserUpdate />} />
 
       <Route path="/suppliers" element={<Suppliers />} />
-      <Route path="/suppliers/details/:id" element={<SuppliersDetails />} />
-      <Route path="/suppliers/update/:id" element={<SuppliersUpdate />} />
+      <Route path="/suppliers/details" element={<SuppliersDetails />} />
+      <Route path="/suppliers/update" element={<SuppliersUpdate />} />
 
       <Route path="/shippings" element={<Shippings />} />
-      <Route path="/shippings/details/:id" element={<ShippingDetails />} />
-      <Route path="/shippings/update/:id" element={<ShippingUpdate />} />
+      <Route path="/shippings/details" element={<ShippingDetails />} />
+      <Route path="/shippings/update" element={<ShippingUpdate />} />
 
       <Route path="/reports" element={<Reports />} />
       <Route path="/settings" element={<Settings />} />

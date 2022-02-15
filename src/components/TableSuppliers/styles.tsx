@@ -22,10 +22,28 @@ export const TableDataHeader = styled.th`
 export const Tbody = styled.tbody``;
 
 export const TableRowBody = styled.tr`
+  font-size: 14px;
   :hover {
     opacity: 0.8;
+  }
+  :nth-child(even) {
+    background-color: #e6e8e978;
   }
 `;
 export const TableDataBody = styled.td`
   padding: 5px 10px;
+  svg {
+    margin-left: 10px;
+    width: 12px;
+    cursor: pointer;
+  }
+`;
+
+export const TableDataBodyIcon = styled.td`
+  width: 55px;
+  svg {
+    margin-left: 10px;
+    width: 12px;
+    cursor: pointer;
+  }
 `;

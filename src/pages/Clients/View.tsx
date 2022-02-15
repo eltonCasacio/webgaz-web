@@ -32,7 +32,7 @@ const View: React.FC<ViewProps> = (props) => (
     <S.Table>
       <TableClients
         clients={props.clients}
-        callback={props.functions.Details}
+        functions={props.functions}
       />
     </S.Table>
 

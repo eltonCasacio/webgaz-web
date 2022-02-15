@@ -1,12 +1,11 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
-import { Button, InputSearch, TableClients } from "../../components";
+import { Button, InputSearch, TableSuppliers } from "../../components";
 import { Suppliers as suppliersType } from "../../types/suppliers";
 import { CrudNavigationProps } from "../../types/crudNavigation";
 import Pagination from "../../components/Pagination";
 
 export type ViewPropsFunctions = CrudNavigationProps;
-
 export type ViewProps = {
   functions: ViewPropsFunctions;
   InputSearchChange: any;
@@ -31,9 +30,9 @@ const View: React.FC<ViewProps> = (props) => (
     />
 
     <S.Table>
-      <TableClients
-        clients={props.suppliers}
-        callback={props.functions.Details}
+      <TableSuppliers
+        suppliers={props.suppliers}
+        functions={props.functions}
       />
     </S.Table>
 

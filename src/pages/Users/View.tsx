@@ -6,7 +6,6 @@ import { CrudNavigationProps } from "../../types/crudNavigation";
 import Pagination from "../../components/Pagination";
 
 export type ViewPropsFunctions = CrudNavigationProps;
-
 export type ViewProps = {
   functions: ViewPropsFunctions;
   InputSearchChange: any;
@@ -31,7 +30,7 @@ const View: React.FC<ViewProps> = (props) => (
     />
 
     <S.Table>
-      <TableUsers users={props.users} />
+      <TableUsers users={props.users} functions={props.functions}/>
     </S.Table>
 
     <Pagination
