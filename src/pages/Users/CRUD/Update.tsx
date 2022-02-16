@@ -7,13 +7,17 @@ const Update: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [user, setUser] = useState<UserType>();
+  const [user, setUser] = useState({} as UserType);
 
   function cancel() {
     navigate("/users");
   }
 
   function confirm() {}
+
+  function updateFields(name: string, value: string) {
+    setUser({ ...user, [name]: value });
+  }
 
   useEffect(() => {
     setUser(location.state);
@@ -27,6 +31,7 @@ const Update: React.FC = () => {
       subtitle={user?.name}
       cancel={cancel}
       confirm={confirm}
+      updateFields={updateFields}
     />
   );
 };

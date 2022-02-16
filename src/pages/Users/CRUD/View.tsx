@@ -8,6 +8,7 @@ type ViewProps = {
   type: "update" | "details" | "create";
   cancel: () => void;
   confirm: () => void;
+  updateFields: (name: string, value: string) => void;
 } & HeaderProps;
 
 const View: React.FC<ViewProps> = (props) => (
@@ -23,13 +24,14 @@ const View: React.FC<ViewProps> = (props) => (
     <S.Form>
       <S.Line cols="2fr 1fr">
         <S.LineItem>
-          <S.Label htmlFor="user">Usuario</S.Label>
+          <S.Label htmlFor="name">Usuario</S.Label>
           <S.Input
             disabled={props.type === "details"}
             type="text"
-            name="user"
-            id="user"
+            name="name"
+            id="name"
             value={props.user?.name}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
         <S.LineItem>
@@ -40,19 +42,21 @@ const View: React.FC<ViewProps> = (props) => (
             name="email"
             id="email"
             value={props.user?.email}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
       </S.Line>
 
       <S.Line cols="2fr 1fr 0.5fr">
         <S.LineItem>
-          <S.Label htmlFor="phone">Telefone</S.Label>
+          <S.Label htmlFor="phoneNumber">Telefone</S.Label>
           <S.Input
             disabled={props.type === "details"}
             type="text"
-            name="phone"
-            id="phone"
-            value={props.user?.phone}
+            name="phoneNumber"
+            id="phoneNumber"
+            value={props.user?.phoneNumber}
+            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.LineItem>
       </S.Line>

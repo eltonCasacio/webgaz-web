@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Table = styled.table`
   width: 100%;
-  box-shadow: 0 0 5px 1px #000;
+  box-shadow: inset 0 0 5px 1px #c9c9c9;
   border-collapse: collapse;
 `;
 export const Thead = styled.thead``;

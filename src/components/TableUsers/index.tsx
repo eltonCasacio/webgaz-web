@@ -26,7 +26,7 @@ export const TableUsers: React.FC<PagintionProps> = (params) => {
       <S.TableRowBody key={item.email}>
         <S.TableDataBody>{item.name}</S.TableDataBody>
         <S.TableDataBody>{item.email}</S.TableDataBody>
-        <S.TableDataBody>{item.phone}</S.TableDataBody>
+        <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
         <S.TableDataBodyIcon>
           <Eye size={15} onClick={() => params.functions.Details(item)} />
           <Edit size={15} onClick={() => params.functions.Update(item)} />

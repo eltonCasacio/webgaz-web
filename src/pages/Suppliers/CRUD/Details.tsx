@@ -7,7 +7,7 @@ const Details: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [suppliers, setSuppliers] = useState<SuppliersType>();
+  const [suppliers, setSuppliers] = useState({} as SuppliersType);
 
   function cancel() {
     navigate("/suppliers");
@@ -19,6 +19,10 @@ const Details: React.FC = () => {
     setSuppliers(location.state);
   }, [location]);
 
+  function updateFields(name: string, value: string) {
+    setSuppliers({ ...suppliers, [name]: value });
+  }
+
   return (
     <View
       type="details"
@@ -27,6 +31,7 @@ const Details: React.FC = () => {
       subtitle={suppliers?.name}
       cancel={cancel}
       confirm={confirm}
+      updateFields={updateFields}
     />
   );
 };

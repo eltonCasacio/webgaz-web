@@ -35,7 +35,7 @@ const Users: React.FC = () => {
         return (
           item.name.toUpperCase().includes(auxFilter) ||
           item.email.toUpperCase().includes(auxFilter) ||
-          item.phone.toUpperCase().includes(auxFilter)
+          item.phoneNumber.toUpperCase().includes(auxFilter)
         );
       });
       setUsers(filtered);

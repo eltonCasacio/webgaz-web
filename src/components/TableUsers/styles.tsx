@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const Table = styled.table`
   width: 100%;
-  box-shadow: 0 0 5px 1px #000;
+  box-shadow: inset 0 0 5px 1px #c9c9c9;
   border-collapse: collapse;
 `;
 export const Thead = styled.thead``;
+
 export const TableRowHeader = styled.tr``;
+
 export const TableDataHeader = styled.th`
   padding: 10px;
   font-weight: bold;
@@ -30,6 +32,7 @@ export const TableRowBody = styled.tr`
     background-color: #e6e8e978;
   }
 `;
+
 export const TableDataBody = styled.td`
   padding: 5px 10px;
   svg {

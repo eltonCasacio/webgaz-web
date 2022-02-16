@@ -1,8 +1,11 @@
+import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
+import { SuppliersType } from "../../../types/suppliers";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
+  const [supplier, setSupplier] = useState({} as SuppliersType);
 
   function cancel() {
     navigate("/suppliers");
@@ -12,6 +15,10 @@ const Create: React.FC = () => {
     console.log("CONFIRMAR NOVO");
   }
 
+  function updateFields(name: string, value: string) {
+    setSupplier({ ...supplier, [name]: value });
+  }
+
   return (
     <View
       type="create"
@@ -19,6 +26,7 @@ const Create: React.FC = () => {
       subtitle={`Novo`}
       cancel={cancel}
       confirm={confirm}
+      updateFields={updateFields}
     />
   );
 };

@@ -1,8 +1,11 @@
+import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
+import { UserType } from "../../../types/user";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({} as UserType);
 
   function cancel() {
     navigate("/users");
@@ -12,7 +15,9 @@ const Create: React.FC = () => {
     console.log("CONFIRMAR NOVO");
   }
 
-
+  function updateFields(name: string, value: string) {
+    setUser({ ...user, [name]: value });
+  }
 
   return (
     <View
@@ -21,6 +26,7 @@ const Create: React.FC = () => {
       subtitle={`Novo`}
       cancel={cancel}
       confirm={confirm}
+      updateFields={updateFields}
     />
   );
 };
