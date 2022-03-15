@@ -18,7 +18,7 @@ export const ForgotPassword = styled.div`
     a {
       display: block;
       font-size: 12px;
-      color: ${theme.colors.white};
+      color: ${theme.colors.darkGray};
       text-decoration: none;
       text-align: center;
       cursor: pointer;

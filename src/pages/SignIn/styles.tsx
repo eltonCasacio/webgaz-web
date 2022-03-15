@@ -14,15 +14,13 @@ export const Form = styled.form`
   `}
 `;
 
-export const UserIcon = styled.div`
-  width: min-content;
-  padding: 30px;
-  background-color: #ffffff1a;
-  border-radius: 200px;
+export const Input = styled.div`
+  margin-bottom: 25px;
+`;
 
-  svg {
-    width: 50px;
-  }
+export const Image = styled.img`
+  width: 190px;
+  margin-bottom: 25px;
 `;
 
 export const FormInputs = styled.div`
@@ -41,7 +39,7 @@ export const ForgotPWD = styled.div`
     a {
       text-decoration: none;
       width: fit-content;
-      color: ${theme.colors.white};
+      color: ${theme.colors.darkGray};
       cursor: pointer;
     }
   `}
@@ -50,9 +48,8 @@ export const ForgotPWD = styled.div`
 export const Submit = styled.div`
   ${({ theme }) => css`
     button {
-      font-size: 16px;
-      color: ${theme.colors.darkGray};
-      margin-top: 20px;
+      margin: 0 auto;
+      margin-top: 50px;
     }
 
     svg {

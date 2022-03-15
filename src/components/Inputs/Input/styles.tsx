@@ -42,26 +42,30 @@ export const InputWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    background: ${theme.colors.lightGray};
-    border-radius: 0.1rem;
-    padding: 0 ${theme.spacings.xxsmall};
-    border-bottom: solid 2px ${theme.colors.gray};
+    background: ${theme.colors.input};
+    padding: 2px ${theme.spacings.xxsmall};
+    margin-top: 5px;
+
+    border-radius: 5px;
+
     &:focus-within {
-      box-shadow: 0 0 0.2rem ${theme.colors.secondary};
+      box-shadow: 0 0 0.1rem #ccc;
     }
   `}
 `;
 
 export const Input = styled.input<IconPositionProps>`
   ${({ theme, iconPosition }) => css`
-    color: ${theme.colors.black};
+    color: ${theme.colors.darkGray};
     font-family: ${theme.font.family};
-    font-size: ${theme.font.sizes.xxsmall};
+    font-size: ${theme.font.sizes.xsmall};
     padding: ${theme.spacings.xxsmall};
     background: transparent;
     border: 0;
     outline: none;
     width: ${iconPosition === "right" ? `calc(100% - 2.2rem)` : `100%`};
+    border-radius: 5px;
+
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 ${theme.spacings.small}
         ${theme.colors.lightGray} inset;
@@ -77,8 +81,8 @@ export const Input = styled.input<IconPositionProps>`
 export const Label = styled.label`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.xsmall};
-    color: ${theme.colors.white};
-    cursor: pointer;
+    color: ${theme.colors.darkGray};
+    padding-bottom: 10px;
   `}
 `;
 

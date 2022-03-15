@@ -1,7 +1,8 @@
 import * as S from "./styles";
 import { Link } from "react-router-dom";
 import { Input, Button, FormWrapper, ForgotPassword } from "../../components";
-import { LockPassword, Mail, User } from "styled-icons/remix-line";
+import { LockPassword, Mail } from "styled-icons/remix-line";
+import logo from "../../assets/logo.png";
 
 type ViewProps = {
   handleSubmit?: React.FormEventHandler;
@@ -11,36 +12,34 @@ type ViewProps = {
 
 const View: React.FC<ViewProps> = ({ handleSubmit, setEmail, setPassword }) => (
   <S.Form onSubmit={handleSubmit}>
-    <S.UserIcon>
-      <User />
-    </S.UserIcon>
+    <S.Image src={logo} alt="" />
     <FormWrapper>
-      <Input
-        onInputChange={(text) => setEmail(text)}
-        name="email"
-        placeholder="email"
-        label="Email"
-        icon={<Mail />}
-      />
+      <S.Input>
+        <Input
+          onInputChange={(text) => setEmail(text)}
+          name="email"
+          placeholder=""
+          label="Email"
+          icon={<Mail />}
+        />
+      </S.Input>
 
       <Input
         onInputChange={(text) => setPassword(text)}
         name="password"
         label="Senha"
-        placeholder="senha"
+        placeholder=""
         type={"password"}
         icon={<LockPassword />}
       />
       <S.ForgotPWD>
         <ForgotPassword>
-          <Link to={"/forgot-pwd"}>esqueci a senha</Link>
+          <Link to={"/forgot-pwd"}>Esqueci a Senha</Link>
         </ForgotPassword>
       </S.ForgotPWD>
 
       <S.Submit>
-        <Button size="small" fullWidth>
-          Login
-        </Button>
+        <Button size="medium">Entrar</Button>
       </S.Submit>
     </FormWrapper>
   </S.Form>

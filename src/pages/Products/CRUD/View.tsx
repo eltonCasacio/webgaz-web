@@ -91,7 +91,7 @@ const View: React.FC<ViewProps> = (props) => (
       )}
       <Button
         callback={props.cancel}
-        bgColor="#d6d6d6"
+        bgColor="#8349C1"
         size="small"
         children={props.type !== "details" ? "Cancelar" : "Voltar"}
       />
