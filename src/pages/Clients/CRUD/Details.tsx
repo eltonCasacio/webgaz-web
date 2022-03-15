@@ -1,13 +1,13 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { clientType } from "../../../types/client";
+import { ClientType } from "../../../types/client";
 
 const Details: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [client, setClient] = useState({} as clientType);
+  const [client, setClient] = useState({} as ClientType);
 
   function cancel() {
     navigate("/clients");

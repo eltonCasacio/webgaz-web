@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
-import { clientType } from "../../types/client";
-import { Clients as ClientsMock } from "../../mocks/Client";
+import { ClientType } from "../../types/client";
+import { useListClients } from "./hooks/listClients.hook"
 
 const Clients: React.FC = () => {
   let navigate = useNavigate();
-  const [clients, setClients] = useState<clientType[]>([]);
+  const [clients, setClients] = useState<ClientType[]>([]);
   const [filter, setFilter] = useState("");
-  const [pages, setPages] = useState<number[]>([]);
-  const [limitPage, setLimitPage] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const listClients = useListClients()
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/clients/update", { state: value });
@@ -18,20 +16,16 @@ const Clients: React.FC = () => {
   functions.Create = () => navigate("/clients/create");
 
   useEffect(() => {
-    const totalPage = Math.ceil(clients.length / limitPage);
-    const arrayPages = [];
-    for (let i = 1; i <= totalPage; i++) {
-      arrayPages.push(i);
-    }
-
-    setPages(arrayPages);
-  }, [clients, limitPage]);
+    listClients().then((listClients) => {
+      setClients(listClients)
+    })
+  }, [])
 
   useEffect(() => {
     async function handleFilter() {
       let auxFilter = filter.toUpperCase();
 
-      const filtered = ClientsMock.filter((item) => {
+      const filtered = clients.filter((item) => {
         return (
           item.name.toUpperCase().includes(auxFilter) ||
           item.cnpj.toUpperCase().includes(auxFilter) ||
@@ -45,15 +39,6 @@ const Clients: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
-  useEffect(() => {
-    async function run() {
-      // await api.get(`/clients?page=${pageNumber}&limit=${limitPage}`);
-      setClients(ClientsMock);
-      setLimitPage(10);
-    }
-
-    run();
-  }, [currentPage]);
 
   return (
     <View
@@ -64,9 +49,6 @@ const Clients: React.FC = () => {
       filter={filter}
       clients={clients}
       totalClients={clients.length}
-      pages={pages}
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
     />
   );
 };

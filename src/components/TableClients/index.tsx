@@ -3,12 +3,12 @@ import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
 import { CrudNavigationProps } from "../../types/crudNavigation";
-import { clientType } from "../../types/client";
+import { ClientType } from "../../types/client";
 
 const HEADER = ["Nome", "CNPJ", "Email", "Site", ""];
 
 type PagintionProps = {
-  clients: clientType[];
+  clients: ClientType[];
   functions: CrudNavigationProps;
 };
 
@@ -21,7 +21,7 @@ export const TableClients: React.FC<PagintionProps> = (params) => {
     </S.TableRowHeader>
   );
 
-  const makeRow = (item: clientType) => (
+  const makeRow = (item: ClientType) => (
     <>
       <S.TableRowBody key={item.cnpj}>
         <S.TableDataBody>{item.name}</S.TableDataBody>

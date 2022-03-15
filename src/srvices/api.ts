@@ -1,7 +1,7 @@
-import api from "axios";
+import axios from "axios";
 
-api.create({
-  baseURL: "http",
+const api = axios.create({
+  baseURL: "http://wj4mg.mocklab.io/",
 });
 
 export default api;
