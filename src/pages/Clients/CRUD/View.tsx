@@ -1,12 +1,12 @@
 /* eslint-disable no-restricted-globals */
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { clientType } from "../../../types/client";
+import { ClientType } from "../../../types/client";
 import { Button } from "../../../components";
 import React from "react";
 
 type ViewProps = {
-  client?: clientType;
+  client?: ClientType;
   type: "update" | "details" | "create";
   cancel: () => void;
   confirm: () => void;
