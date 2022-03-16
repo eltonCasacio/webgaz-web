@@ -15,22 +15,21 @@ const View: React.FC<ViewProps> = ({ handleSubmit, setEmail, callback }) => (
     <S.UserIcon>
       <LockPassword />
     </S.UserIcon>
-    Recuperar Senha
     <FormWrapper>
       <Input
         onInputChange={setEmail}
         name="email"
-        placeholder="Email"
+        placeholder=""
+        label="Email"
         type="email"
         icon={<Email />}
       />
-
+      <S.MessageInfo>Uma nova senha será enviada para seu email</S.MessageInfo>
       <S.Submit>
-        <Button size="small" fullWidth callback={callback}>
+        <Button size="medium" callback={callback}>
           Enviar
         </Button>
       </S.Submit>
-
       <ForgotPassword>
         <Link to={"/sign-in"}>Voltar</Link>
       </ForgotPassword>

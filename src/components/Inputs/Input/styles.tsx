@@ -47,7 +47,6 @@ export const InputWrapper = styled.div`
     margin-top: 5px;
 
     border-radius: 5px;
-
     &:focus-within {
       box-shadow: 0 0 0.1rem #ccc;
     }
@@ -64,17 +63,7 @@ export const Input = styled.input<IconPositionProps>`
     border: 0;
     outline: none;
     width: ${iconPosition === "right" ? `calc(100% - 2.2rem)` : `100%`};
-    border-radius: 5px;
-
-    &:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 ${theme.spacings.small}
-        ${theme.colors.lightGray} inset;
-      filter: none;
-      /* &::first-line {
-        font-family: ${theme.font.family};
-        font-size: ${theme.font.sizes.medium};
-      } */
-    }
+    -webkit-box-shadow: 0 0 0px 1000px #322444 inset;
   `}
 `;
 

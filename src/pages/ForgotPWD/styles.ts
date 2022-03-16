@@ -38,3 +38,14 @@ export const Submit = styled.div`
     }
   `}
 `;
+
+export const MessageInfo = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    margin: 30px 0;
+    color: #c3c3c3;
+  `}
+`;
