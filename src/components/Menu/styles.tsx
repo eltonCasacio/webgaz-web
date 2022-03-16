@@ -8,13 +8,13 @@ const MenuModifier = {
   showMenu: () => css`
     svg {
       width: 1.2rem;
-      /* margin-right: 10px; */
+      margin: 10px;
     }
   `,
   hiddeMenu: () => css`
     svg {
-      width: 1.5rem;
-      margin: 10px 0;
+      width: 1.2rem;
+      margin: 5px;
     }
   `,
 };
@@ -24,19 +24,21 @@ export const Wrapper = styled.nav`
     display: flex;
     flex-direction: column;
     flex: 1;
-    font-size: 1.2rem;
+    font-size: 1rem;
   `}
+`;
+
+export const Menus = styled.div`
+  margin-top: 5vh;
 `;
 
 export const MenuItem = styled.li<MenuItemProps>`
   ${({ showMenu }) => css`
     display: flex;
+    justify-self: center;
     padding: 10px;
-    border-bottom: solid 1px ${showMenu ? "#ffffff2d" : "none"};
-    color: #ffffffae;
-
+    border-radius: 8px;
     ${showMenu ? MenuModifier.showMenu() : MenuModifier.hiddeMenu()}
-
     cursor: pointer;
 
     a {
@@ -44,14 +46,10 @@ export const MenuItem = styled.li<MenuItemProps>`
       width: 100%;
       color: #ffffffae;
     }
-
-    :hover {
-      background-color: #ffffff1f;
-      color: #ffffff;
-
-      a {
-        color: #ffffff;
-      }
-    }
   `}
+`;
+
+export const LogoImage = styled.img`
+  width: 110px;
+  align-self: center;
 `;

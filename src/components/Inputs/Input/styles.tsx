@@ -64,6 +64,7 @@ export const Input = styled.input<IconPositionProps>`
     outline: none;
     width: ${iconPosition === "right" ? `calc(100% - 2.2rem)` : `100%`};
     -webkit-box-shadow: 0 0 0px 1000px #322444 inset;
+    -webkit-text-fill-color:   ${theme.colors.lightGray};
   `}
 `;
 

@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import * as S from "./styles";
-
+import Logo from "../../assets/logo.png";
 import { Menus } from "../../mocks/Menus";
 
 type MenuItemType = {
@@ -16,8 +16,11 @@ export default function Menu({ showMenu = true }) {
         <NavLink
           style={({ isActive }) => {
             return {
-              color: isActive ? "#ffee04" : "",
-              fontWeight: isActive ? "bold" : "",
+              display: 'flex',
+              alignItems: 'center',
+              border: !isActive ? "solid 1px #ffffff2d" : "none",
+              borderRadius: "8px",
+              backgroundColor: isActive ? "#ffffff1f" : "transparent",
             };
           }}
           to={`/${menu.url}`}
@@ -32,7 +35,10 @@ export default function Menu({ showMenu = true }) {
 
   return (
     <S.Wrapper>
-      <ul>{Menus.map((menu) => createMenuItem(menu))}</ul>
+      {showMenu && <S.LogoImage src={Logo} />}
+      <S.Menus>
+        <ul>{Menus.map((menu) => createMenuItem(menu))}</ul>
+      </S.Menus>
     </S.Wrapper>
   );
 }

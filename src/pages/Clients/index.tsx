@@ -42,7 +42,7 @@ const Clients: React.FC = () => {
 
   return (
     <View
-      title="Clientes"
+      title="Dashboard - Cliente"
       subtitle="Clientes Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
