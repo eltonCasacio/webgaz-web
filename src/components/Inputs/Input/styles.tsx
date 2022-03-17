@@ -42,14 +42,12 @@ export const InputWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    background: ${theme.colors.input};
-    padding: 2px ${theme.spacings.xxsmall};
+    background: ${theme.colors.backgroundAuth};
     margin-top: 5px;
-
     border-radius: 5px;
-    &:focus-within {
+    /* &:focus-within {
       box-shadow: 0 0 0.1rem #ccc;
-    }
+    } */
   `}
 `;
 
@@ -59,7 +57,6 @@ export const Input = styled.input<IconPositionProps>`
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.xsmall};
     padding: ${theme.spacings.xxsmall};
-    background: transparent;
     border: 0;
     outline: none;
     width: ${iconPosition === "right" ? `calc(100% - 2.2rem)` : `100%`};

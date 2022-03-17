@@ -2,11 +2,16 @@ import styled, { css } from "styled-components";
 import theme from "../../../styles/theme";
 
 export const Wrapper = styled.div`
-  height: 100%;
+  display: grid;
+  grid-template-rows: 13vh 100%;
 `;
 
 export const Form = styled.form`
-  position: relative;
+  padding: 15px;
+  margin: 37px 0;
+  background-color: ${theme.colors.table};
+  border-radius: 2px;
+  box-shadow: 0 0 5px 0.5px ${theme.colors.border};
 `;
 
 export const Input = styled.input`
@@ -26,15 +31,18 @@ export const Label = styled.label<LabelProps>`
 
 export const Sintegra = styled.nav`
   text-align: right;
-  margin-bottom: 35px;
   a {
-    font-size: ${theme.font.sizes.xxsmall};
+    border-bottom: solid 1px #00000040;
+    font-size: ${theme.font.sizes.xsmall};
     text-decoration: none;
-    color: ${theme.colors.black};
+    color: ${theme.colors.title};
   }
 `;
 
-export const TextArea = styled.textarea``;
+export const TextArea = styled.textarea`
+  width: 100%;
+  resize: none;
+`;
 
 export const Line = styled.div<{ cols: string }>`
   ${({ cols }) => css`
@@ -56,4 +64,9 @@ export const WrapperButtons = styled.div`
   button {
     margin-left: 5px;
   }
+`;
+
+export const ContentHeader = styled.div`
+  display: grid;
+  grid-template-rows: 50px 1fr;
 `;

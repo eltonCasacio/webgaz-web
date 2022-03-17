@@ -7,7 +7,7 @@ export const Form = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${theme.colors.primary};
+    background-color: ${theme.colors.backgroundAuth};
     svg {
       color: ${theme.colors.gray};
     }

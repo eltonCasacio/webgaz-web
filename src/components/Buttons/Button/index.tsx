@@ -6,7 +6,7 @@ export type ButtonProps = {
   fullWidth?: boolean;
   icon?: React.ReactNode;
   color?: "#fff" | "#000" | "#0b7bb8";
-  bgColor?: "#8349C1" | "#0b7bb8";
+  bgColor?: "#8349C1" | "#64E384" | "#D57176";
   callback?: () => void;
 };
 
