@@ -14,10 +14,7 @@ const Update: React.FC = () => {
   }
 
   function confirm() {
-    //validar
-    //persistir client
-    //mostar mensagem Erro/Sucesso
-    //navegar para /clients
+    alert("Salvar");
   }
 
   function updateFields(name: string, value: string) {

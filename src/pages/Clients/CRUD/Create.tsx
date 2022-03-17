@@ -2,21 +2,25 @@ import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
 import { ClientType } from "../../../types/client";
+import { useCreateClients } from "../hooks/clients.hook";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
   const [client, setClient] = useState({} as ClientType);
+  const createClient = useCreateClients();
 
   function cancel() {
     navigate("/clients");
   }
 
   function confirm() {
-    //validar
-    //persistir client
-    //mostar mensagem Erro/Sucesso
-    //navegar para /clients
-    console.log("CONFIRMAR NOVO", client);
+    createClient({ client })
+    .then((response) => {
+      navigate("/clients");
+    })
+    .catch((error) => {
+      alert("Deu error");
+    })
   }
 
   function updateFields(name: string, value: string) {
