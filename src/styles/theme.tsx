@@ -29,14 +29,15 @@ export default {
   },
   colors: {
     background: "#fff",
-    title: "#474251",
-    subtitle: '#a0a0a0',
+    title: "#06092B",
+    subtitle: '#474251',
     input: "#fcfcfc",
     primary: "#ccc",
-    table: "#fcfcfc",
-    border: "#ccc",
+    table: "#fefefe",
+    tableHeader:'#06092B25',
+    border: "#1E1528",
 
-    
+
     secondary: "#0b7bb8",
     mainBg: "#06092B",
     white: "#FAFAFA",
