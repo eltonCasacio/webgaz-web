@@ -8,7 +8,7 @@ type WrapperProps = { hasIcon: boolean } & Pick<
 
 const ButtonModifier = {
   small: (theme: any) => css`
-    height: 1.2rem;
+    height: 1.4rem;
     font-size: ${theme.font.sizes.xxsmall};
     padding: 14px 25px;
     

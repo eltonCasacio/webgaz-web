@@ -12,7 +12,7 @@ const View: React.FC<ViewProps> = ({ title, showMenu, setShowMenu }) => (
   <S.Wrapper showMenu={showMenu}>
     <S.Logo>
       <S.ArrowBack showMenu={showMenu} onClick={() => setShowMenu(!showMenu)}>
-        <MenuIcon color="white" size={25} />
+        <MenuIcon color="white" size={30} />
       </S.ArrowBack>
     </S.Logo>
     <Menu showMenu={showMenu} />

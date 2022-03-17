@@ -16,14 +16,25 @@ export type ViewProps = {
 const View: React.FC<ViewProps> = (props) => (
   <S.Wrapper>
     <Header title={props.title} subtitle={props.subtitle} />
-    <S.ContentHeader>
-      <InputSearch callback={props.InputSearchChange} filter={props.filter} />
-    </S.ContentHeader>
-    <Button children="Novo" size="small" callback={props.functions.Create} />
 
-    <S.Table>
-      <TableClients clients={props.clients} functions={props.functions} />
-    </S.Table>
+    <S.ContentHeader>
+      <S.FilterWrapper>
+        <S.Filter>
+          <InputSearch
+            callback={props.InputSearchChange}
+            filter={props.filter}
+          />
+        </S.Filter>
+        <Button
+          children="Novo"
+          size="medium"
+          callback={props.functions.Create}
+        />
+      </S.FilterWrapper>
+      <S.Table>
+        <TableClients clients={props.clients} functions={props.functions} />
+      </S.Table>
+    </S.ContentHeader>
 
   </S.Wrapper>
 );

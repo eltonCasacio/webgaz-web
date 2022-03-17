@@ -16,8 +16,8 @@ export default function Menu({ showMenu = true }) {
         <NavLink
           style={({ isActive }) => {
             return {
-              display: 'flex',
-              alignItems: 'center',
+              display: "flex",
+              alignItems: "center",
               border: !isActive ? "solid 1px #ffffff2d" : "none",
               borderRadius: "8px",
               backgroundColor: isActive ? "#ffffff1f" : "transparent",

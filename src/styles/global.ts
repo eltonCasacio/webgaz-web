@@ -54,7 +54,6 @@ const GlobalStyles = createGlobalStyle<{ theme: typeof Theme }>`
 ${({ theme }) => css`
   body {
     font-family: ${theme.font.family}
-    background-color: #033e8c;
   }
 `}
 `;

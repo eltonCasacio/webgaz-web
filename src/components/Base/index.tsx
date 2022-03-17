@@ -9,7 +9,6 @@ export default function Base({ children }: BaseProps) {
   return (
     <S.Wrapper>
       <Sidebar />
-
       <S.Content>{children}</S.Content>
     </S.Wrapper>
   );

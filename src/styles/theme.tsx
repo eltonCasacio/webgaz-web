@@ -28,7 +28,15 @@ export default {
     },
   },
   colors: {
-    primary: "#1E1528",
+    background: "#fff",
+    title: "#474251",
+    subtitle: '#a0a0a0',
+    input: "#fcfcfc",
+    primary: "#ccc",
+    table: "#fcfcfc",
+    border: "#ccc",
+
+    
     secondary: "#0b7bb8",
     mainBg: "#06092B",
     white: "#FAFAFA",
@@ -36,10 +44,8 @@ export default {
     lightGray: "#EAEAEA",
     gray: "#ccc",
     darkGray: "#a0a0a0",
-    textInput: "#474251",
-    border: "#f2cb05d8",
-    input: "#322444",
-    
+    textInput: "#1E1528",
+    sidebarBG: "#1E1528",
   },
   spacings: {
     xxsmall: "0.3rem",

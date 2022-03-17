@@ -30,6 +30,20 @@ export const Wrapper = styled.nav`
 
 export const Menus = styled.div`
   margin-top: 5vh;
+  height: 70%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(170, 170, 170);
+  }
 `;
 
 export const MenuItem = styled.li<MenuItemProps>`

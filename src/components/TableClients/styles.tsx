@@ -1,40 +1,37 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Table = styled.table`
   width: 100%;
-  box-shadow: inset 0 0 5px 1px #c9c9c9;
   border-collapse: collapse;
+  border-radius: 10px;
+  color: #1e1529;
 `;
-export const Thead = styled.thead``;
+export const Thead = styled.thead`
+  border-bottom: solid 2px #1e1529;
+`;
+
 export const TableRowHeader = styled.tr``;
+
 export const TableDataHeader = styled.th`
-  padding: 10px;
-  font-weight: bold;
-  text-align: left;
-  text-transform: uppercase;
-  position: -webkit-sticky; /* for Safari */
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: #095076;
-  color: #fff;
+  ${() => css`
+    padding: 10px;
+    text-align: left;
+    text-transform: uppercase;
+    position: -webkit-sticky; /* for Safari */
+  `}
 `;
 export const Tbody = styled.tbody``;
 
 export const TableRowBody = styled.tr`
   font-size: 14px;
- 
-  :nth-child(even) {
-    background-color: #e6e8e978;
+  border-bottom: solid 1px #1e1529;
+
+  :hover {
+    background-color: #5b4f6c;
   }
 `;
 export const TableDataBody = styled.td`
-  padding: 5px 10px;
-  svg {
-    margin-left: 10px;
-    width: 12px;
-    cursor: pointer;
-  }
+  padding: 10px;
 `;
 
 export const TableDataBodyIcon = styled.td`

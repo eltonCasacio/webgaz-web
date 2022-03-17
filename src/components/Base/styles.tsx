@@ -1,17 +1,18 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  height: 100vh;
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-columns: auto 1fr;
+    height: 100%;
+    background-color: ${theme.colors.background};
+  `}
 `;
 
 export const Content = styled.div`
-  padding: 20px 10px 20px 15px;
+  padding: 10px 25px;
   height: 100vh;
 `;
 
 export const Sidebar = styled.div`
-  background-color: #033e8c;
-  height: 100vh;
 `;
