@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   height: 10vh;
+  background-color: transparent;
 `;
 
 export const WrapperTitle = styled.div`

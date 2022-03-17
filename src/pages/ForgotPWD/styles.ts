@@ -7,9 +7,8 @@ export const Wrapper = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${theme.colors.primary};
+    background-color: ${theme.colors.backgroundAuth};
     color: ${theme.colors.white};
-    /* font-size: 1.5rem; */
   `}
 `;
 

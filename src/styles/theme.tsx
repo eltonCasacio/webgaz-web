@@ -28,14 +28,18 @@ export default {
     },
   },
   colors: {
-    background: "#fff",
+    backgroundAuth: '#1E1528',
+    background: "#efefef",
     title: "#06092B",
     subtitle: '#474251',
     input: "#fcfcfc",
-    primary: "#ccc",
-    table: "#fefefe",
+    table: "#fff",
     tableHeader:'#06092B25',
     border: "#1E1528",
+    buttonPrimary: '#824ABD',
+    buttonSecundary: '#824ABD',
+    buttonConfirm: '#64E384',
+    buttonCancel: '#D57176',
 
 
     secondary: "#0b7bb8",

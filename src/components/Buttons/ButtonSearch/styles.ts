@@ -24,12 +24,12 @@ const wrapperModifiers = {
 
 const colorModifier = {
   primary: (theme: ThemeProps) => css`
-    background-color: ${theme.colors.primary};
+    background-color: ${theme.colors.buttonPrimary};
     color: ${theme.colors.white};
   `,
   secoundary: (theme: ThemeProps) => css`
     background-color: ${theme.colors.white};
-    color: ${theme.colors.primary};
+    color: ${theme.colors.buttonSecundary};
     font-weight: bold;
   `,
 };

@@ -1,11 +1,13 @@
 export type ClientType = {
-    name: string
-    email: string
-    cnpj: string
-    address: string
-    phoneNumber: string
-    city: string
-    uf: string
-    observation: string
-    site: string
-}
+  name: string;
+  cnpj: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  city: string;
+  uf: string;
+  number: string;
+  cep: string;
+  observation: string;
+  site: string;
+};

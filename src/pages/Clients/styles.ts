@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
 export const ContentHeader = styled.div`
   display: grid;
   grid-template-rows: 50px 1fr;
-  /* background-color: #322445; */
   border-radius: 10px;
+  background-color: transparent;
 `;
 
 export const FilterWrapper = styled.div`
