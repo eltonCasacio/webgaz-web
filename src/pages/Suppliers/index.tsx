@@ -57,8 +57,8 @@ const Suppliers: React.FC = () => {
 
   return (
     <View
-      title="Fornecedores"
-      subtitle="Lista de Fornecedores"
+    title="Dashboard - Fornecedor"
+    subtitle="Fornecedores Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}

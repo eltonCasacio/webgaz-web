@@ -4,17 +4,16 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-radius: 10px;
-  color: #1e1529;
 `;
 export const Thead = styled.thead`
-  border-bottom: solid 3px #474251;
+  box-shadow: 0px 0 2px 1px rgb(170, 170, 170);
 `;
 
 export const TableRowHeader = styled.tr``;
 
 export const TableDataHeader = styled.th`
   ${({ theme }) => css`
-    color: ${theme.colors.title};
+    color: ${theme.colors.white};
     background-color: ${theme.colors.tableHeader};
     padding: 10px;
     text-align: left;
@@ -23,6 +22,7 @@ export const TableDataHeader = styled.th`
     font-size: 0.8rem;
   `}
 `;
+
 export const Tbody = styled.tbody`
   overflow: auto;
   &::-webkit-scrollbar {
@@ -39,12 +39,14 @@ export const Tbody = styled.tbody`
 `;
 
 export const TableRowBody = styled.tr`
-  font-size: 14px;
-  border-bottom: solid 1px #1e1529;
-
-  :hover {
-    background-color: #5b4f6c;
-  }
+  ${({ theme }) => css`
+    font-size: 14px;
+    box-shadow: 0px 0 0.5px 0.2px rgb(170, 170, 170);
+    color: ${theme.colors.white};
+    :hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  `}
 `;
 export const TableDataBody = styled.td`
   padding: 10px;

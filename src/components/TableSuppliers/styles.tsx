@@ -1,42 +1,55 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Table = styled.table`
   width: 100%;
-  box-shadow: inset 0 0 5px 1px #c9c9c9;
   border-collapse: collapse;
+  border-radius: 10px;
 `;
-export const Thead = styled.thead``;
+export const Thead = styled.thead`
+  box-shadow: 0px 0 2px 1px rgb(170, 170, 170);
+`;
+
 export const TableRowHeader = styled.tr``;
+
 export const TableDataHeader = styled.th`
-  padding: 10px;
-  font-weight: bold;
-  text-align: left;
-  text-transform: uppercase;
-  position: -webkit-sticky; /* for Safari */
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: #095076;
-  color: #fff;
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.tableHeader};
+    padding: 10px;
+    text-align: left;
+    text-transform: uppercase;
+    position: -webkit-sticky; /* for Safari */
+    font-size: 0.8rem;
+  `}
 `;
-export const Tbody = styled.tbody``;
+
+export const Tbody = styled.tbody`
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(170, 170, 170);
+  }
+`;
 
 export const TableRowBody = styled.tr`
-  font-size: 14px;
-  :hover {
-    opacity: 0.8;
-  }
-  :nth-child(even) {
-    background-color: #e6e8e978;
-  }
+  ${({ theme }) => css`
+    font-size: 14px;
+    box-shadow: 0px 0 0.5px 0.2px rgb(170, 170, 170);
+    color: ${theme.colors.white};
+    :hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  `}
 `;
 export const TableDataBody = styled.td`
-  padding: 5px 10px;
-  svg {
-    margin-left: 10px;
-    width: 12px;
-    cursor: pointer;
-  }
+  padding: 10px;
 `;
 
 export const TableDataBodyIcon = styled.td`

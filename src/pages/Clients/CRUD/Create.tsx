@@ -31,7 +31,7 @@ const Create: React.FC = () => {
     <View
       type="create"
       title="Dashboard - Cliente"
-      subtitle="Novo Cadastrado"
+      subtitle="Cadastro de Cliente"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}

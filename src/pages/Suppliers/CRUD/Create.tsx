@@ -22,8 +22,8 @@ const Create: React.FC = () => {
   return (
     <View
       type="create"
-      title="Fornecedor"
-      subtitle={`Novo`}
+      title="Dashboard - Fornecedor"
+      subtitle="Cadastro de Fornecedor"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}

@@ -27,8 +27,8 @@ const Details: React.FC = () => {
     <View
       type="details"
       client={client}
-      title="Detalhes"
-      subtitle={client?.name}
+      title="Dashboard - Cliente"
+      subtitle="Detalhes do Cliente"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}

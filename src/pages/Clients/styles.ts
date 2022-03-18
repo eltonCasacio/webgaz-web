@@ -1,17 +1,46 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: 13vh 1fr;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding-bottom: 10px;
 `;
 
+export const Content = styled.div`
+  background-color: #3cff00;
+  height: inherit;
+`;
+
 export const ContentHeader = styled.div`
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  border-radius: 10px;
-  background-color: transparent;
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    border-radius: 10px;
+    background-color: ${theme.colors.table};
+  `}
+`;
+
+export const Table = styled.div`
+  ${({ theme }) => css`
+    height: 73.5vh;
+    box-shadow: 0 0 5px 0.5px ${theme.colors.border};
+    margin-top: 15px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(170, 170, 170);
+    }
+  `}
 `;
 
 export const FilterWrapper = styled.div`
@@ -20,16 +49,7 @@ export const FilterWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 0px;
-`;
-
-export const Table = styled.div`
-  ${({ theme }) => css`
-    margin-top: 25px;
-    background-color: ${theme.colors.table};
-    border-radius: 2px;
-    box-shadow: 0 0 3px 0.5px ${theme.colors.border};
-  `}
+  padding: 30px 10px;
 `;
 
 export const Filter = styled.div`
