@@ -2,6 +2,10 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
 `;
 
 export const Content = styled.div`
@@ -10,19 +14,19 @@ export const Content = styled.div`
 `;
 
 export const ContentHeader = styled.div`
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  border-radius: 10px;
-  background-color: transparent;
-  padding-top: 10vh;
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    border-radius: 10px;
+    background-color: ${theme.colors.table};
+  `}
 `;
 
 export const Table = styled.div`
   ${({ theme }) => css`
-    margin-top: 10px;
-    height: 65vh;
+    height: 73.5vh;
     box-shadow: 0 0 5px 0.5px ${theme.colors.border};
-
+    margin-top: 15px;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -45,7 +49,7 @@ export const FilterWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 0px;
+  padding: 30px 10px;
 `;
 
 export const Filter = styled.div`

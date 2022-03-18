@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-bottom: 10px;
 `;
 
 export const ContentHeader = styled.div`
@@ -13,18 +14,20 @@ export const ContentHeader = styled.div`
 `;
 
 export const Form = styled.form`
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
   justify-content: space-between;
   padding: 25px;
   background-color: ${theme.colors.table};
   border-radius: 2px;
   box-shadow: 0 0 5px 0.5px ${theme.colors.border};
+  color: ${theme.colors.white};
 `;
 
 export const Input = styled.input`
-  border: solid 0.5px #bdbdbe;
+  border: none;
+  box-shadow: 0px 0 0.5px 0.5px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
   background-color: transparent;
@@ -54,9 +57,10 @@ export const Sintegra = styled.nav`
 export const TextArea = styled.textarea`
   width: 100%;
   resize: none;
-  border: solid 1px #bdbdbe;
+  box-shadow: 0px 0 0.5px 0.2px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
+  background-color: transparent;
 `;
 
 export const Line = styled.div<{ cols: string }>`
@@ -74,8 +78,7 @@ export const LineItem = styled.div`
 
 export const WrapperButtons = styled.div`
   display: flex;
-  justify-content: flex-end;
-
+  align-self: flex-end;
   button {
     margin-left: 5px;
   }
