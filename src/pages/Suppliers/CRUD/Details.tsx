@@ -27,8 +27,8 @@ const Details: React.FC = () => {
     <View
       type="details"
       suppliers={suppliers}
-      title="Detalhes"
-      subtitle={suppliers?.name}
+      title="Dashboard - Fornecedor"
+      subtitle="Detalhes do Fornecedor"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}

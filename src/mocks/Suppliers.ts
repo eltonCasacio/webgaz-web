@@ -8,6 +8,7 @@ export const Supplier = {
   uf: "SP",
   observation: "Observação",
   site: "site.com.br",
+  cep: "any_cep",
 };
 
 export const Suppliers = [
@@ -21,6 +22,7 @@ export const Suppliers = [
     uf: "SP",
     observation: "Observação",
     site: "site.com.br",
+    cep: "any_cep",
   },
   {
     name: "Roberto",
@@ -32,6 +34,7 @@ export const Suppliers = [
     uf: "SP",
     observation: "Observação",
     site: "site.com.br",
+    cep: "any_cep",
   },
   {
     name: "Daniel",
@@ -43,6 +46,7 @@ export const Suppliers = [
     uf: "SP",
     observation: "Observação",
     site: "site.com.br",
+    cep: "any_cep",
   },
   {
     name: "Casacio",
@@ -54,5 +58,6 @@ export const Suppliers = [
     uf: "SP",
     observation: "Observação",
     site: "site.com.br",
+    cep: "any_cep",
   },
 ];

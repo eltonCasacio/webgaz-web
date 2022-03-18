@@ -3,13 +3,13 @@ import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
 import { SuppliersType } from "../../types/suppliers";
-import { CrudNavigationProps} from "../../types/crudNavigation";
+import { CrudNavigationProps } from "../../types/crudNavigation";
 
-const HEADER = ["Nome", "CNPJ", "Email", "Site", "Telefone", ""];
+const HEADER = ["Código", "Nome", "Tipo", "Contato", "Email", "Status", ""];
 
 type PagintionProps = {
   suppliers: SuppliersType[];
-  functions: CrudNavigationProps
+  functions: CrudNavigationProps;
 };
 
 export const TableSuppliers: React.FC<PagintionProps> = (params) => {
@@ -22,19 +22,17 @@ export const TableSuppliers: React.FC<PagintionProps> = (params) => {
   );
 
   const makeRow = (item: SuppliersType) => (
-    <>
-      <S.TableRowBody key={item.cnpj}>
-        <S.TableDataBody>{item.name}</S.TableDataBody>
-        <S.TableDataBody>{item.cnpj}</S.TableDataBody>
-        <S.TableDataBody>{item.email}</S.TableDataBody>
-        <S.TableDataBody>{item.site}</S.TableDataBody>
-        <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
-        <S.TableDataBodyIcon>
-          <Eye size={15} onClick={() => params.functions.Details(item)} />
-          <Edit size={15} onClick={() => params.functions.Update(item)} />
-        </S.TableDataBodyIcon>
-      </S.TableRowBody>
-    </>
+    <S.TableRowBody key={item.cnpj}>
+      <S.TableDataBody>{item.name}</S.TableDataBody>
+      <S.TableDataBody>{item.cnpj}</S.TableDataBody>
+      <S.TableDataBody>{item.email}</S.TableDataBody>
+      <S.TableDataBody>{item.site}</S.TableDataBody>
+      <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
+      <S.TableDataBodyIcon>
+        <Eye size={15} onClick={() => params.functions.Details(item)} />
+        <Edit size={15} onClick={() => params.functions.Update(item)} />
+      </S.TableDataBodyIcon>
+    </S.TableRowBody>
   );
 
   return (

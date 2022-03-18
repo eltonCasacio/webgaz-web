@@ -8,4 +8,5 @@ export type SuppliersType = {
   uf: string;
   observation: string;
   site: string;
+  cep: string;
 };

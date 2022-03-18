@@ -3,7 +3,6 @@ import Header, { HeaderProps } from "../../components/header";
 import { Button, InputSearch, TableSuppliers } from "../../components";
 import { SuppliersType } from "../../types/suppliers";
 import { CrudNavigationProps } from "../../types/crudNavigation";
-import Pagination from "../../components/Pagination";
 
 export type ViewPropsFunctions = CrudNavigationProps;
 export type ViewProps = {
@@ -20,26 +19,28 @@ export type ViewProps = {
 const View: React.FC<ViewProps> = (props) => (
   <S.Wrapper>
     <Header title={props.title} subtitle={props.subtitle} />
+
     <S.ContentHeader>
-      <InputSearch callback={props.InputSearchChange} filter={props.filter} />
+      <S.FilterWrapper>
+        <S.Filter>
+          <InputSearch
+            callback={props.InputSearchChange}
+            filter={props.filter}
+          />
+        </S.Filter>
+        <Button
+          children="Novo"
+          size="medium"
+          callback={props.functions.Create}
+        />
+      </S.FilterWrapper>
+      <S.Table>
+        <TableSuppliers
+          suppliers={props.suppliers}
+          functions={props.functions}
+        />
+      </S.Table>
     </S.ContentHeader>
-    <Button
-      children="Novo"
-      size="small"
-      callback={() => props.functions.Create()}
-    />
-
-    <S.Table>
-      <TableSuppliers suppliers={props.suppliers} functions={props.functions} />
-    </S.Table>
-
-    <Pagination
-      limitPage={10}
-      pages={props.pages}
-      totalItems={props.totalSuppliers}
-      currentPage={props.currentPage}
-      setCurrentPage={props.setCurrentPage}
-    />
   </S.Wrapper>
 );
 

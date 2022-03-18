@@ -2,22 +2,32 @@ import styled, { css } from "styled-components";
 import theme from "../../../styles/theme";
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: 13vh 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export const ContentHeader = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Form = styled.form`
-  padding: 15px;
-  margin: 37px 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  padding: 25px;
   background-color: ${theme.colors.table};
   border-radius: 2px;
   box-shadow: 0 0 5px 0.5px ${theme.colors.border};
 `;
 
 export const Input = styled.input`
-  border: solid 1px #bdbdbe;
+  border: solid 0.5px #bdbdbe;
   border-radius: 3px;
   padding: 5px;
+  background-color: transparent;
 `;
 
 type LabelProps = {
@@ -31,6 +41,8 @@ export const Label = styled.label<LabelProps>`
 
 export const Sintegra = styled.nav`
   text-align: right;
+  margin: 10px;
+  margin-top: 53px;
   a {
     border-bottom: solid 1px #00000040;
     font-size: ${theme.font.sizes.xsmall};
@@ -42,6 +54,9 @@ export const Sintegra = styled.nav`
 export const TextArea = styled.textarea`
   width: 100%;
   resize: none;
+  border: solid 1px #bdbdbe;
+  border-radius: 3px;
+  padding: 5px;
 `;
 
 export const Line = styled.div<{ cols: string }>`
@@ -66,7 +81,21 @@ export const WrapperButtons = styled.div`
   }
 `;
 
-export const ContentHeader = styled.div`
-  display: grid;
-  grid-template-rows: 50px 1fr;
+export const List = styled.div`
+  max-height: 25vh;
+  margin-top: 30px;
+
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(170, 170, 170);
+  }
 `;

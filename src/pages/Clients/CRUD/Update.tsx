@@ -33,8 +33,8 @@ const Update: React.FC = () => {
     <View
       type="update"
       client={client}
-      title="Atualizar"
-      subtitle={client?.name}
+      title="Dashboard - Cliente"
+      subtitle="Atualizar Cadastro do Cliente"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}

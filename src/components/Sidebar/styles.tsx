@@ -12,6 +12,7 @@ export const Wrapper = styled.form<MenuProps>`
     background-color: ${theme.colors.sidebarBG};
     padding: 10px;
     padding-top: 11px;
+    box-shadow: 0 0 5px 0.5px ${theme.colors.border};
   `}
 `;
 

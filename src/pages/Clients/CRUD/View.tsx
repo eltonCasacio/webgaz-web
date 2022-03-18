@@ -17,18 +17,14 @@ const View: React.FC<ViewProps> = (props) => (
   <S.Wrapper>
     <Header title={props.title} subtitle={props.subtitle} />
 
-    <S.ContentHeader>
-      <S.Sintegra>
-        <a
-          href="http://www.sintegra.gov.br/"
-          target={"_blank"}
-          rel="noreferrer"
-        >
-          Acesse o Sintegra
-        </a>
-      </S.Sintegra>
+    <S.Sintegra>
+      <a href="http://www.sintegra.gov.br/" target={"_blank"} rel="noreferrer">
+        Acesse o Sintegra
+      </a>
+    </S.Sintegra>
 
-      <S.Form>
+    <S.Form>
+      <div>
         <S.Line cols="2fr 1fr">
           <S.LineItem>
             <S.Label htmlFor="name">Nome</S.Label>
@@ -156,8 +152,8 @@ const View: React.FC<ViewProps> = (props) => (
             onChange={(e) => props.updateFields(e.target.name, e.target.value)}
           />
         </S.Line>
-      </S.Form>
-
+      </div>
+      
       <S.WrapperButtons>
         {props.type !== "details" && (
           <Button
@@ -174,7 +170,7 @@ const View: React.FC<ViewProps> = (props) => (
           children={props.type !== "details" ? "Cancelar" : "Voltar"}
         />
       </S.WrapperButtons>
-    </S.ContentHeader>
+    </S.Form>
   </S.Wrapper>
 );
 

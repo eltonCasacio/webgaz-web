@@ -23,6 +23,7 @@ export const TableDataHeader = styled.th`
     font-size: 0.8rem;
   `}
 `;
+
 export const Tbody = styled.tbody`
   overflow: auto;
   &::-webkit-scrollbar {
