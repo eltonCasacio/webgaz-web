@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { SuppliersType } from "../../types/suppliers";
-import { Suppliers as SuppliersMock } from "../../mocks/Suppliers";
+import { useListSuppliers } from "./hooks/supplier.hook";
 
 const Suppliers: React.FC = () => {
   let navigate = useNavigate();
   const [suppliers, setSuppliers] = useState<SuppliersType[]>([]);
   const [filter, setFilter] = useState("");
-  const [pages, setPages] = useState<number[]>([]);
-  const [limitPage, setLimitPage] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const listSuppliers = useListSuppliers();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/suppliers/update", { state: value });
@@ -18,20 +16,17 @@ const Suppliers: React.FC = () => {
   functions.Create = () => navigate("/suppliers/create");
 
   useEffect(() => {
-    const totalPage = Math.ceil(suppliers.length / limitPage);
-    const arrayPages = [];
-    for (let i = 1; i <= totalPage; i++) {
-      arrayPages.push(i);
-    }
-
-    setPages(arrayPages);
-  }, [suppliers, limitPage]);
+    listSuppliers().then((suppliers) => {
+      setSuppliers(suppliers)
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     async function handleFilter() {
       let auxFilter = filter.toUpperCase();
 
-      const filtered = SuppliersMock.filter((item) => {
+      const filtered = suppliers.filter((item) => {
         return (
           item.name.toUpperCase().includes(auxFilter) ||
           item.cnpj.toUpperCase().includes(auxFilter) ||
@@ -45,15 +40,6 @@ const Suppliers: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
-  useEffect(() => {
-    async function run() {
-      // await api.get(`/Suppliers?page=${currentPage}&limit=${limitPage}`);
-    setSuppliers(SuppliersMock);
-    setLimitPage(10);
-    }
-
-    run();
-  }, []);
 
   return (
     <View
@@ -64,9 +50,6 @@ const Suppliers: React.FC = () => {
       filter={filter}
       suppliers={suppliers}
       totalSuppliers={suppliers.length}
-      pages={pages}
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
     />
   );
 };

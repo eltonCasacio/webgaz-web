@@ -128,13 +128,13 @@ const View: React.FC<ViewProps> = (props) => (
           </S.LineItem>
 
           <S.LineItem>
-            <S.Label htmlFor="number">Numero</S.Label>
+            <S.Label htmlFor="uf">UF</S.Label>
             <S.Input
               disabled={props.type === "details"}
               type="text"
-              name="number"
-              id="number"
-              value={props.client?.number}
+              name="uf"
+              id="uf"
+              value={props.client?.uf}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }

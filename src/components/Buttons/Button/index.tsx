@@ -20,6 +20,7 @@ const Button = ({
   callback,
 }: ButtonProps) => (
   <S.Wrapper
+    type="button"
     size={size}
     fullWidth={fullWidth}
     hasIcon={!!icon}

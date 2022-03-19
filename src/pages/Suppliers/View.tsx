@@ -11,9 +11,6 @@ export type ViewProps = {
   filter: string;
   suppliers: SuppliersType[];
   totalSuppliers: number;
-  pages: number[];
-  currentPage: number;
-  setCurrentPage: (value: number) => void;
 } & HeaderProps;
 
 const View: React.FC<ViewProps> = (props) => (
