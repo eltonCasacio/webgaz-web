@@ -19,6 +19,7 @@ const Clients: React.FC = () => {
     listClients().then((listClients) => {
       setClients(listClients)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

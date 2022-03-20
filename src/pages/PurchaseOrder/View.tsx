@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
-import { Button, InputSearch, TableSuppliers } from "../../components";
-import { SuppliersType } from "../../types/suppliers";
+import { Button, InputSearch, TablePurchaseOrder } from "../../components";
+import { PurchaseOrderType } from "../../types";
 import { CrudNavigationProps } from "../../types/crudNavigation";
 
 export type ViewPropsFunctions = CrudNavigationProps;
@@ -9,8 +9,7 @@ export type ViewProps = {
   functions: ViewPropsFunctions;
   InputSearchChange: any;
   filter: string;
-  suppliers: SuppliersType[];
-  totalSuppliers: number;
+  purchaseOrder: PurchaseOrderType[];
 } & HeaderProps;
 
 const View: React.FC<ViewProps> = (props) => (
@@ -25,15 +24,10 @@ const View: React.FC<ViewProps> = (props) => (
             filter={props.filter}
           />
         </S.Filter>
-        <Button
-          children="Novo"
-          size="medium"
-          callback={props.functions.Create}
-        />
       </S.FilterWrapper>
       <S.Table>
-        <TableSuppliers
-          suppliers={props.suppliers}
+        <TablePurchaseOrder
+          purchaseOrder={props.purchaseOrder}
           functions={props.functions}
         />
       </S.Table>

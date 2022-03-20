@@ -7,6 +7,7 @@ export type ButtonProps = {
   icon?: React.ReactNode;
   color?: "#fff" | "#000" | "#0b7bb8";
   bgColor?: "#867AD2" | "#64E384" | "#D57176";
+  type?: "button" | "submit";
   callback?: () => void;
 };
 
@@ -17,9 +18,11 @@ const Button = ({
   fullWidth = false,
   color = "#fff",
   bgColor = "#867AD2",
+  type = "submit",
   callback,
 }: ButtonProps) => (
   <S.Wrapper
+    type={type}
     size={size}
     fullWidth={fullWidth}
     hasIcon={!!icon}

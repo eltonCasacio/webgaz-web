@@ -1,22 +1,22 @@
 import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { SuppliersType } from "../../../types/suppliers";
-import { useCreateSupplier } from "../hooks/supplier.hook";
+import { PurchaseOrderType } from "../../../types";
+import { useCreatePurchaseOrder } from "../hooks/purchaseOrder.hook";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
-  const [supplier, setSupplier] = useState({} as SuppliersType);
-  const createSupplier = useCreateSupplier();
+  const [purchaseOrder, setPurchaseOrder] = useState({} as PurchaseOrderType);
+  const createPurchaseOrder = useCreatePurchaseOrder();
 
   function cancel() {
-    navigate("/suppliers");
+    navigate("/purchaseorder");
   }
 
   function confirm() {
-    createSupplier(supplier)
+    createPurchaseOrder(purchaseOrder)
     .then(() => {
-      navigate("/suppliers");
+      navigate("/purchaseorder");
     })
     .catch((error) => {
       console.log('error', error)
@@ -24,14 +24,14 @@ const Create: React.FC = () => {
   }  
 
   function updateFields(name: string, value: string) {
-    setSupplier({ ...supplier, [name]: value });
+    setPurchaseOrder({ ...purchaseOrder, [name]: value });
   }
 
   return (
     <View
       type="create"
-      title="Dashboard - Fornecedor"
-      subtitle="Cadastro de Fornecedor"
+      title="Dashboard - Pedidos"
+      subtitle="Cadastro de Pedidos"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}

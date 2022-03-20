@@ -1,22 +1,22 @@
 import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { SuppliersType } from "../../../types/suppliers";
-import { useCreateSupplier } from "../hooks/supplier.hook";
+import { FuelStationType } from "../../../types";
+import { useCreateFuelStation } from "../hooks/fuelstation.hook";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
-  const [supplier, setSupplier] = useState({} as SuppliersType);
-  const createSupplier = useCreateSupplier();
+  const [supplier, setSupplier] = useState({} as FuelStationType);
+  const createFuelStation = useCreateFuelStation();
 
   function cancel() {
-    navigate("/suppliers");
+    navigate("/fuelstation");
   }
 
   function confirm() {
-    createSupplier(supplier)
+    createFuelStation(supplier)
     .then(() => {
-      navigate("/suppliers");
+      navigate("/fuelstation");
     })
     .catch((error) => {
       console.log('error', error)
