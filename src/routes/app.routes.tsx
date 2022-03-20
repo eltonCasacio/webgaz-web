@@ -25,6 +25,27 @@ import {
   SuppliersCreate,
 } from "../pages/Suppliers/CRUD";
 
+import FuelStation from "../pages/FuelStation";
+import {
+  FuelStationDetails,
+  FuelStationUpdate,
+  FuelStationCreate,
+} from "../pages/FuelStation/CRUD";
+
+import PurchaseOrder from "../pages/PurchaseOrder";
+import {
+  PurchaseOrderCreate,
+  PurchaseOrderDetails,
+  PurchaseOrderUpdate,
+} from "../pages/PurchaseOrder/CRUD";
+
+import CustomPrice from "../pages/CustomPrice";
+import {
+  CustomPriceCreate,
+  CustomPriceDetails,
+  CustomPriceUpdate,
+} from "../pages/CustomPrice/CRUD";
+
 import Shippings from "../pages/Shippings";
 import { ShippingDetails, ShippingUpdate } from "../pages/Shippings/CRUD";
 
@@ -58,6 +79,21 @@ const authRoutes: React.FC = () => {
       <Route path="/shippings" element={<Shippings />} />
       <Route path="/shippings/details" element={<ShippingDetails />} />
       <Route path="/shippings/update" element={<ShippingUpdate />} />
+
+      <Route path="/fuelstation" element={<FuelStation />} />
+      <Route path="/fuelstation/details" element={<FuelStationDetails />} />
+      <Route path="/fuelstation/update" element={<FuelStationUpdate />} />
+      <Route path="/fuelstation/create" element={<FuelStationCreate />} />
+
+      <Route path="/purchaseorder" element={<PurchaseOrder />} />
+      <Route path="/purchaseorder/details" element={<PurchaseOrderDetails />} />
+      <Route path="/purchaseorder/update" element={<PurchaseOrderUpdate />} />
+      <Route path="/purchaseorder/create" element={<PurchaseOrderCreate />} />
+
+      <Route path="/customprice" element={<CustomPrice />} />
+      <Route path="/customprice/details" element={<CustomPriceDetails />} />
+      <Route path="/customprice/update" element={<CustomPriceUpdate />} />
+      <Route path="/customprice/create" element={<CustomPriceCreate />} />            
 
       <Route path="/reports" element={<Reports />} />
       <Route path="/settings" element={<Settings />} />
