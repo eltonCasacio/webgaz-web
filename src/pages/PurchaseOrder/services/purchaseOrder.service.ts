@@ -10,4 +10,8 @@ const createPurchaseOrderService = async (purchaseorder: PurchaseOrderType): Pro
   await API.post("purchase-order", purchaseorder);
 }
 
-export { listPurchaseOrderService, createPurchaseOrderService }
+const cancelPurchaseOrderService = async (purchaseorderId: number): Promise<void> => {
+  await API.put(`purchase-order/cancel/${purchaseorderId}`);
+}
+
+export { listPurchaseOrderService, createPurchaseOrderService, cancelPurchaseOrderService }

@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
-import View, { ViewPropsFunctions } from "./View";
 import { PurchaseOrderType } from "../../types";
-import { useListPurchaseOrders } from "./hooks/purchaseOrder.hook";
+import { useListPurchaseOrders, useCancelPurchaseOrder } from "./hooks/purchaseOrder.hook";
+import View, { ViewPropsFunctions } from "./View";
 
 const PurchaseOrder: React.FC = () => {
   let navigate = useNavigate();
   const [purchaseOrder, setfuelStation] = useState<PurchaseOrderType[]>([]);
   const [filter, setFilter] = useState("");
   const listfuelStation = useListPurchaseOrders();
+  const cancelPurchaseOrder = useCancelPurchaseOrder();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/purchaseorder/update", { state: value });
   functions.Details = (value) => navigate("/purchaseorder/details", { state: value });
   functions.Create = () => navigate("/purchaseorder/create");
+  functions.Cancel = (id: number) => handleCancelPurchaseOrder(id)
 
   useEffect(() => {
-    listfuelStation().then((purchaseOrder) => {
-      setfuelStation(purchaseOrder)
-    })
+    handleLoadOrders();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -39,16 +41,33 @@ const PurchaseOrder: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
+  const handleLoadOrders = () => {
+    listfuelStation().then((purchaseOrder) => {
+      setfuelStation(purchaseOrder)
+    })    
+  }
+
+  const handleCancelPurchaseOrder = (purchaseOrderId: number) => {
+    cancelPurchaseOrder(purchaseOrderId).then(() => {
+      handleLoadOrders();
+      toast.success("Pedido cancelado com sucesso.");
+    }).catch(() => {
+      toast.error("Erro ao cancelar o pedido.");
+    })
+  }
 
   return (
-    <View
-    title="Dashboard - Pedidos"
-    subtitle="Pedidos Cadastrados"
-      functions={functions}
-      InputSearchChange={setFilter}
-      filter={filter}
-      purchaseOrder={purchaseOrder}
-    />
+    <>
+      <View
+      title="Dashboard - Pedidos"
+      subtitle="Pedidos Cadastrados"
+        functions={functions}
+        InputSearchChange={setFilter}
+        filter={filter}
+        purchaseOrder={purchaseOrder}
+      />
+      <ToastContainer />    
+    </>
   );
 };
 

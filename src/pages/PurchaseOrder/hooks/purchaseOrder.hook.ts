@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import { listPurchaseOrderService, createPurchaseOrderService } from "../services/purchaseOrder.service";
+import { listPurchaseOrderService, createPurchaseOrderService, cancelPurchaseOrderService } from "../services/purchaseOrder.service";
 import { PurchaseOrderType } from "../../../types";
-import { HookList, HookSave } from "./purchaseOrder.types";
+import { HookList, HookSave, HookCancel } from "./purchaseOrder.types";
 
 const useListPurchaseOrders: HookList = () => {
   return useCallback(
@@ -21,4 +21,13 @@ const useCreatePurchaseOrder: HookSave = () => {
   )
 };
 
-export { useListPurchaseOrders, useCreatePurchaseOrder }
+const useCancelPurchaseOrder: HookCancel = () => {
+  return useCallback(
+    async (purchaseOrderId: number) => {
+      await cancelPurchaseOrderService(purchaseOrderId);
+    },
+    []
+  )
+};
+
+export { useListPurchaseOrders, useCreatePurchaseOrder, useCancelPurchaseOrder }

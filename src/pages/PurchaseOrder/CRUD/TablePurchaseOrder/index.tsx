@@ -31,7 +31,7 @@ export const TablePurchaseOrder: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.status}</S.TableDataBody>
       <S.TableDataBodyIcon>
         <Eye title="Detalhes" size={15} onClick={() => params.functions.Details(item)} />
-        <Cancel title="Cancelar" size={15} onClick={() => alert("Implementar comportamento de cancelar")} />
+        <Cancel title="Cancelar" size={15} onClick={() => params.functions.Cancel(item.id)} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );
