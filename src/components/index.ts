@@ -5,7 +5,6 @@ import { TableClients } from "./TableClients";
 import { TableProducts } from "./TableProducts";
 import { TableUsers } from "./TableUsers";
 import { TableSuppliers } from "./TableSuppliers";
-import { TableFuelStation } from "./TableFuelStation";
 import { TablePurchaseOrder } from "../pages/PurchaseOrder/CRUD/TablePurchaseOrder"
 import { Card } from "./Cards";
 import Base from "./Base";
@@ -23,6 +22,5 @@ export {
   TableProducts,
   TableUsers,
   TableSuppliers,
-  TableFuelStation,
   TablePurchaseOrder
 };
