@@ -1,32 +1,32 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { SuppliersType } from "../../../types/suppliers";
+import { FuelStationType } from "../../../types";
 
 const Details: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [suppliers, setSuppliers] = useState({} as SuppliersType);
+  const [fuelStation, setFuelStation] = useState({} as FuelStationType);
 
   function cancel() {
-    navigate("/suppliers");
+    navigate("/fuelstation");
   }
 
   function confirm() {}
 
   useEffect(() => {
-    setSuppliers(location.state);
+    setFuelStation(location.state);
   }, [location]);
 
   function updateFields(name: string, value: string) {
-    setSuppliers({ ...suppliers, [name]: value });
+    setFuelStation({ ...fuelStation, [name]: value });
   }
 
   return (
     <View
       type="details"
-      suppliers={suppliers}
+      fuelStation={fuelStation}
       title="Dashboard - Fornecedor"
       subtitle="Detalhes do Fornecedor"
       cancel={cancel}

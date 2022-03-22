@@ -12,7 +12,7 @@ type PagintionProps = {
   functions: CrudNavigationProps;
 };
 
-export const TableFuelStation: React.FC<PagintionProps> = (params) => {
+export const TableCustomPrice: React.FC<PagintionProps> = (params) => {
   const makeHeader = () => (
     <S.TableRowHeader>
       {HEADER.map((item) => (

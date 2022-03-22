@@ -1,7 +1,8 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
-import { Button, InputSearch, TableFuelStation } from "../../components";
-import { FuelStationType } from "../../types";
+import { Button, InputSearch } from "../../components";
+import { TableCustomPrice } from "../../components/TableCustomPrice"
+import { CustomPriceType } from "../../types";
 import { CrudNavigationProps } from "../../types/crudNavigation";
 
 export type ViewPropsFunctions = CrudNavigationProps;
@@ -9,8 +10,7 @@ export type ViewProps = {
   functions: ViewPropsFunctions;
   InputSearchChange: any;
   filter: string;
-  fuelStation: FuelStationType[];
-  totalFuelStations: number;
+  customPrice: CustomPriceType[];
 } & HeaderProps;
 
 const View: React.FC<ViewProps> = (props) => (
@@ -32,8 +32,8 @@ const View: React.FC<ViewProps> = (props) => (
         />
       </S.FilterWrapper>
       <S.Table>
-        <TableFuelStation
-          fuelStation={props.fuelStation}
+        <TableCustomPrice
+          customPrice={props.customPrice}
           functions={props.functions}
         />
       </S.Table>

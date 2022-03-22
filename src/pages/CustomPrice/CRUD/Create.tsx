@@ -1,20 +1,20 @@
 import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { FuelStationType } from "../../../types";
-import { useCreateFuelStation } from "../hooks/fuelstation.hook";
+import { CustomPriceType } from "../../../types";
+import { useCreateCustomPrice } from "../hooks/customPrice.hook";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
-  const [supplier, setSupplier] = useState({} as FuelStationType);
-  const createFuelStation = useCreateFuelStation();
+  const [customPrice, setCustomPrice] = useState({} as CustomPriceType);
+  const createFuelStation = useCreateCustomPrice();
 
   function cancel() {
     navigate("/fuelstation");
   }
 
   function confirm() {
-    createFuelStation(supplier)
+    createFuelStation(customPrice)
     .then(() => {
       navigate("/fuelstation");
     })
@@ -24,7 +24,7 @@ const Create: React.FC = () => {
   }  
 
   function updateFields(name: string, value: string) {
-    setSupplier({ ...supplier, [name]: value });
+    setCustomPrice({ ...customPrice, [name]: value });
   }
 
   return (

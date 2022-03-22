@@ -11,9 +11,9 @@ const FuelStation: React.FC = () => {
   const listfuelStation = useListFuelStations();
 
   const functions = {} as ViewPropsFunctions;
-  functions.Update = (value) => navigate("/fuelStation/update", { state: value });
-  functions.Details = (value) => navigate("/fuelStation/details", { state: value });
-  functions.Create = () => navigate("/fuelStation/create");
+  functions.Update = (value) => navigate("/fuelstation/update", { state: value });
+  functions.Details = (value) => navigate("/fuelstation/details", { state: value });
+  functions.Create = () => navigate("/fuelstation/create");
 
   useEffect(() => {
     listfuelStation().then((fuelStation) => {

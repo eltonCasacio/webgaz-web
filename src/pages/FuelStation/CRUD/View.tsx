@@ -1,10 +1,10 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { SuppliersType } from "../../../types/suppliers";
+import { FuelStationType } from "../../../types";
 import { Button } from "../../../components";
 
 type ViewProps = {
-  suppliers?: SuppliersType;
+  fuelStation?: FuelStationType;
   type: "update" | "details" | "create";
   cancel: () => void;
   confirm: () => void;
@@ -31,7 +31,7 @@ const View: React.FC<ViewProps> = (props) => (
               type="text"
               name="name"
               id="name"
-              value={props.suppliers?.name}
+              value={props.fuelStation?.name}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
@@ -44,7 +44,7 @@ const View: React.FC<ViewProps> = (props) => (
               type="text"
               name="cnpj"
               id="cnpj"
-              value={props.suppliers?.cnpj}
+              value={props.fuelStation?.cnpj}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
@@ -60,7 +60,7 @@ const View: React.FC<ViewProps> = (props) => (
               type="text"
               name="email"
               id="email"
-              value={props.suppliers?.email}
+              value={props.fuelStation?.email}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
@@ -74,7 +74,7 @@ const View: React.FC<ViewProps> = (props) => (
               type="text"
               name="phoneNumber"
               id="phoneNumber"
-              value={props.suppliers?.phoneNumber}
+              value={props.fuelStation?.telephone}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
@@ -90,7 +90,7 @@ const View: React.FC<ViewProps> = (props) => (
               type="text"
               name="cep"
               id="cep"
-              value={props.suppliers?.cep}
+              value={props.fuelStation?.cep}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
@@ -104,7 +104,7 @@ const View: React.FC<ViewProps> = (props) => (
               type="text"
               name="city"
               id="city"
-              value={props.suppliers?.city}
+              value={props.fuelStation?.city}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
@@ -112,13 +112,13 @@ const View: React.FC<ViewProps> = (props) => (
           </S.LineItem>
 
           <S.LineItem>
-            <S.Label htmlFor="uf">UF</S.Label>
+            <S.Label htmlFor="uf">CEP</S.Label>
             <S.Input
               disabled={props.type === "details"}
               type="text"
               name="uf"
               id="uf"
-              value={props.suppliers?.uf}
+              value={props.fuelStation?.cep}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
@@ -128,29 +128,18 @@ const View: React.FC<ViewProps> = (props) => (
 
         <S.Line cols="1fr">
           <S.LineItem>
-            <S.Label htmlFor="address">Endereço</S.Label>
+            <S.Label htmlFor="address">Bairro</S.Label>
             <S.Input
               disabled={props.type === "details"}
               type="text"
               name="address"
               id="address"
-              value={props.suppliers?.address}
+              value={props.fuelStation?.district}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
             />
           </S.LineItem>
-        </S.Line>
-
-        <S.Line cols="1fr">
-          <S.TextArea
-            disabled={props.type === "details"}
-            name="observation"
-            placeholder="Observação"
-            rows={5}
-            value={props.suppliers?.observation}
-            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
-          />
         </S.Line>
       </div>
       <S.WrapperButtons>
