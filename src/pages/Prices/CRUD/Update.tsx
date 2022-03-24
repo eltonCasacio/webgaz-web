@@ -1,13 +1,13 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ProductType } from "../../../types/product";
+import { SupplierPricesType } from "../../../types";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [product, setProduct] = useState({} as ProductType);
+  const [prices, setPrices] = useState({} as SupplierPricesType);
 
   function cancel() {
     navigate("/products");
@@ -16,20 +16,19 @@ const Update: React.FC = () => {
   function confirm() {}
 
   function updateFields(name: string, value: string) {
-    console.log("UPDATE FIELDS", name, value);
-    setProduct({ ...product, [name]: value });
+    setPrices({ ...prices, [name]: value });
   }
 
   useEffect(() => {
-    setProduct(location.state);
+    setPrices(location.state);
   }, [location]);
 
   return (
     <View
       type="update"
-      product={product}
+      prices={prices}
       title="Atualizar"
-      subtitle={product?.suppliers}
+      subtitle={prices?.fuelType}
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}

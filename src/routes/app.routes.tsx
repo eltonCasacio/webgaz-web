@@ -8,12 +8,12 @@ import {
   ClientCreate,
 } from "../pages/Clients/CRUD";
 
-import Products from "../pages/Products";
+import Prices from "../pages/Prices";
 import {
-  ProductDetails,
-  ProductUpdate,
-  ProductCreate,
-} from "../pages/Products/CRUD";
+  PriceDetails,
+  PriceUpdate,
+  PriceCreate,
+} from "../pages/Prices/CRUD";
 
 import Users from "../pages/Users";
 import { UserDetails, UserUpdate, UserCreate } from "../pages/Users/CRUD";
@@ -61,10 +61,10 @@ const authRoutes: React.FC = () => {
       <Route path="/clients/update" element={<ClientUpdate />} />
       <Route path="/clients/create" element={<ClientCreate />} />
 
-      <Route path="/products" element={<Products />} />
-      <Route path="/products/details" element={<ProductDetails />} />
-      <Route path="/products/update" element={<ProductUpdate />} />
-      <Route path="/products/create" element={<ProductCreate />} />
+      <Route path="/products" element={<Prices />} />
+      <Route path="/products/details" element={<PriceDetails />} />
+      <Route path="/products/update" element={<PriceUpdate />} />
+      <Route path="/products/create" element={<PriceCreate />} />
 
       <Route path="/users" element={<Users />} />
       <Route path="/users/details" element={<UserDetails />} />

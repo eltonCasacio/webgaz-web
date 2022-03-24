@@ -1,35 +1,34 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-import { ProductType } from "../../../types/product";
+import { SupplierPricesType } from "../../../types";
 
 const Details: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [product, setProduct] = useState({} as ProductType);
+  const [prices, setPrices] = useState({} as SupplierPricesType);
 
   function cancel() {
-    navigate("/products");
+    navigate("/supplier-prices");
   }
 
   function confirm() {}
 
-  function updateFields(name: string, value: string) {
-    setProduct({ ...product, [name]: value });
-  }
-
   useEffect(() => {
-    setProduct(location.state);
+    setPrices(location.state);
   }, [location]);
+
+  function updateFields(name: string, value: string) {
+    setPrices({ ...prices, [name]: value });
+  }
 
   return (
     <View
       type="details"
-      product={product}
-      subtitle={product?.suppliers}
-      title="Produtos"
+      prices={prices}
+      title="Dashboard - Fornecedor"
+      subtitle="Detalhes do Fornecedor"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}

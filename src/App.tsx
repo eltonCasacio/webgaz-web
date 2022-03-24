@@ -4,17 +4,21 @@ import GlobalStyles from "./styles/global";
 import Theme from "./styles/theme";
 import Routes from "./routes";
 import { AuthProvider } from "./context/auth";
+import { ToastContainerCustom } from "./components/Toast";
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <ThemeProvider theme={Theme}>
-          <GlobalStyles />
-          <Routes />
-        </ThemeProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <AuthProvider>
+          <ThemeProvider theme={Theme}>
+            <GlobalStyles />
+            <Routes />
+          </ThemeProvider>
+        </AuthProvider>
+      </BrowserRouter>    
+      <ToastContainerCustom />
+    </>
   );
 };
 

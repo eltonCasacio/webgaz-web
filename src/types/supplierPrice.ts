@@ -1,8 +1,7 @@
-export type FuelType = 'GASOLINA' | 'ETANOL'
-export type PaymentType = 'ANTECIPADO' | 'AVISTA' | '7DIAS' | '10DIAS'
-export type DeliveryType = 'RETIRADA' | 'COLACADO'
+import { FuelType, PaymentType, DeliveryType } from "."
 
-export type SupplierPricesModel = {
+export type SupplierPricesType = {
+  id: number
   fuelType: FuelType
   paymentType: PaymentType
   deliveryType: DeliveryType
