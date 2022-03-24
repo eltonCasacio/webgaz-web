@@ -2,7 +2,6 @@ import { ForgotPassword, FormWrapper } from "./Form";
 import { Button, ButtonSearch } from "./Buttons";
 import { Input, InputSearch } from "./Inputs";
 import { TableClients } from "./TableClients";
-import { TableProducts } from "./TableProducts";
 import { TableUsers } from "./TableUsers";
 import { TableSuppliers } from "./TableSuppliers";
 import { TablePurchaseOrder } from "../pages/PurchaseOrder/CRUD/TablePurchaseOrder"
@@ -19,7 +18,6 @@ export {
   ForgotPassword,
   FormWrapper,
   TableClients,
-  TableProducts,
   TableUsers,
   TableSuppliers,
   TablePurchaseOrder

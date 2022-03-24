@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
 import { PurchaseOrderType } from "../../types";
 import { useListPurchaseOrders, useCancelPurchaseOrder } from "./hooks/purchaseOrder.hook";
@@ -57,17 +56,14 @@ const PurchaseOrder: React.FC = () => {
   }
 
   return (
-    <>
-      <View
-      title="Dashboard - Pedidos"
-      subtitle="Pedidos Cadastrados"
-        functions={functions}
-        InputSearchChange={setFilter}
-        filter={filter}
-        purchaseOrder={purchaseOrder}
-      />
-      <ToastContainer />    
-    </>
+    <View
+    title="Dashboard - Pedidos"
+    subtitle="Pedidos Cadastrados"
+      functions={functions}
+      InputSearchChange={setFilter}
+      filter={filter}
+      purchaseOrder={purchaseOrder}
+    /> 
   );
 };
 

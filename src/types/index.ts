@@ -9,3 +9,4 @@ export * from "./user"
 export * from './fuelStation'
 export * from "./purchaseOrder"
 export * from "./customPrice"
+export * from "./supplierPrice"
