@@ -1,11 +1,12 @@
 import * as S from "./styles";
 import { DeliveryTypeList, FuelTypeList, PaymentTypeList } from "../../../domain/defaultData";
 import Header, { HeaderProps } from "../../../components/header";
-import { SupplierPricesType } from "../../../types";
+import { SupplierPricesType, SuppliersType } from "../../../types";
 import { Button } from "../../../components";
 
 type ViewProps = {
   prices?: SupplierPricesType;
+  suppliers?: SuppliersType[];
   type: "update" | "details" | "create";
   cancel: () => void;
   confirm: () => void;
@@ -116,16 +117,22 @@ const View: React.FC<ViewProps> = (props) => (
           </S.LineItem>
           <S.LineItem>
             <S.Label htmlFor="supplierId">Fornecedor</S.Label>
-            <S.Input
+            <S.InputSelect
               disabled={props.type === "details"}
-              type="text"
               name="supplierId"
               id="supplierId"
               value={props.prices?.supplierId?.toString()}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
-            />
+            >
+              <S.InputSelectOption value=""></S.InputSelectOption>
+              {
+                props.suppliers?.map((supplier) => (
+                  <S.InputSelectOption value={supplier.id}>{supplier.name}</S.InputSelectOption>
+                ))
+              }
+            </S.InputSelect>            
           </S.LineItem>          
         </S.Line>
       </div>

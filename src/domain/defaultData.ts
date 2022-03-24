@@ -13,6 +13,6 @@ export const PaymentTypeList: PaymentType[] = [
 ];
 
 export const DeliveryTypeList: DeliveryType[] = [
-  "COLACADO",
+  "COLOCADO",
   "RETIRADA"
 ];

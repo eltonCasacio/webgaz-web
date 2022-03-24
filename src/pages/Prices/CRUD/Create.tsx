@@ -1,14 +1,23 @@
-import { useState } from "react";
-import { toast, ToastContainerCustom } from "../../../components/Toast";
+import { useEffect, useState } from "react";
+import { toast } from "../../../components/Toast";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { SupplierPricesType } from "../../../types";
+import { SupplierPricesType, SuppliersType } from "../../../types";
 import { useCreatePrice } from "../hooks/prices.hook";
+import { useListSuppliers } from "../../Suppliers/hooks/supplier.hook";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
   const [prices, setPrice] = useState({} as SupplierPricesType);
   const createPrice = useCreatePrice();
+  const [suppliers, setSuppliers] = useState<SuppliersType[]>([]);
+  const listSuppliers = useListSuppliers();
+
+  useEffect(() => {
+    listSuppliers().then((suppliers) => {
+      setSuppliers(suppliers);
+    }).catch(() => toast.error("Não foi possível carregar os fornecedores"));
+  }, []);
 
   function cancel() {
     navigate("/products");
@@ -37,6 +46,7 @@ const Create: React.FC = () => {
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}
+      suppliers={suppliers}
     /> 
   );
 };

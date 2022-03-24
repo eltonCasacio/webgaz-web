@@ -1,13 +1,27 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { SupplierPricesType } from "../../../types";
+import { SupplierPricesType, SuppliersType } from "../../../types";
+import { useListSuppliers } from "../../Suppliers/hooks/supplier.hook";
+import { toast } from "../../../components/Toast";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
+  const [suppliers, setSuppliers] = useState<SuppliersType[]>([]);
+  const listSuppliers = useListSuppliers();
 
   const [prices, setPrices] = useState({} as SupplierPricesType);
+
+  useEffect(() => {
+    setPrices(location.state);
+  }, [location]);
+
+  useEffect(() => {
+    listSuppliers().then((suppliers) => {
+      setSuppliers(suppliers);
+    }).catch(() => toast.error("Não foi possível carregar os fornecedores"));
+  }, []);
 
   function cancel() {
     navigate("/products");
@@ -19,14 +33,11 @@ const Update: React.FC = () => {
     setPrices({ ...prices, [name]: value });
   }
 
-  useEffect(() => {
-    setPrices(location.state);
-  }, [location]);
-
   return (
     <View
       type="update"
       prices={prices}
+      suppliers={suppliers}
       title="Atualizar"
       subtitle={prices?.fuelType}
       cancel={cancel}
