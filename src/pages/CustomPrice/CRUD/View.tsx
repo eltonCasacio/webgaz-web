@@ -1,10 +1,12 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { SuppliersType } from "../../../domain/types/suppliers";
+import { CustomPriceType, FuelStationType } from "../../../domain/types";
 import { Button } from "../../../components";
+import { DeliveryTypeList, FuelTypeList, PaymentTypeList } from "../../../domain/defaultData";
 
 type ViewProps = {
-  suppliers?: SuppliersType;
+  customPrice?: CustomPriceType;
+  fuelStation?: FuelStationType[];
   type: "update" | "details" | "create";
   cancel: () => void;
   confirm: () => void;
@@ -22,135 +24,104 @@ const View: React.FC<ViewProps> = (props) => (
     </S.Sintegra>
 
     <S.Form>
-      <div>
-        <S.Line cols="2fr 1fr">
+    <div>
+        <S.Line cols="1fr 1fr 1fr">
           <S.LineItem>
-            <S.Label htmlFor="name">Nome</S.Label>
-            <S.Input
+            <S.Label htmlFor="fuelType">Tipo Combustivel</S.Label>
+            <S.InputSelect
               disabled={props.type === "details"}
-              type="text"
-              name="name"
-              id="name"
-              value={props.suppliers?.name}
+              name="fuelType"
+              id="fuelType"
+              value={props.customPrice?.fuelType}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
-            />
-          </S.LineItem>
-          <S.LineItem>
-            <S.Label htmlFor="cnpj">CNPJ</S.Label>
-            <S.Input
-              disabled={props.type === "details"}
-              type="text"
-              name="cnpj"
-              id="cnpj"
-              value={props.suppliers?.cnpj}
-              onChange={(e) =>
-                props.updateFields(e.target.name, e.target.value)
+            >
+              <S.InputSelectOption value=""></S.InputSelectOption>
+              {
+                FuelTypeList.map((fuelType) => (
+                  <S.InputSelectOption value={fuelType}>{fuelType}</S.InputSelectOption>
+                ))
               }
-            />
-          </S.LineItem>
-        </S.Line>
-
-        <S.Line cols="2fr 1fr">
-          <S.LineItem>
-            <S.Label htmlFor="email">E-mail</S.Label>
-            <S.Input
-              disabled={props.type === "details"}
-              type="text"
-              name="email"
-              id="email"
-              value={props.suppliers?.email}
-              onChange={(e) =>
-                props.updateFields(e.target.name, e.target.value)
-              }
-            />
+            </S.InputSelect>
           </S.LineItem>
 
           <S.LineItem>
-            <S.Label htmlFor="phoneNumber">Telefone</S.Label>
-            <S.Input
+            <S.Label htmlFor="paymentType">Tipo Pagamento</S.Label>
+            <S.InputSelect
               disabled={props.type === "details"}
-              type="text"
-              name="phoneNumber"
-              id="phoneNumber"
-              value={props.suppliers?.phoneNumber}
+              name="paymentType"
+              id="paymentType"
+              value={props.customPrice?.paymentType}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
-            />
+            >
+              <S.InputSelectOption value=""></S.InputSelectOption>
+              {
+                PaymentTypeList.map((paymentType) => (
+                  <S.InputSelectOption value={paymentType}>{paymentType}</S.InputSelectOption>
+                ))
+              }
+            </S.InputSelect>
+          </S.LineItem>
+
+          <S.LineItem>
+            <S.Label htmlFor="deliveryType">Tipo Entrega</S.Label>
+            <S.InputSelect
+              disabled={props.type === "details"}
+              name="deliveryType"
+              id="deliveryType"
+              value={props.customPrice?.deliveryType}
+              onChange={(e) =>
+                props.updateFields(e.target.name, e.target.value)
+              }
+            >
+              <S.InputSelectOption value=""></S.InputSelectOption>
+              {
+                DeliveryTypeList.map((deliveryType) => (
+                  <S.InputSelectOption value={deliveryType}>{deliveryType}</S.InputSelectOption>
+                ))
+              }
+            </S.InputSelect>
           </S.LineItem>
         </S.Line>
 
         <S.Line cols="1fr 1fr 1fr">
           <S.LineItem>
-            <S.Label htmlFor="cep">Cep</S.Label>
+            <S.Label htmlFor="price">Preço Promocional</S.Label>
             <S.Input
               disabled={props.type === "details"}
               type="text"
-              name="cep"
-              id="cep"
-              value={props.suppliers?.cep}
+              name="price"
+              id="price"
+              value={props.customPrice?.price?.toString()}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
             />
           </S.LineItem>
-
+    
           <S.LineItem>
-            <S.Label htmlFor="city">Cidade</S.Label>
-            <S.Input
+            <S.Label htmlFor="fuelStationId">Posto de Combustivel</S.Label>
+            <S.InputSelect
               disabled={props.type === "details"}
-              type="text"
-              name="city"
-              id="city"
-              value={props.suppliers?.city}
+              name="fuelStationId"
+              id="fuelStationId"
+              value={props.customPrice?.fuelStationId?.toString()}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }
-            />
-          </S.LineItem>
-
-          <S.LineItem>
-            <S.Label htmlFor="uf">UF</S.Label>
-            <S.Input
-              disabled={props.type === "details"}
-              type="text"
-              name="uf"
-              id="uf"
-              value={props.suppliers?.uf}
-              onChange={(e) =>
-                props.updateFields(e.target.name, e.target.value)
+            >
+              <S.InputSelectOption value=""></S.InputSelectOption>
+              {
+                props.fuelStation?.map((fuelStation) => (
+                  <S.InputSelectOption value={fuelStation.id}>{fuelStation.name}</S.InputSelectOption>
+                ))
               }
-            />
-          </S.LineItem>
-        </S.Line>
+            </S.InputSelect>            
+          </S.LineItem>      
 
-        <S.Line cols="1fr">
-          <S.LineItem>
-            <S.Label htmlFor="address">Endereço</S.Label>
-            <S.Input
-              disabled={props.type === "details"}
-              type="text"
-              name="address"
-              id="address"
-              value={props.suppliers?.address}
-              onChange={(e) =>
-                props.updateFields(e.target.name, e.target.value)
-              }
-            />
-          </S.LineItem>
-        </S.Line>
-
-        <S.Line cols="1fr">
-          <S.TextArea
-            disabled={props.type === "details"}
-            name="observation"
-            placeholder="Observação"
-            rows={5}
-            value={props.suppliers?.observation}
-            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
-          />
         </S.Line>
       </div>
       <S.WrapperButtons>

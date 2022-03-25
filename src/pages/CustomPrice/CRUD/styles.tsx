@@ -102,3 +102,14 @@ export const List = styled.div`
     background-color: rgb(170, 170, 170);
   }
 `;
+
+export const InputSelect = styled.select`
+  border: none;
+  box-shadow: 0px 0 0.5px 0.5px rgb(170, 170, 170);
+  border-radius: 3px;
+  padding: 5px;
+  background-color: transparent;
+`;
+
+export const InputSelectOption = styled.option`
+`;

@@ -1,32 +1,32 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { SuppliersType } from "../../../domain/types/suppliers";
+import { CustomPriceType } from "../../../domain/types";
 
 const Details: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
 
-  const [suppliers, setSuppliers] = useState({} as SuppliersType);
+  const [customPrice, setCustomPrice] = useState({} as CustomPriceType);
 
   function cancel() {
-    navigate("/suppliers");
+    navigate("/customprice");
   }
 
   function confirm() {}
 
   useEffect(() => {
-    setSuppliers(location.state);
+    setCustomPrice(location.state);
   }, [location]);
 
   function updateFields(name: string, value: string) {
-    setSuppliers({ ...suppliers, [name]: value });
+    setCustomPrice({ ...customPrice, [name]: value });
   }
 
   return (
     <View
       type="details"
-      suppliers={suppliers}
+      customPrice={customPrice}
       title="Dashboard - Fornecedor"
       subtitle="Detalhes do Fornecedor"
       cancel={cancel}

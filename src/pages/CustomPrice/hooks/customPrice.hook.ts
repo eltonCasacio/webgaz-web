@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import { listCustomPriceService, createCustomPriceService } from "../services/customPrice.service";
+import { listCustomPriceService, createCustomPriceService, updateCustomPriceService, deleteCustomPriceService } from "../services/customPrice.service";
 import { CustomPriceType } from "../../../domain/types";
-import { HookList, HookSave } from "./customPrice.types";
+import { HookDelete, HookList, HookSave } from "./customPrice.types";
 
 const useListCustomPrices: HookList = () => {
   return useCallback(
@@ -21,4 +21,27 @@ const useCreateCustomPrice: HookSave = () => {
   )
 };
 
-export { useListCustomPrices, useCreateCustomPrice }
+const useUpdateCustomPrice: HookSave = () => {
+  return useCallback(
+    async (customPrice: CustomPriceType) => {
+      await updateCustomPriceService(customPrice);
+    },
+    []
+  )
+};
+
+const useDeleteCustomPrice: HookDelete = () => {
+  return useCallback(
+    async (customPriceId: number) => {
+      await deleteCustomPriceService(customPriceId);
+    },
+    []
+  )
+};
+
+export {
+  useListCustomPrices,
+  useCreateCustomPrice,
+  useUpdateCustomPrice,
+  useDeleteCustomPrice
+}

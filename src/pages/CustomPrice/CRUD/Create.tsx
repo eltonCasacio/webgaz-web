@@ -1,27 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { CustomPriceType } from "../../../domain/types";
+import { CustomPriceType, FuelStationType } from "../../../domain/types";
 import { useCreateCustomPrice } from "../hooks/customPrice.hook";
+import { getMessageError } from "../../../domain/clientError";
+import { toast } from "../../../components/Toast";
+import { useListFuelStations } from "../../FuelStation/hooks/fuelstation.hook";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
   const [customPrice, setCustomPrice] = useState({} as CustomPriceType);
+  const [fuelStationList, setFuelStationList] = useState<FuelStationType[]>();
   const createFuelStation = useCreateCustomPrice();
+  const listFuelStations = useListFuelStations();
+
+  useEffect(() => {
+    listFuelStations().then((fuelStations) => {
+      setFuelStationList(fuelStations);
+    })
+    .catch(() => {
+      toast.error("Error ao carregar os postos.")
+    });
+  }, []);
+
 
   function cancel() {
-    navigate("/fuelstation");
+    navigate("/customprice");
   }
 
   function confirm() {
     createFuelStation(customPrice)
     .then(() => {
-      navigate("/fuelstation");
+      toast.success("Preço cadastrado com sucesso.")
+      navigate("/customprice");
     })
     .catch((error) => {
-      console.log('error', error)
+      toast.error(getMessageError(error));
     })
-  }  
+  }   
 
   function updateFields(name: string, value: string) {
     setCustomPrice({ ...customPrice, [name]: value });
@@ -29,9 +45,10 @@ const Create: React.FC = () => {
 
   return (
     <View
+      fuelStation={fuelStationList}
       type="create"
-      title="Dashboard - Fornecedor"
-      subtitle="Cadastro de Fornecedor"
+      title="Dashboard - Preço Promocional"
+      subtitle="Cadastro de Preço Promocional"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}
