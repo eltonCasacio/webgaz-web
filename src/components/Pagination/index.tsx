@@ -1,4 +1,4 @@
-import { PaginationProps } from "../../types/pagination";
+import { PaginationProps } from "../../domain/types/pagination";
 import * as S from "./styles";
 
 type PaginationParams = {

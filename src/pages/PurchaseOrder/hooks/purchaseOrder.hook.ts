@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { listPurchaseOrderService, createPurchaseOrderService, cancelPurchaseOrderService } from "../services/purchaseOrder.service";
-import { PurchaseOrderType } from "../../../types";
+import { PurchaseOrderType } from "../../../domain/types";
 import { HookList, HookSave, HookCancel } from "./purchaseOrder.types";
 
 const useListPurchaseOrders: HookList = () => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { FuelStationType } from "../../../types";
+import { FuelStationType } from "../../../domain/types";
 import { useCreateFuelStation } from "../hooks/fuelstation.hook";
 
 const Create: React.FC = () => {

@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { FuelStationType } from "../../../types";
+import { FuelStationType } from "../../../domain/types";
 import { Button } from "../../../components";
 
 type ViewProps = {

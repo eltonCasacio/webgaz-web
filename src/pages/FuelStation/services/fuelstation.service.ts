@@ -1,5 +1,5 @@
 import API from "../../../srvices/api"
-import { FuelStationType } from "../../../types/fuelStation";
+import { FuelStationType } from "../../../domain/types/fuelStation";
 
 const listFuelStationService = async (): Promise<Array<FuelStationType>> => {
   const { data } = await API.get("fuelstation");

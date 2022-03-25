@@ -1,4 +1,4 @@
-import { SuppliersType } from "../../../types";
+import { SuppliersType } from "../../../domain/types";
 
 export interface ISupplierParam {
   supplier: SuppliersType

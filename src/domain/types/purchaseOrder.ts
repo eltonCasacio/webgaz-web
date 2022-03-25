@@ -1,7 +1,7 @@
 export type IsActive = 'SIM' | 'NÃO'
 export type FuelType = 'GASOLINA' | 'ETANOL'
 export type PaymentType = 'ANTECIPADO' | 'AVISTA' | '7DIAS' | '10DIAS'
-export type DeliveryType = 'RETIRADA' | 'COLACADO'
+export type DeliveryType = 'RETIRADA' | 'COLOCADO'
 export type PurchaseOrderStatus = 'PENDENTE' | 'ENTREGUE' | 'CANCELADO'
 
 export type PurchaseOrderType = {

@@ -1,8 +1,8 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
 import { Button, InputSearch, TableClients } from "../../components";
-import { ClientType } from "../../types/client";
-import { CrudNavigationProps } from "../../types/crudNavigation";
+import { ClientType } from "../../domain/types/client";
+import { CrudNavigationProps } from "../../domain/types/crudNavigation";
 
 export type ViewPropsFunctions = CrudNavigationProps;
 export type ViewProps = {

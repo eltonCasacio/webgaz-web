@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
-import { CustomPriceType } from "../../types";
+import { CustomPriceType } from "../../domain/types";
 import { useListCustomPrices } from "./hooks/customPrice.hook";
 
 const CustomPrice: React.FC = () => {
   let navigate = useNavigate();
   const [customPrice, setCustomPrice] = useState<CustomPriceType[]>([]);
   const [filter, setFilter] = useState("");
-  const listfuelStation = useListCustomPrices();
+  const listCustomprice = useListCustomPrices();
 
   const functions = {} as ViewPropsFunctions;
-  functions.Update = (value) => navigate("/fuelStation/update", { state: value });
-  functions.Details = (value) => navigate("/fuelStation/details", { state: value });
-  functions.Create = () => navigate("/fuelStation/create");
+  functions.Update = (value) => navigate("/customprice/update", { state: value });
+  functions.Details = (value) => navigate("/customprice/details", { state: value });
+  functions.Create = () => navigate("/customprice/create");
 
   useEffect(() => {
-    listfuelStation().then((fuelStation) => {
-      setCustomPrice(fuelStation)
+    listCustomprice().then((customprice) => {
+      setCustomPrice(customprice)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -41,8 +41,8 @@ const CustomPrice: React.FC = () => {
 
   return (
     <View
-    title="Dashboard - Posto"
-    subtitle="Posto Cadastrados"
+    title="Dashboard - Preço Promocional"
+    subtitle="Preços Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}

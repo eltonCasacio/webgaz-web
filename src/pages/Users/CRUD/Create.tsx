@@ -1,7 +1,7 @@
 import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { UserType } from "../../../types/user";
+import { UserType } from "../../../domain/types/user";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();

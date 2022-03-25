@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
-import { UserType } from "../../types/user";
+import { UserType } from "../../domain/types/user";
 import { Users as UsersMock } from "../../mocks/User";
 
 const Users: React.FC = () => {

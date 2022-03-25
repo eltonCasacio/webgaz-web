@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { PurchaseOrderType } from "../../../types";
+import { PurchaseOrderType } from "../../../domain/types";
 import { Button } from "../../../components";
 
 type ViewProps = {

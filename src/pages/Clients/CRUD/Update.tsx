@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import View from "./View";
-import { ClientType } from "../../../types/client";
+import { ClientType } from "../../../domain/types/client";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();

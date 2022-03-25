@@ -2,8 +2,8 @@ import React from "react";
 import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
-import { UserType} from "../../types/user";
-import { CrudNavigationProps } from "../../types/crudNavigation";
+import { UserType} from "../../domain/types/user";
+import { CrudNavigationProps } from "../../domain/types/crudNavigation";
 
 const HEADER = ["Nome", "Email", "Telefone", ""];
 

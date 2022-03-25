@@ -1,4 +1,4 @@
-import { DeliveryType, FuelType, PaymentType } from "../types";
+import { DeliveryType, FuelType, PaymentType } from "./types";
 
 export const FuelTypeList: FuelType[] = [
   "ETANOL",
@@ -13,6 +13,6 @@ export const PaymentTypeList: PaymentType[] = [
 ];
 
 export const DeliveryTypeList: DeliveryType[] = [
-  "COLACADO",
+  "COLOCADO",
   "RETIRADA"
 ];

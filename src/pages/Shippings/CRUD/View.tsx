@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { Shipping } from "../../../types/shipping";
+import { Shipping } from "../../../domain/types/shipping";
 
 type ViewProps = {
   data?: Shipping;

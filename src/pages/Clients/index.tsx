@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
-import { ClientType } from "../../types/client";
+import { ClientType } from "../../domain/types/client";
 import { useListClients } from "./hooks/clients.hook"
 
 const Clients: React.FC = () => {

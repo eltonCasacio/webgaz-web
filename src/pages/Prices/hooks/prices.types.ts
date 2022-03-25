@@ -1,4 +1,4 @@
-import { SupplierPricesType } from "../../../types";
+import { SupplierPricesType } from "../../../domain/types";
 
 export type HookList = () => () => Promise<Array<SupplierPricesType>>;
 

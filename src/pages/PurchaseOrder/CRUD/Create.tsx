@@ -1,7 +1,7 @@
 import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { PurchaseOrderType } from "../../../types";
+import { PurchaseOrderType } from "../../../domain/types";
 import { useCreatePurchaseOrder } from "../hooks/purchaseOrder.hook";
 
 const Create: React.FC = () => {
