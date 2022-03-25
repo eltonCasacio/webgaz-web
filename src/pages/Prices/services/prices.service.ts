@@ -10,4 +10,8 @@ const createPriceService = async (price: SupplierPricesType): Promise<void> => {
   await API.post("supplier-prices", price);
 }
 
-export { listPricesService, createPriceService }
+const updatePriceService = async (price: SupplierPricesType): Promise<void> => {
+  await API.put("supplier-prices", price);
+}
+
+export { listPricesService, createPriceService, updatePriceService }

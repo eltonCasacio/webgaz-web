@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { SupplierPricesType, SuppliersType } from "../../../types";
 import { useCreatePrice } from "../hooks/prices.hook";
 import { useListSuppliers } from "../../Suppliers/hooks/supplier.hook";
+import { getMessageError } from "../../../domain/clientError";
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Create: React.FC = () => {
       navigate("/products");
     })
     .catch((error) => {
-      toast.error("Erro a cadastrar o preço.");
+      toast.error(getMessageError(error));
     })
   }  
 

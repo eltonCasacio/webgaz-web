@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { listPricesService, createPriceService } from "../services/prices.service";
+import { listPricesService, createPriceService, updatePriceService } from "../services/prices.service";
 import { SupplierPricesType } from "../../../types";
 import { HookList, HookSave } from "./prices.types";
 
@@ -21,4 +21,13 @@ const useCreatePrice: HookSave = () => {
   )
 };
 
-export { useListPrices, useCreatePrice }
+const useUpdatePrice: HookSave = () => {
+  return useCallback(
+    async (price: SupplierPricesType) => {
+      await updatePriceService(price);
+    },
+    []
+  )
+};
+
+export { useListPrices, useCreatePrice, useUpdatePrice }

@@ -3,13 +3,16 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SupplierPricesType, SuppliersType } from "../../../types";
 import { useListSuppliers } from "../../Suppliers/hooks/supplier.hook";
+import { useUpdatePrice } from "../hooks/prices.hook";
 import { toast } from "../../../components/Toast";
+import { getMessageError } from "../../../domain/clientError";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
   const [suppliers, setSuppliers] = useState<SuppliersType[]>([]);
   const listSuppliers = useListSuppliers();
+  const updatePriceService = useUpdatePrice();
 
   const [prices, setPrices] = useState({} as SupplierPricesType);
 
@@ -27,7 +30,14 @@ const Update: React.FC = () => {
     navigate("/products");
   }
 
-  function confirm() {}
+  function confirm(): void {
+    updatePriceService(prices).then(() => {
+      toast.success("Preço atualizado com sucesso.");
+      navigate("/products");
+    }).catch((error) => {
+      toast.error(getMessageError(error));
+    })
+  }
 
   function updateFields(name: string, value: string) {
     setPrices({ ...prices, [name]: value });
