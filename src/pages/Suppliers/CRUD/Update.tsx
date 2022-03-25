@@ -1,7 +1,7 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { SuppliersType } from "../../../types/suppliers";
+import { SuppliersType } from "../../../domain/types/suppliers";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();

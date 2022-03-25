@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { listSuppliersService, createSupplierService } from "../services/supplier.service";
-import { SuppliersType } from "../../../types";
+import { SuppliersType } from "../../../domain/types";
 import { HookList, HookSave } from "./supplier.types";
 
 const useListSuppliers: HookList = () => {

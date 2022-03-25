@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { listCustomPriceService, createCustomPriceService } from "../services/customPrice.service";
-import { CustomPriceType } from "../../../types";
+import { CustomPriceType } from "../../../domain/types";
 import { HookList, HookSave } from "./customPrice.types";
 
 const useListCustomPrices: HookList = () => {

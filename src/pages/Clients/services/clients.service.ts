@@ -1,5 +1,5 @@
 import API from "../../../srvices/api"
-import { ClientType } from "../../../types/client";
+import { ClientType } from "../../../domain/types/client";
 
 const listClientsService = async (): Promise<Array<ClientType>> => {
   const { data } = await API.get("client");

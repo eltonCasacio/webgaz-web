@@ -1,7 +1,7 @@
 import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { CustomPriceType } from "../../../types";
+import { CustomPriceType } from "../../../domain/types";
 import { useCreateCustomPrice } from "../hooks/customPrice.hook";
 
 const Create: React.FC = () => {

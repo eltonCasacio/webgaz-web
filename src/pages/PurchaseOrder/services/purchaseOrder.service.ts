@@ -1,5 +1,5 @@
 import API from "../../../srvices/api"
-import { PurchaseOrderType } from "../../../types";
+import { PurchaseOrderType } from "../../../domain/types";
 
 const listPurchaseOrderService = async (): Promise<Array<PurchaseOrderType>> => {
   const { data } = await API.get("purchase-order");

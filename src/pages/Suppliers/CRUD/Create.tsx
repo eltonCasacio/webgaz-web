@@ -1,7 +1,7 @@
 import { useState } from "react";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { SuppliersType } from "../../../types/suppliers";
+import { SuppliersType } from "../../../domain/types/suppliers";
 import { useCreateSupplier } from "../hooks/supplier.hook";
 
 const Create: React.FC = () => {

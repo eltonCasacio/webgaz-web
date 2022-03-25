@@ -1,7 +1,7 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FuelStationType } from "../../../types";
+import { FuelStationType } from "../../../domain/types";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();

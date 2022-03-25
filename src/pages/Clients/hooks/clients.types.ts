@@ -1,4 +1,4 @@
-import { ClientType } from "../../../types";
+import { ClientType } from "../../../domain/types";
 
 export interface IClientParam {
   client: ClientType

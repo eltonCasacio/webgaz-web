@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
-import { FuelStationType } from "../../types/fuelStation";
+import { FuelStationType } from "../../domain/types/fuelStation";
 import { useListFuelStations } from "./hooks/fuelstation.hook";
 
 const FuelStation: React.FC = () => {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "../../../components/Toast";
 import View from "./View";
 import { useNavigate } from "react-router-dom";
-import { SupplierPricesType, SuppliersType } from "../../../types";
+import { SupplierPricesType, SuppliersType } from "../../../domain/types";
 import { useCreatePrice } from "../hooks/prices.hook";
 import { useListSuppliers } from "../../Suppliers/hooks/supplier.hook";
 import { getMessageError } from "../../../domain/clientError";

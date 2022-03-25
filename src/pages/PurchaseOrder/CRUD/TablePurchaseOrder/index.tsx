@@ -2,8 +2,8 @@ import React from "react";
 import * as S from "./styles";
 import { Cancel } from "styled-icons/material";
 import { Eye } from "styled-icons/bootstrap";
-import { PurchaseOrderType } from "../../../../types";
-import { CrudNavigationProps } from "../../../../types/crudNavigation";
+import { PurchaseOrderType } from "../../../../domain/types";
+import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
 const HEADER = ["Codigo", "Tipo", "Forma Pagamento", "Litros",  "Valor Total", "Status", "Ações"];
 

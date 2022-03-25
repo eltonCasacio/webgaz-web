@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { listPricesService, createPriceService, updatePriceService } from "../services/prices.service";
-import { SupplierPricesType } from "../../../types";
+import { SupplierPricesType } from "../../../domain/types";
 import { HookList, HookSave } from "./prices.types";
 
 const useListPrices: HookList = () => {

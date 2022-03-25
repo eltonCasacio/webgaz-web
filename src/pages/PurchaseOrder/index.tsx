@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
-import { PurchaseOrderType } from "../../types";
+import { PurchaseOrderType } from "../../domain/types";
 import { useListPurchaseOrders, useCancelPurchaseOrder } from "./hooks/purchaseOrder.hook";
 import View, { ViewPropsFunctions } from "./View";
 

@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import { DeliveryTypeList, FuelTypeList, PaymentTypeList } from "../../../domain/defaultData";
 import Header, { HeaderProps } from "../../../components/header";
-import { SupplierPricesType, SuppliersType } from "../../../types";
+import { SupplierPricesType, SuppliersType } from "../../../domain/types";
 import { Button } from "../../../components";
 
 type ViewProps = {

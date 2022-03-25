@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { ClientType } from "../../../types/client";
+import { ClientType } from "../../../domain/types/client";
 import { Button } from "../../../components";
 import React from "react";
 

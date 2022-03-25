@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
-import { SupplierPricesType } from "../../types";
+import { SupplierPricesType } from "../../domain/types";
 import { useListPrices } from "./hooks/prices.hook";
 
 const Prices: React.FC = () => {

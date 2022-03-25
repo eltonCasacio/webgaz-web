@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
-import { UserType } from "../../../types/user";
+import { UserType } from "../../../domain/types/user";
 import { Button } from "../../../components";
 
 type ViewProps = {

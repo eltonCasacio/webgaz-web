@@ -1,4 +1,4 @@
-import { FuelStationType } from "../../../types";
+import { FuelStationType } from "../../../domain/types";
 
 export type HookList = () => () => Promise<Array<FuelStationType>>;
 

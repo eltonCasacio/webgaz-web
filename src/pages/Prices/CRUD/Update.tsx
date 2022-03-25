@@ -1,7 +1,7 @@
 import View from "./View";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { SupplierPricesType, SuppliersType } from "../../../types";
+import { SupplierPricesType, SuppliersType } from "../../../domain/types";
 import { useListSuppliers } from "../../Suppliers/hooks/supplier.hook";
 import { useUpdatePrice } from "../hooks/prices.hook";
 import { toast } from "../../../components/Toast";

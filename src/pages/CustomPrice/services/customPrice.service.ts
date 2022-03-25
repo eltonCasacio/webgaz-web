@@ -1,5 +1,5 @@
 import API from "../../../srvices/api"
-import { CustomPriceType } from "../../../types";
+import { CustomPriceType } from "../../../domain/types";
 
 const listCustomPriceService = async (): Promise<Array<CustomPriceType>> => {
   const { data } = await API.get("customprice");
