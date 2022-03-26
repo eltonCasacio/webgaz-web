@@ -22,57 +22,69 @@ const View: React.FC<ViewProps> = (props) => (
     </S.Sintegra>
 
     <S.Form>
-      <S.Line cols="2fr 1fr">
-        <S.LineItem>
-          <S.Label htmlFor="name">Usuario</S.Label>
-          <S.Input
-            disabled={props.type === "details"}
-            type="text"
-            name="name"
-            id="name"
-            value={props.user?.name}
-            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
-          />
-        </S.LineItem>
-        <S.LineItem>
-          <S.Label htmlFor="email">E-mail</S.Label>
-          <S.Input
-            disabled={props.type === "details"}
-            type="text"
-            name="email"
-            id="email"
-            value={props.user?.email}
-            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
-          />
-        </S.LineItem>
-      </S.Line>
+      <div>
+        <S.Line cols="2fr 1fr">
+          <S.LineItem>
+            <S.Label htmlFor="name">Usuario</S.Label>
+            <S.Input
+              disabled={props.type === "details"}
+              type="text"
+              name="name"
+              id="name"
+              value={props.user?.name}
+              onChange={(e) =>
+                props.updateFields(e.target.name, e.target.value)
+              }
+            />
+          </S.LineItem>
+          <S.LineItem>
+            <S.Label htmlFor="email">E-mail</S.Label>
+            <S.Input
+              disabled={props.type === "details"}
+              type="text"
+              name="email"
+              id="email"
+              value={props.user?.email}
+              onChange={(e) =>
+                props.updateFields(e.target.name, e.target.value)
+              }
+            />
+          </S.LineItem>
+        </S.Line>
 
-      <S.Line cols="2fr 1fr 0.5fr">
-        <S.LineItem>
-          <S.Label htmlFor="phoneNumber">Telefone</S.Label>
-          <S.Input
-            disabled={props.type === "details"}
-            type="text"
-            name="phoneNumber"
-            id="phoneNumber"
-            value={props.user?.phoneNumber}
-            onChange={(e) => props.updateFields(e.target.name, e.target.value)}
+        <S.Line cols="2fr 1fr 0.5fr">
+          <S.LineItem>
+            <S.Label htmlFor="phoneNumber">Telefone</S.Label>
+            <S.Input
+              disabled={props.type === "details"}
+              type="text"
+              name="phoneNumber"
+              id="phoneNumber"
+              value={props.user?.phoneNumber}
+              onChange={(e) =>
+                props.updateFields(e.target.name, e.target.value)
+              }
+            />
+          </S.LineItem>
+        </S.Line>
+      </div>
+      <S.WrapperButtons>
+        {props.type !== "details" && (
+          <Button
+            callback={props.confirm}
+            size="small"
+            children="Confirmar"
+            bgColor="#64E384"
           />
-        </S.LineItem>
-      </S.Line>
+        )}
+        <Button
+          callback={props.cancel}
+          bgColor="#D57176"
+          size="small"
+          children={props.type !== "details" ? "Cancelar" : "Voltar"}
+        />
+      </S.WrapperButtons>
     </S.Form>
-
-    <S.WrapperButtons>
-      {props.type !== "details" && (
-        <Button callback={props.confirm} size="small" children="Confirmar" />
-      )}
-      <Button
-        callback={props.cancel}
-        bgColor="#867AD2"
-        size="small"
-        children={props.type !== "details" ? "Cancelar" : "Voltar"}
-      />
-    </S.WrapperButtons>
   </S.Wrapper>
 );
 

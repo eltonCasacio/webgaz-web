@@ -31,6 +31,7 @@ export const Input = styled.input`
   border-radius: 3px;
   padding: 5px;
   background-color: transparent;
+  color: rgb(214, 214, 214)
 `;
 
 type LabelProps = {
