@@ -2,6 +2,8 @@ import React from "react";
 import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
+import { Block } from "styled-icons/boxicons-regular";
+
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 import { ClientType } from "../../../../domain/types/client";
 
@@ -30,6 +32,7 @@ export const TableClients: React.FC<PagintionProps> = (params) => {
       <S.TableDataBodyIcon>
         <Eye onClick={() => params.functions.Details(item)} />
         <Edit onClick={() => params.functions.Update(item)} />
+        <Block onClick={() => params.functions.Delete(String(item.cnpj))} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

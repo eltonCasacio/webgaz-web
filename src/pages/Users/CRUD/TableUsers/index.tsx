@@ -2,7 +2,9 @@ import React from "react";
 import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
-import { UserType} from "../../../../domain/types/user";
+import { Block } from "styled-icons/boxicons-regular";
+
+import { UserType } from "../../../../domain/types/user";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
 const HEADER = ["Nome", "Email", "Telefone", ""];
@@ -30,6 +32,7 @@ export const TableUsers: React.FC<PagintionProps> = (params) => {
         <S.TableDataBodyIcon>
           <Eye onClick={() => params.functions.Details(item)} />
           <Edit onClick={() => params.functions.Update(item)} />
+          <Block onClick={() => params.functions.Delete(String(item.email))} />
         </S.TableDataBodyIcon>
       </S.TableRowBody>
     </>

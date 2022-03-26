@@ -2,10 +2,19 @@ import React from "react";
 import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
+import { Block } from "styled-icons/boxicons-regular";
+
 import { CustomPriceType } from "../../../../domain/types";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
-const HEADER = ["Tipo Combustivel", "Tipo Pagamento", "Tipo Entrega", "Preço", "Posto", "Ações"];
+const HEADER = [
+  "Tipo Combustivel",
+  "Tipo Pagamento",
+  "Tipo Entrega",
+  "Preço",
+  "Posto",
+  "Ações",
+];
 
 type PagintionProps = {
   customPrice: CustomPriceType[];
@@ -31,6 +40,7 @@ export const TableCustomPrice: React.FC<PagintionProps> = (params) => {
       <S.TableDataBodyIcon>
         <Eye onClick={() => params.functions.Details(item)} />
         <Edit onClick={() => params.functions.Update(item)} />
+        <Block onClick={() => params.functions.Delete("1")} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );
