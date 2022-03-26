@@ -56,7 +56,7 @@ export const TableDataBodyIcon = styled.td`
   width: 55px;
   svg {
     margin-left: 10px;
-    width: 12px;
+    width: 14px;
     cursor: pointer;
   }
 `;

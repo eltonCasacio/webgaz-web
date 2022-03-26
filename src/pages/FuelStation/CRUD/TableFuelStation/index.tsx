@@ -29,8 +29,8 @@ export const TableFuelStation: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.telephone}</S.TableDataBody>
       <S.TableDataBody>{item.city}</S.TableDataBody>
       <S.TableDataBodyIcon>
-        <Eye size={15} onClick={() => params.functions.Details(item)} />
-        <Edit size={15} onClick={() => params.functions.Update(item)} />
+        <Eye onClick={() => params.functions.Details(item)} />
+        <Edit onClick={() => params.functions.Update(item)} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

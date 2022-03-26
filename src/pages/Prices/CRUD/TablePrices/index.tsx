@@ -31,8 +31,8 @@ export const TablePrices: React.FC<PagintionProps> = (params) => {
         <S.TableDataBody>{item.salesPrice}</S.TableDataBody>
         <S.TableDataBody>{item.supplierId}</S.TableDataBody>
         <S.TableDataBodyIcon>
-          <Eye size={15} onClick={() => params.functions.Details(item)} />
-          <Edit size={15} onClick={() => params.functions.Update(item)} />
+          <Eye onClick={() => params.functions.Details(item)} />
+          <Edit onClick={() => params.functions.Update(item)} />
         </S.TableDataBodyIcon>
       </S.TableRowBody>
     </>
