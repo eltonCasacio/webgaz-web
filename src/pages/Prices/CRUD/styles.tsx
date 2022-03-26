@@ -86,13 +86,17 @@ export const WrapperButtons = styled.div`
 
 export const InputSelect = styled.select`
   border: none;
-  box-shadow: 0px 0 0.5px 0.5px rgb(170, 170, 170);
+  box-shadow: 0px 0 1px 0.5px rgb(170, 170, 170);
+  color: ${theme.colors.white};
   border-radius: 3px;
   padding: 5px;
   background-color: transparent;
 `;
 
 export const InputSelectOption = styled.option`
+  background-color: ${theme.colors.white};
+  border-radius: 20px;
+  color: ${theme.colors.background};
 `;
 
 export const List = styled.div`

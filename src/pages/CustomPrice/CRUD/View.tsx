@@ -2,7 +2,11 @@ import * as S from "./styles";
 import Header, { HeaderProps } from "../../../components/header";
 import { CustomPriceType, FuelStationType } from "../../../domain/types";
 import { Button } from "../../../components";
-import { DeliveryTypeList, FuelTypeList, PaymentTypeList } from "../../../domain/defaultData";
+import {
+  DeliveryTypeList,
+  FuelTypeList,
+  PaymentTypeList,
+} from "../../../domain/defaultData";
 
 type ViewProps = {
   customPrice?: CustomPriceType;
@@ -24,7 +28,7 @@ const View: React.FC<ViewProps> = (props) => (
     </S.Sintegra>
 
     <S.Form>
-    <div>
+      <div>
         <S.Line cols="1fr 1fr 1fr">
           <S.LineItem>
             <S.Label htmlFor="fuelType">Tipo Combustivel</S.Label>
@@ -38,11 +42,11 @@ const View: React.FC<ViewProps> = (props) => (
               }
             >
               <S.InputSelectOption value=""></S.InputSelectOption>
-              {
-                FuelTypeList.map((fuelType) => (
-                  <S.InputSelectOption value={fuelType}>{fuelType}</S.InputSelectOption>
-                ))
-              }
+              {FuelTypeList.map((fuelType) => (
+                <S.InputSelectOption value={fuelType}>
+                  {fuelType}
+                </S.InputSelectOption>
+              ))}
             </S.InputSelect>
           </S.LineItem>
 
@@ -58,11 +62,11 @@ const View: React.FC<ViewProps> = (props) => (
               }
             >
               <S.InputSelectOption value=""></S.InputSelectOption>
-              {
-                PaymentTypeList.map((paymentType) => (
-                  <S.InputSelectOption value={paymentType}>{paymentType}</S.InputSelectOption>
-                ))
-              }
+              {PaymentTypeList.map((paymentType) => (
+                <S.InputSelectOption value={paymentType}>
+                  {paymentType}
+                </S.InputSelectOption>
+              ))}
             </S.InputSelect>
           </S.LineItem>
 
@@ -78,11 +82,11 @@ const View: React.FC<ViewProps> = (props) => (
               }
             >
               <S.InputSelectOption value=""></S.InputSelectOption>
-              {
-                DeliveryTypeList.map((deliveryType) => (
-                  <S.InputSelectOption value={deliveryType}>{deliveryType}</S.InputSelectOption>
-                ))
-              }
+              {DeliveryTypeList.map((deliveryType) => (
+                <S.InputSelectOption value={deliveryType}>
+                  {deliveryType}
+                </S.InputSelectOption>
+              ))}
             </S.InputSelect>
           </S.LineItem>
         </S.Line>
@@ -101,7 +105,7 @@ const View: React.FC<ViewProps> = (props) => (
               }
             />
           </S.LineItem>
-    
+
           <S.LineItem>
             <S.Label htmlFor="fuelStationId">Posto de Combustivel</S.Label>
             <S.InputSelect
@@ -114,14 +118,13 @@ const View: React.FC<ViewProps> = (props) => (
               }
             >
               <S.InputSelectOption value=""></S.InputSelectOption>
-              {
-                props.fuelStation?.map((fuelStation) => (
-                  <S.InputSelectOption value={fuelStation.id}>{fuelStation.name}</S.InputSelectOption>
-                ))
-              }
-            </S.InputSelect>            
-          </S.LineItem>      
-
+              {props.fuelStation?.map((fuelStation) => (
+                <S.InputSelectOption value={fuelStation.id}>
+                  {fuelStation.name}
+                </S.InputSelectOption>
+              ))}
+            </S.InputSelect>
+          </S.LineItem>
         </S.Line>
       </div>
       <S.WrapperButtons>

@@ -5,7 +5,7 @@ import { Eye } from "styled-icons/bootstrap";
 import { SuppliersType } from "../../../../domain/types/suppliers";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
-const HEADER = ["Código", "Nome", "Email", "cnpj", "Contato", ""];
+const HEADER = ["Código", "Nome", "Email", "cnpj", "Contato", "ações"];
 
 type PagintionProps = {
   suppliers: SuppliersType[];
