@@ -34,8 +34,6 @@ const PurchaseOrder: React.FC = () => {
       let auxFilter = filter.toUpperCase();
 
       if (!auxFilter.length) {
-        console.log("Não tem filtro", auxFilter);
-        console.log("purchaseOrder", purchaseOrder);
         setfuelStations(purchaseOrder);
         return;
       }

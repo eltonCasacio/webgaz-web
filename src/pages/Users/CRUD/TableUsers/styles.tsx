@@ -5,7 +5,9 @@ export const Table = styled.table`
   box-shadow: inset 0 0 5px 1px #c9c9c9;
   border-collapse: collapse;
 `;
-export const Thead = styled.thead``;
+export const Thead = styled.thead`
+  box-shadow: 0px 0.2px 0.5px 0.2px rgb(170, 170, 170);
+`;
 
 export const TableRowHeader = styled.tr``;
 

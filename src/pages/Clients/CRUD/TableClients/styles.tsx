@@ -6,7 +6,7 @@ export const Table = styled.table`
   border-radius: 10px;
 `;
 export const Thead = styled.thead`
-  box-shadow: 0px 0 2px 1px rgb(170, 170, 170);
+  box-shadow: 0px 0.2px 0.5px 0.2px rgb(170, 170, 170);
 `;
 
 export const TableRowHeader = styled.tr``;
@@ -41,7 +41,7 @@ export const Tbody = styled.tbody`
 export const TableRowBody = styled.tr`
   ${({ theme }) => css`
     font-size: 14px;
-    box-shadow: 0px 0 0.5px 0.2px rgb(170, 170, 170);
+    box-shadow: 0px 0.2px 0.5px 0.2px rgb(170, 170, 170);
     color: ${theme.colors.white};
     :hover {
       background-color: rgba(0, 0, 0, 0.3);
