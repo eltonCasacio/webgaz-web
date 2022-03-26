@@ -22,7 +22,7 @@ export const ContentHeader = styled.div`
 
 export const Table = styled.div`
   ${({ theme }) => css`
-    height: 73.5vh;
+    height: 78vh;
     margin-top: 15px;
     overflow: auto;
 

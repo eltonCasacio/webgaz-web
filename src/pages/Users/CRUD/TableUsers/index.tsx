@@ -7,7 +7,7 @@ import { Block } from "styled-icons/boxicons-regular";
 import { UserType } from "../../../../domain/types/user";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
-const HEADER = ["Nome", "Email", "Telefone", ""];
+const HEADER = ["Nome", "Email", "Telefone", "Ações"];
 
 type PagintionProps = {
   users: UserType[];
@@ -24,18 +24,16 @@ export const TableUsers: React.FC<PagintionProps> = (params) => {
   );
 
   const makeRow = (item: UserType) => (
-    <>
-      <S.TableRowBody key={item.email}>
-        <S.TableDataBody>{item.name}</S.TableDataBody>
-        <S.TableDataBody>{item.email}</S.TableDataBody>
-        <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
-        <S.TableDataBodyIcon>
-          <Eye onClick={() => params.functions.Details(item)} />
-          <Edit onClick={() => params.functions.Update(item)} />
-          <Block onClick={() => params.functions.Delete(String(item.email))} />
-        </S.TableDataBodyIcon>
-      </S.TableRowBody>
-    </>
+    <S.TableRowBody key={item.email}>
+      <S.TableDataBody>{item.name}</S.TableDataBody>
+      <S.TableDataBody>{item.email}</S.TableDataBody>
+      <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
+      <S.TableDataBodyIcon>
+        <Eye onClick={() => params.functions.Details(item)} />
+        <Edit onClick={() => params.functions.Update(item)} />
+        <Block onClick={() => params.functions.Delete(String(item.email))} />
+      </S.TableDataBodyIcon>
+    </S.TableRowBody>
   );
 
   return (

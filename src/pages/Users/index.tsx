@@ -7,25 +7,13 @@ import { Users as UsersMock } from "../../mocks/User";
 const Users: React.FC = () => {
   let navigate = useNavigate();
   const [users, setUsers] = useState<UserType[]>([]);
+  const [usersToShow, setUsersToShow] = useState<UserType[]>([]);
   const [filter, setFilter] = useState("");
-  const [pages, setPages] = useState<number[]>([]);
-  const [limitPage, setLimitPage] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/users/update", { state: value });
   functions.Details = (value) => navigate("/users/details", { state: value });
   functions.Create = () => navigate("/users/create");
-
-  useEffect(() => {
-    const totalPage = Math.ceil(users.length / limitPage);
-    const arrayPages = [];
-    for (let i = 1; i <= totalPage; i++) {
-      arrayPages.push(i);
-    }
-
-    setPages(arrayPages);
-  }, [users, limitPage]);
 
   useEffect(() => {
     async function handleFilter() {
@@ -38,34 +26,28 @@ const Users: React.FC = () => {
           item.phoneNumber.toUpperCase().includes(auxFilter)
         );
       });
-      setUsers(filtered);
+      setUsersToShow(filtered);
     }
     handleFilter();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   useEffect(() => {
     async function run() {
-      // await api.get(`/clients?page=${pageNumber}&limit=${limitPage}`);
       setUsers(UsersMock);
-      setLimitPage(10);
+      setUsersToShow(UsersMock);
     }
-
     run();
-  }, [currentPage]);
+  }, []);
 
   return (
     <View
-      title="Usuários"
-      subtitle="Lista de Usuários"
+      title="Dashboard - Usuário"
+      subtitle="Usuários Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}
-      users={users}
+      users={usersToShow}
       totalUsers={users.length}
-      pages={pages}
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
     />
   );
 };

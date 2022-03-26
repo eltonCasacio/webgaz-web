@@ -2,33 +2,51 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
-export const Content = styled.div`
-  background-color: #3cff00;
-  height: inherit;
-`;
+export const Content = styled.div``;
+
 export const ContentHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    border-radius: 5px;
+    background-color: ${theme.colors.table};
+  `}
 `;
 
 export const Table = styled.div`
-  margin-top: 40px;
-  height: 65vh;
+  ${({ theme }) => css`
+    height: 78vh;
+    margin-top: 15px;
+    overflow: auto;
 
-  overflow: auto;
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
 
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
 
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(170, 170, 170);
+    }
+  `}
+`;
 
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(170, 170, 170);
-  }
+export const FilterWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 10px;
+`;
+
+export const Filter = styled.div`
+  width: 35vw;
 `;
