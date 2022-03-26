@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
 import { Button, InputSearch } from "../../components";
-import { TableCustomPrice } from "../../components/TableCustomPrice"
+import { TableCustomPrice } from "./CRUD/TableCustomPrice"
 import { CustomPriceType } from "../../domain/types";
 import { CrudNavigationProps } from "../../domain/types/crudNavigation";
 

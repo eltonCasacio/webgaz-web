@@ -3,11 +3,8 @@ import styled, { css } from "styled-components";
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  border-radius: 10px;
 `;
-export const Thead = styled.thead`
-  box-shadow: 0px 0 2px 1px rgb(170, 170, 170);
-`;
+export const Thead = styled.thead``;
 
 export const TableRowHeader = styled.tr``;
 

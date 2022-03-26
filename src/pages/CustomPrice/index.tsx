@@ -7,24 +7,35 @@ import { useListCustomPrices } from "./hooks/customPrice.hook";
 const CustomPrice: React.FC = () => {
   let navigate = useNavigate();
   const [customPrice, setCustomPrice] = useState<CustomPriceType[]>([]);
+  const [customPriceToShow, setCustomPriceToShow] = useState<CustomPriceType[]>(
+    []
+  );
   const [filter, setFilter] = useState("");
   const listCustomprice = useListCustomPrices();
 
   const functions = {} as ViewPropsFunctions;
-  functions.Update = (value) => navigate("/customprice/update", { state: value });
-  functions.Details = (value) => navigate("/customprice/details", { state: value });
+  functions.Update = (value) =>
+    navigate("/customprice/update", { state: value });
+  functions.Details = (value) =>
+    navigate("/customprice/details", { state: value });
   functions.Create = () => navigate("/customprice/create");
 
   useEffect(() => {
     listCustomprice().then((customprice) => {
-      setCustomPrice(customprice)
-    })
+      setCustomPrice(customprice);
+      setCustomPriceToShow(customprice);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   useEffect(() => {
     async function handleFilter() {
       let auxFilter = filter.toUpperCase();
+
+      if (auxFilter === "") {
+        setCustomPriceToShow(customPrice);
+        return;
+      }
 
       const filtered = customPrice.filter((item) => {
         return (
@@ -32,21 +43,20 @@ const CustomPrice: React.FC = () => {
           item.deliveryType.toUpperCase().includes(auxFilter)
         );
       });
-      setCustomPrice(filtered);
+      setCustomPriceToShow(filtered);
     }
     handleFilter();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
-
   return (
     <View
-    title="Dashboard - Preço Promocional"
-    subtitle="Preços Cadastrados"
+      title="Dashboard - Preço Promocional"
+      subtitle="Preços Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}
-      customPrice={customPrice}
+      customPrice={customPriceToShow}
     />
   );
 };

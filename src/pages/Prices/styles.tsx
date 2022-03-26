@@ -5,19 +5,15 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 10px;
 `;
 
-export const Content = styled.div`
-  background-color: #3cff00;
-  height: inherit;
-`;
+export const Content = styled.div``;
 
 export const ContentHeader = styled.div`
   ${({ theme }) => css`
     display: grid;
     grid-template-rows: 50px 1fr;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: ${theme.colors.table};
   `}
 `;
@@ -25,7 +21,6 @@ export const ContentHeader = styled.div`
 export const Table = styled.div`
   ${({ theme }) => css`
     height: 73.5vh;
-    box-shadow: 0 0 5px 0.5px ${theme.colors.border};
     margin-top: 15px;
     overflow: auto;
 

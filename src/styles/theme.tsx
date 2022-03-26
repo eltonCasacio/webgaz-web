@@ -32,7 +32,7 @@ export default {
     background: "#1C1A29",
     title: "#fcfcfc",
     subtitle: '#eaeaea',
-    input: "#2F2C44",
+    input: "#fcfcfc",
     table: "#2F2C44",
     tableHeader:'#06092B15',
     border: "#000",

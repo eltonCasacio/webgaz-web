@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { ClientType } from "../../domain/types/client";
-import { useListClients } from "./hooks/clients.hook"
+import { useListClients } from "./hooks/clients.hook";
 
 const Clients: React.FC = () => {
   let navigate = useNavigate();
   const [clients, setClients] = useState<ClientType[]>([]);
+  const [clientsToShow, setClientsToShow] = useState<ClientType[]>([]);
   const [filter, setFilter] = useState("");
-  const listClients = useListClients()
+  const listClients = useListClients();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/clients/update", { state: value });
@@ -17,10 +18,11 @@ const Clients: React.FC = () => {
 
   useEffect(() => {
     listClients().then((listClients) => {
-      setClients(listClients)
-    })
+      setClients(listClients);
+      setClientsToShow(listClients);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   useEffect(() => {
     async function handleFilter() {
@@ -34,12 +36,11 @@ const Clients: React.FC = () => {
           item.site.toUpperCase().includes(auxFilter)
         );
       });
-      setClients(filtered);
+      setClientsToShow(filtered);
     }
     handleFilter();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
-
 
   return (
     <View
@@ -48,7 +49,7 @@ const Clients: React.FC = () => {
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}
-      clients={clients}
+      clients={clientsToShow}
       totalClients={clients.length}
     />
   );

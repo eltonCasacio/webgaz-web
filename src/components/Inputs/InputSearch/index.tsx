@@ -26,11 +26,12 @@ const Wrapper = styled.div`
 const Input = styled.input`
   ${({ theme }) => css`
     flex: 1;
-    padding: 8px 10px;
+    font-size: 16px;
+    padding: 6px 10px;
     border-radius: 5px;
     outline: none;
     border: none;
-    box-shadow: 0 0 2px 1px ${theme.colors.primary};
+    box-shadow: 0px 0 2px 1px rgb(105, 105, 105);
     background-color: ${theme.colors.input};
   `}
 `;
