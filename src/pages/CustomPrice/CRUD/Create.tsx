@@ -12,7 +12,7 @@ const Create: React.FC = () => {
   const navigate = useNavigate();
   const [customPrice, setCustomPrice] = useState({} as CustomPriceType);
   const [fuelStationList, setFuelStationList] = useState<FuelStationType[]>();
-  const createFuelStation = useCreateCustomPrice();
+  const createCustomPrice = useCreateCustomPrice();
   const listFuelStations = useListFuelStations();
 
   useEffect(() => {
@@ -30,7 +30,8 @@ const Create: React.FC = () => {
   }
 
   function confirm() {
-    createFuelStation(customPrice)
+    console.log('customPrice', customPrice);
+    createCustomPrice(customPrice)
     .then(() => {
       toast.success("Preço cadastrado com sucesso.")
       navigate("/customprice");

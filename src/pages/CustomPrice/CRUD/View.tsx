@@ -130,6 +130,7 @@ const View: React.FC<ViewProps> = (props) => (
       <S.WrapperButtons>
         {props.type !== "details" && (
           <Button
+            type="button"
             callback={props.confirm}
             size="small"
             children="Confirmar"
@@ -137,6 +138,7 @@ const View: React.FC<ViewProps> = (props) => (
           />
         )}
         <Button
+          type="button"
           callback={props.cancel}
           bgColor="#D57176"
           size="small"

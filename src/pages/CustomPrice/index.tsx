@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { CustomPriceType } from "../../domain/types";
@@ -11,7 +12,7 @@ const CustomPrice: React.FC = () => {
     []
   );
   const [filter, setFilter] = useState("");
-  const listCustomprice = useListCustomPrices();
+  const listCustomPrice = useListCustomPrices();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) =>
@@ -21,10 +22,15 @@ const CustomPrice: React.FC = () => {
   functions.Create = () => navigate("/customprice/create");
 
   useEffect(() => {
-    listCustomprice().then((customprice) => {
+    listCustomPrice().then((customprice) => {
       setCustomPrice(customprice);
       setCustomPriceToShow(customprice);
-    });
+      if(!customprice.length) {
+        toast.warn("Não há preços cadastrados.");  
+      }
+    }).catch(() => {
+      toast.error("Erro ao carregar os preços.");
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -26,6 +26,7 @@ const View: React.FC<ViewProps> = (props) => (
           />
         </S.Filter>
         <Button
+          type="button"
           children="Novo"
           size="medium"
           callback={props.functions.Create}
