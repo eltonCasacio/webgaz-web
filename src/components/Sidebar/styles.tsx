@@ -8,7 +8,7 @@ export const Wrapper = styled.form<MenuProps>`
   ${({ theme, showMenu }) => css`
     display: flex;
     flex-direction: column;
-    min-width: ${showMenu ? "220px" : "auto"};
+    min-width: ${showMenu ? "250px" : "auto"};
     background-color: ${theme.colors.sidebarBG};
     padding: 10px;
     padding-top: 11px;

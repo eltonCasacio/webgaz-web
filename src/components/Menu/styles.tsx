@@ -6,12 +6,15 @@ type MenuItemProps = {
 
 const MenuModifier = {
   showMenu: () => css`
+    padding: 8px;
+    border-radius: 8px;
     svg {
       width: 1.2rem;
       margin: 10px;
     }
   `,
   hiddeMenu: () => css`
+    margin-top: 30px;
     svg {
       width: 1.2rem;
       margin: 5px;
@@ -29,8 +32,8 @@ export const Wrapper = styled.nav`
 `;
 
 export const Menus = styled.div`
-  margin-top: 5vh;
-  height: 70%;
+  margin-top: 4vh;
+  height: 70vh;
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -48,13 +51,8 @@ export const Menus = styled.div`
 
 export const MenuItem = styled.li<MenuItemProps>`
   ${({ showMenu }) => css`
-    display: flex;
-    justify-self: center;
-    padding: 10px;
-    border-radius: 8px;
     ${showMenu ? MenuModifier.showMenu() : MenuModifier.hiddeMenu()}
     cursor: pointer;
-
     a {
       text-decoration: none;
       width: 100%;
@@ -64,6 +62,6 @@ export const MenuItem = styled.li<MenuItemProps>`
 `;
 
 export const LogoImage = styled.img`
-  width: 110px;
+  width: 10vh;
   align-self: center;
 `;
