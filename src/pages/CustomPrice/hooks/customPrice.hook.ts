@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { listCustomPriceService, createCustomPriceService, updateCustomPriceService, deleteCustomPriceService } from "../services/customPrice.service";
+import { listCustomPriceService, createCustomPriceService, updateCustomPriceService, cancelCustomPriceService } from "../services/customPrice.service";
 import { CustomPriceType } from "../../../domain/types";
 import { HookDelete, HookList, HookSave } from "./customPrice.types";
 
@@ -30,10 +30,10 @@ const useUpdateCustomPrice: HookSave = () => {
   )
 };
 
-const useDeleteCustomPrice: HookDelete = () => {
+const useCancelCustomPrice: HookDelete = () => {
   return useCallback(
     async (customPriceId: number) => {
-      await deleteCustomPriceService(customPriceId);
+      await cancelCustomPriceService(customPriceId);
     },
     []
   )
@@ -43,5 +43,5 @@ export {
   useListCustomPrices,
   useCreateCustomPrice,
   useUpdateCustomPrice,
-  useDeleteCustomPrice
+  useCancelCustomPrice
 }

@@ -14,4 +14,8 @@ const updatePriceService = async (price: SupplierPricesType): Promise<void> => {
   await API.put("supplier-prices", price);
 }
 
-export { listPricesService, createPriceService, updatePriceService }
+const deletePriceService = async (priceId: number): Promise<void> => {
+  await API.delete(`supplier-prices/${priceId}`);
+}
+
+export { listPricesService, createPriceService, updatePriceService, deletePriceService }

@@ -8,11 +8,12 @@ import { CustomPriceType } from "../../../../domain/types";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
 const HEADER = [
+  "Posto",
   "Tipo Combustivel",
   "Tipo Pagamento",
   "Tipo Entrega",
   "Preço",
-  "Posto",
+  "Ativo?",
   "Ações",
 ];
 
@@ -31,16 +32,17 @@ export const TableCustomPrice: React.FC<PagintionProps> = (params) => {
   );
 
   const makeRow = (item: CustomPriceType) => (
-    <S.TableRowBody key={item.fuelType}>
+    <S.TableRowBody key={item.id}>
+      <S.TableDataBody>{item.fuelStationId}</S.TableDataBody>
+      <S.TableDataBody>{item.fuelType}</S.TableDataBody>
       <S.TableDataBody>{item.paymentType}</S.TableDataBody>
       <S.TableDataBody>{item.deliveryType}</S.TableDataBody>
       <S.TableDataBody>{item.price}</S.TableDataBody>
-      <S.TableDataBody>{item.createDate}</S.TableDataBody>
-      <S.TableDataBody>{item.fuelStationId}</S.TableDataBody>
+      <S.TableDataBody>{item.isActive}</S.TableDataBody>
       <S.TableDataBodyIcon>
         <Eye onClick={() => params.functions.Details(item)} />
         <Edit onClick={() => params.functions.Update(item)} />
-        <Block onClick={() => params.functions.Delete("1")} />
+        <Block onClick={() => params.functions.Cancel(item.id)} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );
