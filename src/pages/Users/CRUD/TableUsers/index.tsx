@@ -31,7 +31,7 @@ export const TableUsers: React.FC<PagintionProps> = (params) => {
       <S.TableDataBodyIcon>
         <Eye onClick={() => params.functions.Details(item)} />
         <Edit onClick={() => params.functions.Update(item)} />
-        <Block onClick={() => params.functions.Delete(String(item.email))} />
+        <Block onClick={() => params.functions.Delete(item.id)} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

@@ -3,7 +3,7 @@ import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { SupplierPricesType } from "../../domain/types";
-import { useListPrices } from "./hooks/prices.hook";
+import { useListPrices, useDeletePrice } from "./hooks/prices.hook";
 
 const Prices: React.FC = () => {
   let navigate = useNavigate();
@@ -11,23 +11,17 @@ const Prices: React.FC = () => {
   const [pricesToShow, setPriceToShow] = useState<SupplierPricesType[]>([]);
   const [filter, setFilter] = useState("");
   const listPrices = useListPrices();
+  const deletePrice = useDeletePrice();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/products/update", { state: value });
   functions.Details = (value) =>
     navigate("/products/details", { state: value });
   functions.Create = () => navigate("/products/create");
+  functions.Delete = (priceId) => handleDeletePrice(priceId);
 
   useEffect(() => {
-    listPrices()
-      .then((prices) => {
-        setPrice(prices);
-        setPriceToShow(prices);
-        if (!prices.length) {
-          toast.warn("Não há preços cadastrados");
-        }
-      })
-      .catch(() => toast.error("Erro ao carregar os preços"));
+    handleLoadPrices();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -50,6 +44,29 @@ const Prices: React.FC = () => {
     handleFilter();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
+
+  const handleLoadPrices = () => {
+    listPrices()
+      .then((prices) => {
+        setPrice(prices);
+        setPriceToShow(prices);
+        if (!prices.length) {
+          toast.warn("Não há preços cadastrados");
+        }
+      })
+      .catch(() => toast.error("Erro ao carregar os preços"));
+  }
+
+  const handleDeletePrice = (priceId: number) => {
+    deletePrice(priceId)
+      .then(() => {
+        handleLoadPrices();
+        toast.success("Preço excluído com sucesso.");
+      })
+      .catch(() => {
+        toast.error("Erro ao excluír o preço.");
+      });
+  };
 
   return (
     <View

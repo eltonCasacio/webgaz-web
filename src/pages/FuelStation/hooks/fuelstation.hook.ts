@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import { listFuelStationService, createFuelStationService } from "../services/fuelstation.service";
+import { listFuelStationService, createFuelStationService, blockFuelStationService } from "../services/fuelstation.service";
 import { FuelStationType } from "../../../domain/types";
-import { HookList, HookSave } from "./fuelstation.types";
+import { HookBlock, HookList, HookSave } from "./fuelstation.types";
 
 const useListFuelStations: HookList = () => {
   return useCallback(
@@ -21,4 +21,13 @@ const useCreateFuelStation: HookSave = () => {
   )
 };
 
-export { useListFuelStations, useCreateFuelStation }
+const useBlockFuelStation: HookBlock = () => {
+  return useCallback(
+    async (fuelStationId: number) => {
+      await blockFuelStationService(fuelStationId);
+    },
+    []
+  )
+};
+
+export { useListFuelStations, useCreateFuelStation, useBlockFuelStation }
