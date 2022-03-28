@@ -1,4 +1,5 @@
 export type ClientType = {
+  id: number;
   name: string;
   cnpj: string;
   email: string;

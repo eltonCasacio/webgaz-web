@@ -14,13 +14,13 @@ const updateCustomPriceService = async (customPrice: CustomPriceType): Promise<v
   await API.put("custom-price", customPrice);
 }
 
-const deleteCustomPriceService = async (customPriceId: number): Promise<void> => {
-  await API.put(`custom-price/${customPriceId}`);
+const cancelCustomPriceService = async (customPriceId: number): Promise<void> => {
+  await API.patch(`/custom-price/cancel/${customPriceId}`);
 }
 
 export { 
   listCustomPriceService,
   createCustomPriceService,
   updateCustomPriceService,
-  deleteCustomPriceService
+  cancelCustomPriceService
 }

@@ -3,7 +3,7 @@ import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { CustomPriceType } from "../../domain/types";
-import { useListCustomPrices } from "./hooks/customPrice.hook";
+import { useListCustomPrices, useCancelCustomPrice } from "./hooks/customPrice.hook";
 
 const CustomPrice: React.FC = () => {
   let navigate = useNavigate();
@@ -13,6 +13,7 @@ const CustomPrice: React.FC = () => {
   );
   const [filter, setFilter] = useState("");
   const listCustomPrice = useListCustomPrices();
+  const cancelCustomPrice = useCancelCustomPrice();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) =>
@@ -20,17 +21,10 @@ const CustomPrice: React.FC = () => {
   functions.Details = (value) =>
     navigate("/customprice/details", { state: value });
   functions.Create = () => navigate("/customprice/create");
+  functions.Cancel = (customPriceId: number) => handleCancelCustomPrice(customPriceId);
 
   useEffect(() => {
-    listCustomPrice().then((customprice) => {
-      setCustomPrice(customprice);
-      setCustomPriceToShow(customprice);
-      if(!customprice.length) {
-        toast.warn("Não há preços cadastrados.");  
-      }
-    }).catch(() => {
-      toast.error("Erro ao carregar os preços.");
-    })
+    handleLoadPrices();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -54,6 +48,29 @@ const CustomPrice: React.FC = () => {
     handleFilter();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
+
+  const handleLoadPrices = () => {
+    listCustomPrice().then((customprice) => {
+      setCustomPrice(customprice);
+      setCustomPriceToShow(customprice);
+      if(!customprice.length) {
+        toast.warn("Não há preços cadastrados.");  
+      }
+    }).catch(() => {
+      toast.error("Erro ao carregar os preços.");
+    })    
+  }
+
+  const handleCancelCustomPrice = (customPriceId: number) => {
+    cancelCustomPrice(customPriceId)
+      .then(() => {
+        handleLoadPrices();
+        toast.success("Preço cancelado com sucesso.");
+      })
+      .catch(() => {
+        toast.error("Erro ao cancelar o preço.");
+      });
+  };
 
   return (
     <View

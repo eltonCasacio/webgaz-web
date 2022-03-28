@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { SuppliersType } from "../../domain/types/suppliers";
-import { useListSuppliers } from "./hooks/supplier.hook";
+import { useListSuppliers, useDeleteSupplier } from "./hooks/supplier.hook";
 
 const Suppliers: React.FC = () => {
   let navigate = useNavigate();
@@ -10,18 +11,17 @@ const Suppliers: React.FC = () => {
   const [suppliersToShow, setSuppliersToShow] = useState<SuppliersType[]>([]);
   const [filter, setFilter] = useState("");
   const listSuppliers = useListSuppliers();
+  const deleteSupplier = useDeleteSupplier();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) => navigate("/suppliers/update", { state: value });
   functions.Details = (value) =>
     navigate("/suppliers/details", { state: value });
   functions.Create = () => navigate("/suppliers/create");
+  functions.Delete = (supplierId: number) => handleDeleteSupplier(supplierId);
 
   useEffect(() => {
-    listSuppliers().then((suppliers) => {
-      setSuppliers(suppliers);
-      setSuppliersToShow(suppliers);
-    });
+    handleLoadSuppliers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -53,6 +53,24 @@ const Suppliers: React.FC = () => {
     handleFilter();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
+
+  const handleDeleteSupplier = (supplierId: number) => {
+    deleteSupplier(supplierId)
+      .then(() => {
+        handleLoadSuppliers();
+        toast.success("Fornecedor excluído com sucesso.");
+      })
+      .catch(() => {
+        toast.error("Erro ao excluir o fornecedor.");
+      });
+  };
+
+  const handleLoadSuppliers = () => {
+    listSuppliers().then((suppliers) => {
+      setSuppliers(suppliers);
+      setSuppliersToShow(suppliers);
+    });
+  }
 
   return (
     <View

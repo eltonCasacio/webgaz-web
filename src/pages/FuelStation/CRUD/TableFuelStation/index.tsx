@@ -7,7 +7,7 @@ import { Block } from "styled-icons/boxicons-regular";
 import { FuelStationType } from "../../../../domain/types";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
-const HEADER = ["Nome", "CNPJ", "Email", "Telefone", "Cidade", "Ações"];
+const HEADER = ["Nome", "CNPJ", "Email", "Status", "Telefone", "Ações"];
 
 type PagintionProps = {
   fuelStation: FuelStationType[];
@@ -28,12 +28,12 @@ export const TableFuelStation: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.name}</S.TableDataBody>
       <S.TableDataBody>{item.cnpj}</S.TableDataBody>
       <S.TableDataBody>{item.email}</S.TableDataBody>
+      <S.TableDataBody>{item.status}</S.TableDataBody>
       <S.TableDataBody>{item.telephone}</S.TableDataBody>
-      <S.TableDataBody>{item.city}</S.TableDataBody>
       <S.TableDataBodyIcon>
         <Eye onClick={() => params.functions.Details(item)} />
         <Edit onClick={() => params.functions.Update(item)} />
-        <Block onClick={() => params.functions.Delete(String(item.cnpj))} />
+        <Block onClick={() => params.functions.Cancel(item.id)} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

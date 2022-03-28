@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { FuelStationType } from "../../domain/types/fuelStation";
-import { useListFuelStations } from "./hooks/fuelstation.hook";
+import { useListFuelStations, useBlockFuelStation } from "./hooks/fuelstation.hook";
 
 const FuelStation: React.FC = () => {
   let navigate = useNavigate();
@@ -12,6 +13,7 @@ const FuelStation: React.FC = () => {
   );
   const [filter, setFilter] = useState("");
   const listfuelStation = useListFuelStations();
+  const blockFuelStation = useBlockFuelStation();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) =>
@@ -19,12 +21,10 @@ const FuelStation: React.FC = () => {
   functions.Details = (value) =>
     navigate("/fuelstation/details", { state: value });
   functions.Create = () => navigate("/fuelstation/create");
+  functions.Cancel = (fuelStationId: number) => handleBlockFuelStation(fuelStationId);
 
   useEffect(() => {
-    listfuelStation().then((fuelStation) => {
-      setfuelStation(fuelStation);
-      setfuelStationToShow(fuelStation);
-    });
+    hadleLoadFuelStations();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -49,6 +49,24 @@ const FuelStation: React.FC = () => {
     handleFilter();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
+
+  const hadleLoadFuelStations = () => {
+    listfuelStation().then((fuelStation) => {
+      setfuelStation(fuelStation);
+      setfuelStationToShow(fuelStation);
+    });    
+  }
+
+  const handleBlockFuelStation = (fuelStationId: number) => {
+    blockFuelStation(fuelStationId)
+      .then(() => {
+        hadleLoadFuelStations();
+        toast.success("Posto bloqueado com sucesso.");
+      })
+      .catch(() => {
+        toast.error("Erro ao bloquear o posto.");
+      });
+  };
 
   return (
     <View
