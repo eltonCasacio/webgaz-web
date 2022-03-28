@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-bottom: 10px;
 `;
 
 export const ContentHeader = styled.div`
