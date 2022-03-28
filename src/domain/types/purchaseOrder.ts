@@ -8,17 +8,18 @@ export type PurchaseOrderType = {
   id: number
   fuelType: FuelType
   paymentType: PaymentType
-  deliveryType: DeliveryType
   totalPrice: Number
   qtdLiters: Number
   status?: PurchaseOrderStatus
   fuelStationId: Number
+
   deliveryDate: string
+  deliveryType: DeliveryType
+  
   shippingName?: string
   shippingCnpj?: string
   shippingPlateNumber?: string
   shippingDriverName?: string
   shippingDriverCnh?: string
   createDate?: string
-  
 }

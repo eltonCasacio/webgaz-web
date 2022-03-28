@@ -7,7 +7,7 @@ import { Block } from "styled-icons/boxicons-regular";
 import { ShippingType } from "../../../../domain/types/shipping";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
-const HEADER = ["Código", "Nome", "Email", "cnpj", "Contato", "ações"];
+const HEADER = ["Nome", "cnpj", "Email", "Telefone", "Cidade", "UF", "ações"];
 
 type PagintionProps = {
   shipping: ShippingType[];
@@ -26,9 +26,11 @@ export const TableShipping: React.FC<PagintionProps> = (params) => {
   const makeRow = (item: ShippingType) => (
     <S.TableRowBody key={item.cnpj}>
       <S.TableDataBody>{item.name}</S.TableDataBody>
-      <S.TableDataBody>{item.email}</S.TableDataBody>
       <S.TableDataBody>{item.cnpj}</S.TableDataBody>
+      <S.TableDataBody>{item.email}</S.TableDataBody>
       <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
+      <S.TableDataBody>{item.city}</S.TableDataBody>
+      <S.TableDataBody>{item.uf}</S.TableDataBody>
       <S.TableDataBodyIcon>
         <Eye onClick={() => params.functions.Details(item)} />
         <Edit onClick={() => params.functions.Update(item)} />

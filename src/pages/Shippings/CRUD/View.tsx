@@ -52,7 +52,7 @@ const View: React.FC<ViewProps> = (props) => (
           </S.LineItem>
         </S.Line>
 
-        <S.Line cols="1fr 0.5fr">
+        <S.Line cols="1fr 0.5fr 0.5fr">
           <S.LineItem>
             <S.Label htmlFor="email">E-mail</S.Label>
             <S.Input
@@ -80,9 +80,23 @@ const View: React.FC<ViewProps> = (props) => (
               }
             />
           </S.LineItem>
+
+          <S.LineItem>
+            <S.Label htmlFor="site">Site</S.Label>
+            <S.Input
+              disabled={props.type === "details"}
+              type="text"
+              name="site"
+              id="site"
+              value={props.shipping?.site}
+              onChange={(e) =>
+                props.updateFields(e.target.name, e.target.value)
+              }
+            />
+          </S.LineItem>
         </S.Line>
 
-        <S.Line cols="1fr 0.5fr 0.5fr">
+        <S.Line cols="1fr 0.5fr">
           <S.LineItem>
             <S.Label htmlFor="city">Cidade</S.Label>
             <S.Input
