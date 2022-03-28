@@ -1,6 +1,7 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
-import { InputSearch, TablePurchaseOrder } from "../../components";
+import { InputSearch } from "../../components";
+import { TablePurchaseOrder } from "./CRUD/TablePurchaseOrder";
 import { PurchaseOrderType } from "../../domain/types";
 import { CrudNavigationProps } from "../../domain/types/crudNavigation";
 

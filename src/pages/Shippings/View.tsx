@@ -1,32 +1,41 @@
 import * as S from "./styles";
 import Header, { HeaderProps } from "../../components/header";
 import { Button, InputSearch } from "../../components";
+import { TableShipping } from "./CRUD/TableShipping";
+import { ShippingType } from "../../domain/types/shipping";
+import { CrudNavigationProps } from "../../domain/types/crudNavigation";
 
-type ViewProps = {
-  handleDelete?: () => void;
-  handleDetails?: () => void;
-  handleUpdate?: () => void;
+export type ViewPropsFunctions = CrudNavigationProps;
+export type ViewProps = {
+  functions: ViewPropsFunctions;
   InputSearchChange: any;
   filter: string;
+  shipping: ShippingType[];
+  totalShipping: number;
 } & HeaderProps;
 
-const View: React.FC<ViewProps> = ({
-  title,
-  subtitle,
-  handleDelete,
-  handleDetails,
-  handleUpdate,
-  InputSearchChange,
-  filter,
-}) => (
+const View: React.FC<ViewProps> = (props) => (
   <S.Wrapper>
-    <Header title={title} subtitle={subtitle} />
-    <S.Content>
-      <S.ContentHeader>
-        <InputSearch callback={InputSearchChange} filter={filter} />
-      </S.ContentHeader>
-      <Button children="Novo" size="small" callback={handleUpdate} />
-    </S.Content>
+    <Header title={props.title} subtitle={props.subtitle} />
+
+    <S.ContentHeader>
+      <S.FilterWrapper>
+        <S.Filter>
+          <InputSearch
+            callback={props.InputSearchChange}
+            filter={props.filter}
+          />
+        </S.Filter>
+        <Button
+          children="Novo"
+          size="medium"
+          callback={props.functions.Create}
+        />
+      </S.FilterWrapper>
+      <S.Table>
+        <TableShipping shipping={props.shipping} functions={props.functions} />
+      </S.Table>
+    </S.ContentHeader>
   </S.Wrapper>
 );
 

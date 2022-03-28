@@ -1,23 +1,27 @@
+import { useState } from "react";
 import View from "./View";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ShippingType } from "../../../domain/types/shipping";
+import { useCreateShipping } from "../hooks/shipping.hook";
 
-const Details: React.FC = () => {
+const Create: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation() as any;
-
   const [shipping, setShipping] = useState({} as ShippingType);
+  const createShipping = useCreateShipping();
 
   function cancel() {
     navigate("/shippings");
   }
 
-  function confirm() {}
-
-  useEffect(() => {
-    setShipping(location.state);
-  }, [location]);
+  function confirm() {
+    createShipping(shipping)
+      .then(() => {
+        navigate("/shippings");
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  }
 
   function updateFields(name: string, value: string) {
     setShipping({ ...shipping, [name]: value });
@@ -25,10 +29,9 @@ const Details: React.FC = () => {
 
   return (
     <View
-      type="details"
-      shipping={shipping}
+      type="create"
       title="Dashboard - Transportadora"
-      subtitle="Detalhes do Transportadora"
+      subtitle="Cadastro de Transportadora"
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}
@@ -36,4 +39,4 @@ const Details: React.FC = () => {
   );
 };
 
-export default Details;
+export default Create;

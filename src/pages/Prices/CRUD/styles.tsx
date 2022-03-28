@@ -47,7 +47,7 @@ export const Sintegra = styled.nav`
   margin: 10px;
   margin-top: 15px;
   a {
-    border-bottom: solid 1px #00000040;
+    border-bottom: solid 1px #ffffff40;
     font-size: ${theme.font.sizes.xsmall};
     text-decoration: none;
     color: ${theme.colors.title};

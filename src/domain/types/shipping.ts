@@ -1,4 +1,4 @@
-export type Shipping = {
+export type ShippingType = {
   name: string;
   cnpj: string;
   address: string;

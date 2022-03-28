@@ -17,7 +17,7 @@ const View: React.FC<ViewProps> = (props) => (
 
     <S.Sintegra>
       <a href="http://www.sintegra.gov.br/" target={"_blank"} rel="noreferrer">
-        http://www.sintegra.gov.br/
+        Acesse o Sintegra
       </a>
     </S.Sintegra>
 
