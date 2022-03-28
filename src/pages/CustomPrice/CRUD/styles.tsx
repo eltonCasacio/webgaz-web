@@ -46,7 +46,7 @@ export const Label = styled.label<LabelProps>`
 export const Sintegra = styled.nav`
   text-align: right;
   margin: 10px;
-  margin-top: 53px;
+  margin-top: 15px;
   a {
     border-bottom: solid 1px #00000040;
     font-size: ${theme.font.sizes.xsmall};
