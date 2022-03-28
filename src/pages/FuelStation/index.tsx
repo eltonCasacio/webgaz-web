@@ -3,7 +3,10 @@ import { toast } from "../../components/Toast";
 import { useNavigate } from "react-router-dom";
 import View, { ViewPropsFunctions } from "./View";
 import { FuelStationType } from "../../domain/types/fuelStation";
-import { useListFuelStations, useBlockFuelStation } from "./hooks/fuelstation.hook";
+import {
+  useListFuelStations,
+  useBlockFuelStation,
+} from "./hooks/fuelstation.hook";
 
 const FuelStation: React.FC = () => {
   let navigate = useNavigate();
@@ -21,7 +24,8 @@ const FuelStation: React.FC = () => {
   functions.Details = (value) =>
     navigate("/fuelstation/details", { state: value });
   functions.Create = () => navigate("/fuelstation/create");
-  functions.Cancel = (fuelStationId: number) => handleBlockFuelStation(fuelStationId);
+  functions.Cancel = (fuelStationId: number) =>
+    handleBlockFuelStation(fuelStationId);
 
   useEffect(() => {
     hadleLoadFuelStations();
@@ -41,7 +45,9 @@ const FuelStation: React.FC = () => {
         return (
           item.name.toUpperCase().includes(auxFilter) ||
           item.cnpj.toUpperCase().includes(auxFilter) ||
-          item.email.toUpperCase().includes(auxFilter)
+          item.email.toUpperCase().includes(auxFilter) ||
+          String(item.status).toUpperCase().includes(auxFilter) ||
+          item.telephone.toUpperCase().includes(auxFilter)
         );
       });
       setfuelStationToShow(filtered);
@@ -54,8 +60,8 @@ const FuelStation: React.FC = () => {
     listfuelStation().then((fuelStation) => {
       setfuelStation(fuelStation);
       setfuelStationToShow(fuelStation);
-    });    
-  }
+    });
+  };
 
   const handleBlockFuelStation = (fuelStationId: number) => {
     blockFuelStation(fuelStationId)

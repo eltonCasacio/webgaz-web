@@ -7,7 +7,15 @@ import { Block } from "styled-icons/boxicons-regular";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 import { SupplierPricesType } from "../../../../domain/types";
 
-const HEADER = ["Tipo Combustivel", "Tipo Entrega", "Forma de Pagamento", "Preço Compra", "Preço Venda", "Fornecedor",  "Ações"];
+const HEADER = [
+  "Tipo Combustivel",
+  "Tipo Entrega",
+  "Forma de Pagamento",
+  "Preço Compra",
+  "Preço Venda",
+  "Fornecedor",
+  "Ações",
+];
 
 type PagintionProps = {
   prices: SupplierPricesType[];
@@ -24,21 +32,19 @@ export const TablePrices: React.FC<PagintionProps> = (params) => {
   );
 
   const makeRow = (item: SupplierPricesType) => (
-    <>
-      <S.TableRowBody key={item.id}>
-        <S.TableDataBody>{item.fuelType}</S.TableDataBody>
-        <S.TableDataBody>{item.deliveryType}</S.TableDataBody>
-        <S.TableDataBody>{item.paymentType}</S.TableDataBody>
-        <S.TableDataBody>{item.purchasePrice}</S.TableDataBody>
-        <S.TableDataBody>{item.salesPrice}</S.TableDataBody>
-        <S.TableDataBody>{item.supplierId}</S.TableDataBody>
-        <S.TableDataBodyIcon>
-          <Eye onClick={() => params.functions.Details(item)} />
-          <Edit onClick={() => params.functions.Update(item)} />
-          <Block onClick={() => params.functions.Delete(item.id)} />
-        </S.TableDataBodyIcon>
-      </S.TableRowBody>
-    </>
+    <S.TableRowBody key={item.id}>
+      <S.TableDataBody>{item.fuelType}</S.TableDataBody>
+      <S.TableDataBody>{item.deliveryType}</S.TableDataBody>
+      <S.TableDataBody>{item.paymentType}</S.TableDataBody>
+      <S.TableDataBody>{item.purchasePrice}</S.TableDataBody>
+      <S.TableDataBody>{item.salesPrice}</S.TableDataBody>
+      <S.TableDataBody>{item.supplierId}</S.TableDataBody>
+      <S.TableDataBodyIcon>
+        <Eye onClick={() => params.functions.Details(item)} />
+        <Edit onClick={() => params.functions.Update(item)} />
+        <Block onClick={() => params.functions.Delete(item.id)} />
+      </S.TableDataBodyIcon>
+    </S.TableRowBody>
   );
 
   return (

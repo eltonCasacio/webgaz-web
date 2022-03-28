@@ -10,7 +10,7 @@ const Details: React.FC = () => {
   const [prices, setPrices] = useState({} as SupplierPricesType);
 
   function cancel() {
-    navigate("/supplier-prices");
+    navigate("/products");
   }
 
   function confirm() {}

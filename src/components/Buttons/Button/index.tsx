@@ -18,7 +18,7 @@ const Button = ({
   fullWidth = false,
   color = "#fff",
   bgColor = "#867AD2",
-  type = "submit",
+  type = "button",
   callback,
 }: ButtonProps) => (
   <S.Wrapper
