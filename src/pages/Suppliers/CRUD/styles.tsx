@@ -27,10 +27,12 @@ export const Form = styled.form`
 export const Input = styled.input`
   border: none;
   outline: none;
+  box-shadow: 0px 0 0.5px 0.5px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
-  font-size: 14px;
-  background-color: #e8f0fd;
+  background-color: transparent;
+  color: ${theme.colors.white};
+  font-size: ${theme.font.sizes.small};
 `;
 
 type LabelProps = {
@@ -61,7 +63,8 @@ export const TextArea = styled.textarea`
   box-shadow: 0px 0 0.5px 0.2px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
-  background-color: #e8f0fd;
+  background-color: transparent;
+  color: ${theme.colors.white};
 `;
 
 export const Line = styled.div<{ cols: string }>`

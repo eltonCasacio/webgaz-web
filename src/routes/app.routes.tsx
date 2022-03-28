@@ -42,12 +42,12 @@ import {
   CustomPriceUpdate,
 } from "../pages/CustomPrice/CRUD";
 
-import Shippings from "../pages/Shippings";
-import {
-  ShippingCreate,
-  ShippingDetails,
-  ShippingUpdate,
-} from "../pages/Shippings/CRUD";
+// import Shippings from "../pages/Shippings";
+// import {
+//   ShippingCreate,
+//   ShippingDetails,
+//   ShippingUpdate,
+// } from "../pages/Shippings/CRUD";
 
 import Settings from "../pages/Settings";
 import Reports from "../pages/Reports";
@@ -76,10 +76,10 @@ const authRoutes: React.FC = () => {
       <Route path="/suppliers/update" element={<SuppliersUpdate />} />
       <Route path="/suppliers/create" element={<SuppliersCreate />} />
 
-      <Route path="/shippings" element={<Shippings />} />
+      {/* <Route path="/shippings" element={<Shippings />} />
       <Route path="/shippings/details" element={<ShippingDetails />} />
       <Route path="/shippings/update" element={<ShippingUpdate />} />
-      <Route path="/shippings/create" element={<ShippingCreate />} />
+      <Route path="/shippings/create" element={<ShippingCreate />} /> */}
 
       <Route path="/fuelstation" element={<FuelStation />} />
       <Route path="/fuelstation/details" element={<FuelStationDetails />} />

@@ -30,7 +30,9 @@ export const Input = styled.input`
   box-shadow: 0px 0 0.5px 0.5px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
-  background-color: #e8f0fd;
+  background-color: transparent;
+  color: ${theme.colors.white};
+  font-size: ${theme.font.sizes.small};
 `;
 
 type LabelProps = {
@@ -81,29 +83,12 @@ export const LineItem = styled.div`
 export const WrapperButtons = styled.div`
   display: flex;
   align-self: flex-end;
+  justify-self: flex-end;
   button {
     margin-left: 5px;
   }
 `;
 
-export const List = styled.div`
-  max-height: 25vh;
-  margin-top: 30px;
-
-  overflow: auto;
-
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(170, 170, 170);
-  }
-`;
 export const InputSelect = styled.select`
   border: none;
   box-shadow: 0px 0 1px 0.5px rgb(170, 170, 170);
@@ -114,7 +99,7 @@ export const InputSelect = styled.select`
 `;
 
 export const InputSelectOption = styled.option`
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.table};
   border-radius: 20px;
-  color: ${theme.colors.background};
+  color: ${theme.colors.white};
 `;

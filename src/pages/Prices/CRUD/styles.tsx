@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-bottom: 10px;
 `;
 
 export const ContentHeader = styled.div`
@@ -30,7 +31,9 @@ export const Input = styled.input`
   box-shadow: 0px 0 0.5px 0.5px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
-  background-color: #e8f0fd;
+  background-color: transparent;
+  color: rgb(214, 214, 214);
+  font-size: ${theme.font.sizes.small};
 `;
 
 type LabelProps = {
@@ -45,9 +48,9 @@ export const Label = styled.label<LabelProps>`
 export const Sintegra = styled.nav`
   text-align: right;
   margin: 10px;
-  margin-top: 15px;
+  margin-top: 53px;
   a {
-    border-bottom: solid 1px #ffffff40;
+    border-bottom: solid 1px #00000040;
     font-size: ${theme.font.sizes.xsmall};
     text-decoration: none;
     color: ${theme.colors.title};
@@ -57,11 +60,10 @@ export const Sintegra = styled.nav`
 export const TextArea = styled.textarea`
   width: 100%;
   resize: none;
-  outline: none;
   box-shadow: 0px 0 0.5px 0.2px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
-  background-color: #e8f0fd;
+  background-color: transparent;
 `;
 
 export const Line = styled.div<{ cols: string }>`
@@ -89,32 +91,15 @@ export const InputSelect = styled.select`
   border: none;
   outline: none;
   box-shadow: 0px 0 1px 0.5px rgb(170, 170, 170);
+  color: ${theme.colors.white};
   border-radius: 3px;
   padding: 5px;
-  background-color: #e8f0fd;
+  background-color: transparent;
+  font-size: ${theme.font.sizes.small};
 `;
 
 export const InputSelectOption = styled.option`
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.table};
   border-radius: 20px;
-  color: ${theme.colors.background};
-`;
-
-export const List = styled.div`
-  max-height: 25vh;
-  margin-top: 30px;
-
-  overflow: auto;
-
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(170, 170, 170);
-  }
+  color: ${theme.colors.white};
 `;

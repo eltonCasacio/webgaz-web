@@ -30,7 +30,9 @@ export const Input = styled.input`
   box-shadow: 0px 0 0.5px 0.5px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
-  background-color: #e8f0fd;
+  background-color: transparent;
+  color: ${theme.colors.white};
+  font-size: ${theme.font.sizes.small};
 `;
 
 type LabelProps = {
@@ -54,16 +56,6 @@ export const Sintegra = styled.nav`
   }
 `;
 
-export const TextArea = styled.textarea`
-  width: 100%;
-  resize: none;
-  outline: none;
-  box-shadow: 0px 0 0.5px 0.2px rgb(170, 170, 170);
-  border-radius: 3px;
-  padding: 5px;
-  background-color: #e8f0fd;
-`;
-
 export const Line = styled.div<{ cols: string }>`
   ${({ cols }) => css`
     display: grid;
@@ -85,21 +77,3 @@ export const WrapperButtons = styled.div`
   }
 `;
 
-export const List = styled.div`
-  max-height: 25vh;
-  margin-top: 30px;
-
-  overflow: auto;
-
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(170, 170, 170);
-  }
-`;

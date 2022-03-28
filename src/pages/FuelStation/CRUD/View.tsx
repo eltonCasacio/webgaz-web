@@ -27,6 +27,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="name">Nome</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="name"
@@ -40,6 +41,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="cnpj">CNPJ</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="cnpj"
@@ -56,6 +58,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="email">E-mail</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="email"
@@ -70,6 +73,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="phoneNumber">Telefone</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="phoneNumber"
@@ -86,6 +90,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="cep">Cep</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="cep"
@@ -100,6 +105,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="city">Cidade</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="city"
@@ -114,6 +120,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="uf">CEP</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="uf"
@@ -130,6 +137,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="address">Bairro</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="address"

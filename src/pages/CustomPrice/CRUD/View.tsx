@@ -95,6 +95,7 @@ const View: React.FC<ViewProps> = (props) => (
           <S.LineItem>
             <S.Label htmlFor="price">Preço Promocional</S.Label>
             <S.Input
+              autoComplete="off"
               disabled={props.type === "details"}
               type="text"
               name="price"

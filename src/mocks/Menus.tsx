@@ -2,7 +2,7 @@ import { Home, Settings } from "styled-icons/fluentui-system-filled";
 import { UserGroup, Users, DocumentReport, Document, CurrencyDollar } from "styled-icons/heroicons-solid";
 import {
   LocalGasStation,
-  LocalShipping,
+  // LocalShipping,
   TransferWithinAStation,
 } from "styled-icons/material-rounded";
 
@@ -15,7 +15,7 @@ export const Menus = [
   { name: "Fornecedores", url: "suppliers", icon: <TransferWithinAStation /> },
   { name: "Usuários", url: "users", icon: <Users /> },
   //{ name: "Clientes", url: "clients", icon: <UserGroup /> },  
-  { name: "Transportadoras", url: "shippings", icon: <LocalShipping /> },
+  // { name: "Transportadoras", url: "shippings", icon: <LocalShipping /> },
   { name: "Relatórios", url: "reports", icon: <DocumentReport /> },
   { name: "Configurações", url: "settings", icon: <Settings /> },
 ];
