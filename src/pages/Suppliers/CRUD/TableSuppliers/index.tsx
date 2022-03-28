@@ -7,7 +7,7 @@ import { Block } from "styled-icons/boxicons-regular";
 import { SuppliersType } from "../../../../domain/types/suppliers";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
-const HEADER = ["Código", "Nome", "Email", "cnpj", "Contato", "ações"];
+const HEADER = ["Código", "Nome", "Email", "cnpj", "Telefone", "ações"];
 
 type PagintionProps = {
   suppliers: SuppliersType[];

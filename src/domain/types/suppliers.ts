@@ -1,10 +1,10 @@
 export type SuppliersType = {
   id: number
   name: string;
-  cnpj: string;
-  address: string;
-  phoneNumber: string;
   email: string;
+  cnpj: string;
+  phoneNumber: string;
+  address: string;
   city: string;
   uf: string;
   observation: string;

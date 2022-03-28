@@ -40,9 +40,12 @@ const PurchaseOrder: React.FC = () => {
 
       const filtered = purchaseOrder.filter((item) => {
         return (
+          String(item.id).toUpperCase().includes(auxFilter) ||
           item.fuelType.toUpperCase().includes(auxFilter) ||
-          item.deliveryType.toUpperCase().includes(auxFilter) ||
-          item.paymentType.toUpperCase().includes(auxFilter)
+          item.paymentType.toUpperCase().includes(auxFilter) ||
+          String(item.qtdLiters).toUpperCase().includes(auxFilter) ||
+          String(item.totalPrice).toUpperCase().includes(auxFilter) ||
+          String(item.status).toUpperCase().includes(auxFilter)
         );
       });
       setfuelStations(filtered);

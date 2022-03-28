@@ -11,7 +11,6 @@ export const Wrapper = styled.form<MenuProps>`
     min-width: ${showMenu ? "250px" : "auto"};
     background-color: ${theme.colors.sidebarBG};
     padding: 5px;
-    box-shadow: 0 0 5px 0.5px #ffffff47;
   `}
 `;
 
