@@ -23,7 +23,7 @@ const View: React.FC<ViewProps> = (props) => (
 
     <S.Form>
       <div>
-        <S.Line cols="2fr 1fr">
+        <S.Line cols="1fr 0.5fr">
           <S.LineItem>
             <S.Label htmlFor="name">Nome</S.Label>
             <S.Input
@@ -52,7 +52,7 @@ const View: React.FC<ViewProps> = (props) => (
           </S.LineItem>
         </S.Line>
 
-        <S.Line cols="2fr 1fr">
+        <S.Line cols="1fr 0.5fr">
           <S.LineItem>
             <S.Label htmlFor="email">E-mail</S.Label>
             <S.Input
@@ -82,21 +82,7 @@ const View: React.FC<ViewProps> = (props) => (
           </S.LineItem>
         </S.Line>
 
-        <S.Line cols="1fr 1fr 1fr">
-          <S.LineItem>
-            <S.Label htmlFor="cep">Cep</S.Label>
-            <S.Input
-              disabled={props.type === "details"}
-              type="text"
-              name="cep"
-              id="cep"
-              value={props.suppliers?.cep}
-              onChange={(e) =>
-                props.updateFields(e.target.name, e.target.value)
-              }
-            />
-          </S.LineItem>
-
+        <S.Line cols="1fr 0.5fr 0.5fr">
           <S.LineItem>
             <S.Label htmlFor="city">Cidade</S.Label>
             <S.Input
@@ -105,6 +91,20 @@ const View: React.FC<ViewProps> = (props) => (
               name="city"
               id="city"
               value={props.suppliers?.city}
+              onChange={(e) =>
+                props.updateFields(e.target.name, e.target.value)
+              }
+            />
+          </S.LineItem>
+
+          <S.LineItem>
+            <S.Label htmlFor="cep">Cep</S.Label>
+            <S.Input
+              disabled={props.type === "details"}
+              type="text"
+              name="cep"
+              id="cep"
+              value={props.suppliers?.cep}
               onChange={(e) =>
                 props.updateFields(e.target.name, e.target.value)
               }

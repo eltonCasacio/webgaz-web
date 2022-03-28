@@ -27,11 +27,11 @@ export const Form = styled.form`
 
 export const Input = styled.input`
   border: none;
-  box-shadow: 0px 0 0.5px 0.5px rgb(170, 170, 170);
+  outline: none;
   border-radius: 3px;
   padding: 5px;
-  background-color: transparent;
-  color: rgb(214, 214, 214)
+  font-size: 14px;
+  background-color: #e8f0fd;
 `;
 
 type LabelProps = {
@@ -46,7 +46,7 @@ export const Label = styled.label<LabelProps>`
 export const Sintegra = styled.nav`
   text-align: right;
   margin: 10px;
-  margin-top: 53px;
+  margin-top: 15px;
   a {
     border-bottom: solid 1px #00000040;
     font-size: ${theme.font.sizes.xsmall};
@@ -58,10 +58,11 @@ export const Sintegra = styled.nav`
 export const TextArea = styled.textarea`
   width: 100%;
   resize: none;
+  outline: none;
   box-shadow: 0px 0 0.5px 0.2px rgb(170, 170, 170);
   border-radius: 3px;
   padding: 5px;
-  background-color: transparent;
+  background-color: #e8f0fd;
 `;
 
 export const Line = styled.div<{ cols: string }>`
