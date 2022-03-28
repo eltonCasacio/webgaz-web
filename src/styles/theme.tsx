@@ -28,21 +28,20 @@ export default {
     },
   },
   colors: {
-    backgroundAuth: '#1C1A29',
+    backgroundAuth: "#1C1A29",
     background: "#1C1A29",
     title: "#fcfcfc",
-    subtitle: '#eaeaea',
+    subtitle: "#eaeaea",
     input: "#fcfcfc",
     table: "#2F2C44",
-    tableHeader:'#06092B15',
+    tableHeader: "#06092B15",
     border: "#000",
-    buttonPrimary: '#867AD2',
-    buttonSecundary: '#824ABD',
-    buttonConfirm: '#64E384',
-    buttonCancel: '#D57176',
+    buttonPrimary: "#867AD2",
+    buttonSecundary: "#824ABD",
+    buttonConfirm: "#64E384",
+    buttonCancel: "#D57176",
     sidebarBG: "#2F2C44",
     white: "#FAFAFA",
-
 
     secondary: "#0b7bb8",
     mainBg: "#06092B",
@@ -75,4 +74,4 @@ export default {
     large: "20rem",
     fullWidth: "100%",
   },
-} as const;
+};

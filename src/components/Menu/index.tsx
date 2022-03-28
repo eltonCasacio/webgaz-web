@@ -1,6 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 import * as S from "./styles";
-import Logo from "../../assets/logo.png";
 import { Menus } from "../../mocks/Menus";
 
 type MenuItemType = {
@@ -35,7 +34,6 @@ export default function Menu({ showMenu = true }) {
 
   return (
     <S.Wrapper>
-      {showMenu && <S.LogoImage src={Logo} />}
       <S.Menus>
         <ul>{Menus.map((menu) => createMenuItem(menu))}</ul>
       </S.Menus>

@@ -10,20 +10,15 @@ export const Wrapper = styled.form<MenuProps>`
     flex-direction: column;
     min-width: ${showMenu ? "250px" : "auto"};
     background-color: ${theme.colors.sidebarBG};
-    padding: 10px;
-    padding-top: 11px;
-    box-shadow: 0 0 5px 0.5px ${theme.colors.border};
+    padding: 5px;
+    box-shadow: 0 0 5px 0.5px #ffffff47;
   `}
-`;
-
-export const Logo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 `;
 
 export const ArrowBack = styled.div<MenuProps>`
   cursor: pointer;
+  position: absolute;
+  align-self: flex-end;
   ${({ showMenu }) => css`
     align-self: ${!showMenu ? "center" : ""};
   `}
@@ -34,4 +29,9 @@ export const Footer = styled.div`
   display: flex;
   justify-content: center;
   margin: 10px;
+`;
+
+export const LogoImage = styled.img`
+  width: 12vh;
+  align-self: center;
 `;
