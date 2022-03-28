@@ -1,5 +1,9 @@
 import * as S from "./styles";
-import { DeliveryTypeList, FuelTypeList, PaymentTypeList } from "../../../domain/defaultData";
+import {
+  DeliveryTypeList,
+  FuelTypeList,
+  PaymentTypeList,
+} from "../../../domain/defaultData";
 import Header, { HeaderProps } from "../../../components/header";
 import { SupplierPricesType, SuppliersType } from "../../../domain/types";
 import { Button } from "../../../components";
@@ -38,11 +42,11 @@ const View: React.FC<ViewProps> = (props) => (
               }
             >
               <S.InputSelectOption value=""></S.InputSelectOption>
-              {
-                FuelTypeList.map((fuelType) => (
-                  <S.InputSelectOption value={fuelType}>{fuelType}</S.InputSelectOption>
-                ))
-              }
+              {FuelTypeList.map((fuelType) => (
+                <S.InputSelectOption value={fuelType}>
+                  {fuelType}
+                </S.InputSelectOption>
+              ))}
             </S.InputSelect>
           </S.LineItem>
 
@@ -58,11 +62,11 @@ const View: React.FC<ViewProps> = (props) => (
               }
             >
               <S.InputSelectOption value=""></S.InputSelectOption>
-              {
-                PaymentTypeList.map((paymentType) => (
-                  <S.InputSelectOption value={paymentType}>{paymentType}</S.InputSelectOption>
-                ))
-              }
+              {PaymentTypeList.map((paymentType) => (
+                <S.InputSelectOption value={paymentType}>
+                  {paymentType}
+                </S.InputSelectOption>
+              ))}
             </S.InputSelect>
           </S.LineItem>
 
@@ -78,11 +82,11 @@ const View: React.FC<ViewProps> = (props) => (
               }
             >
               <S.InputSelectOption value=""></S.InputSelectOption>
-              {
-                DeliveryTypeList.map((deliveryType) => (
-                  <S.InputSelectOption value={deliveryType}>{deliveryType}</S.InputSelectOption>
-                ))
-              }
+              {DeliveryTypeList.map((deliveryType) => (
+                <S.InputSelectOption value={deliveryType}>
+                  {deliveryType}
+                </S.InputSelectOption>
+              ))}
             </S.InputSelect>
           </S.LineItem>
         </S.Line>
@@ -126,14 +130,16 @@ const View: React.FC<ViewProps> = (props) => (
                 props.updateFields(e.target.name, e.target.value)
               }
             >
-              <S.InputSelectOption value=""></S.InputSelectOption>
-              {
-                props.suppliers?.map((supplier) => (
-                  <S.InputSelectOption value={supplier.id}>{supplier.name}</S.InputSelectOption>
-                ))
-              }
-            </S.InputSelect>            
-          </S.LineItem>          
+              <S.InputSelectOption value="">
+                {props.type === "details" && props.prices?.supplierId}
+              </S.InputSelectOption>
+              {props.suppliers?.map((supplier) => (
+                <S.InputSelectOption value={supplier.id}>
+                  {supplier.name}
+                </S.InputSelectOption>
+              ))}
+            </S.InputSelect>
+          </S.LineItem>
         </S.Line>
       </div>
       <S.WrapperButtons>

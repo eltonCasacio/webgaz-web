@@ -36,7 +36,11 @@ const Prices: React.FC = () => {
       const filtered = prices.filter((item) => {
         return (
           item.fuelType.toUpperCase().includes(auxFilter) ||
-          item.deliveryType.toUpperCase().includes(auxFilter)
+          item.deliveryType.toUpperCase().includes(auxFilter) ||
+          item.paymentType.toUpperCase().includes(auxFilter) ||
+          String(item.purchasePrice).toUpperCase().includes(auxFilter) ||
+          String(item.salesPrice).toUpperCase().includes(auxFilter) ||
+          String(item.supplierId).toUpperCase().includes(auxFilter)
         );
       });
       setPriceToShow(filtered);
@@ -55,7 +59,7 @@ const Prices: React.FC = () => {
         }
       })
       .catch(() => toast.error("Erro ao carregar os preços"));
-  }
+  };
 
   const handleDeletePrice = (priceId: number) => {
     deletePrice(priceId)
@@ -70,7 +74,7 @@ const Prices: React.FC = () => {
 
   return (
     <View
-      title="Dashboard - Tabela de Preço"
+      title="Dashboard - Tabela de Preços"
       subtitle="Preços Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
