@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { listSuppliersService, createSupplierService, deleteSupplierService } from "../services/supplier.service";
+import { listSuppliersService, createSupplierService, deleteSupplierService, updateSupplierService } from "../services/supplier.service";
 import { SuppliersType } from "../../../domain/types";
 import { HookDelete, HookList, HookSave } from "./supplier.types";
 
@@ -21,6 +21,15 @@ const useCreateSupplier: HookSave = () => {
   )
 };
 
+const useUpdateSupplier: HookSave = () => {
+  return useCallback(
+    async (supplier: SuppliersType) => {
+      await updateSupplierService(supplier);
+    },
+    []
+  )
+};
+
 const useDeleteSupplier: HookDelete = () => {
   return useCallback(
     async (supplierId: number) => {
@@ -30,4 +39,4 @@ const useDeleteSupplier: HookDelete = () => {
   )
 };
 
-export { useListSuppliers, useCreateSupplier, useDeleteSupplier }
+export { useListSuppliers, useCreateSupplier, useDeleteSupplier, useUpdateSupplier }

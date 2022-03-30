@@ -6,6 +6,7 @@ import { FuelStationType } from "../../domain/types/fuelStation";
 import {
   useListFuelStations,
   useBlockFuelStation,
+  useActiveFuelStation
 } from "./hooks/fuelstation.hook";
 
 const FuelStation: React.FC = () => {
@@ -17,6 +18,7 @@ const FuelStation: React.FC = () => {
   const [filter, setFilter] = useState("");
   const listfuelStation = useListFuelStations();
   const blockFuelStation = useBlockFuelStation();
+  const activeFuelStation = useActiveFuelStation();
 
   const functions = {} as ViewPropsFunctions;
   functions.Update = (value) =>
@@ -26,6 +28,8 @@ const FuelStation: React.FC = () => {
   functions.Create = () => navigate("/fuelstation/create");
   functions.Cancel = (fuelStationId: number) =>
     handleBlockFuelStation(fuelStationId);
+  functions.Active = (fuelStationId: number) =>
+  handleActiveFuelStation(fuelStationId);    
 
   useEffect(() => {
     hadleLoadFuelStations();
@@ -71,6 +75,17 @@ const FuelStation: React.FC = () => {
       })
       .catch(() => {
         toast.error("Erro ao bloquear o posto.");
+      });
+  };
+
+  const handleActiveFuelStation = (fuelStationId: number) => {
+    activeFuelStation(fuelStationId)
+      .then(() => {
+        hadleLoadFuelStations();
+        toast.success("Posto ativado com sucesso.");
+      })
+      .catch(() => {
+        toast.error("Erro ao ativar o posto.");
       });
   };
 

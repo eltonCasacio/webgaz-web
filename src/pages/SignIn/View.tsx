@@ -39,7 +39,7 @@ const View: React.FC<ViewProps> = ({ handleSubmit, setEmail, setPassword }) => (
       </S.ForgotPWD>
 
       <S.Submit>
-        <Button size="medium">Entrar</Button>
+        <Button type="submit" size="medium">Entrar</Button>
       </S.Submit>
     </FormWrapper>
   </S.Form>

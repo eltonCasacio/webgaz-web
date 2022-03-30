@@ -10,8 +10,12 @@ const createSupplierService = async (supplier: SuppliersType): Promise<void> => 
   await API.post("supplier", supplier);
 }
 
+const updateSupplierService = async (supplier: SuppliersType): Promise<void> => {
+  await API.put("supplier", supplier);
+}
+
 const deleteSupplierService = async (supplierId: number): Promise<void> => {
   await API.delete(`supplier/${supplierId}`);
 }
 
-export { listSuppliersService, createSupplierService, deleteSupplierService }
+export { listSuppliersService, createSupplierService, deleteSupplierService, updateSupplierService }
