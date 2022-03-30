@@ -14,4 +14,8 @@ const blockFuelStationService = async (fuelStationId: number): Promise<void> => 
   await API.patch(`/fuelstation/block/${fuelStationId}`);
 }
 
-export { listFuelStationService, createFuelStationService, blockFuelStationService }
+const activeFuelStationService = async (fuelStationId: number): Promise<void> => {
+  await API.patch(`/fuelstation/active/${fuelStationId}`);
+}
+
+export { listFuelStationService, createFuelStationService, blockFuelStationService, activeFuelStationService }

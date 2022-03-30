@@ -2,6 +2,7 @@
 export type CrudNavigationProps = {
   Delete: (id: number) => void;
   Cancel: (id: number) => void;
+  Active: (id: number) => void;
   Details: ({}) => void;
   Update: ({}) => void;
   Create: () => void;

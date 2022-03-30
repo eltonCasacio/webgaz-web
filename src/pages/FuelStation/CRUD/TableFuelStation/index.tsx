@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styles";
 import { Edit } from "styled-icons/boxicons-regular";
 import { Eye } from "styled-icons/bootstrap";
-import { Block } from "styled-icons/boxicons-regular";
+import { Block, Check } from "styled-icons/boxicons-regular";
 
 import { FuelStationType } from "../../../../domain/types";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
@@ -32,7 +32,7 @@ export const TableFuelStation: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.telephone}</S.TableDataBody>
       <S.TableDataBodyIcon>
         <Eye onClick={() => params.functions.Details(item)} />
-        <Edit onClick={() => params.functions.Update(item)} />
+        <Check onClick={() => params.functions.Active(item.id)} />
         <Block onClick={() => params.functions.Cancel(item.id)} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>

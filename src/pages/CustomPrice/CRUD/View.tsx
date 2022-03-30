@@ -5,6 +5,7 @@ import { Button } from "../../../components";
 import {
   DeliveryTypeList,
   FuelTypeList,
+  IsActiveList,
   PaymentTypeList,
 } from "../../../domain/defaultData";
 
@@ -126,6 +127,27 @@ const View: React.FC<ViewProps> = (props) => (
               ))}
             </S.InputSelect>
           </S.LineItem>
+
+          <S.LineItem>
+            <S.Label htmlFor="isActive">Ativo?</S.Label>
+            <S.InputSelect
+              disabled={props.type === "details"}
+              name="isActive"
+              id="isActive"
+              value={props.customPrice?.isActive}
+              onChange={(e) =>
+                props.updateFields(e.target.name, e.target.value)
+              }
+            >
+              <S.InputSelectOption value=""></S.InputSelectOption>
+              {IsActiveList.map((status) => (
+                <S.InputSelectOption value={status}>
+                  {status}
+                </S.InputSelectOption>
+              ))}
+            </S.InputSelect>
+          </S.LineItem>
+
         </S.Line>
       </div>
       <S.WrapperButtons>
