@@ -32,9 +32,9 @@ export const TableShipping: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.city}</S.TableDataBody>
       <S.TableDataBody>{item.uf}</S.TableDataBody>
       <S.TableDataBodyIcon>
-        <Eye onClick={() => params.functions.Details(item)} />
-        <Edit onClick={() => params.functions.Update(item)} />
-        <Block onClick={() => params.functions.Delete(Number(item.cnpj))} />
+        <Eye  onClick={() => params.functions.Details(item)} />
+        <Edit  onClick={() => params.functions.Update(item)} />
+        <Block  onClick={() => params.functions.Delete(Number(item.cnpj))} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

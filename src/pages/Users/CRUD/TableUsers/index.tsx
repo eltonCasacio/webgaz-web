@@ -29,9 +29,12 @@ export const TableUsers: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.email}</S.TableDataBody>
       <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
       <S.TableDataBodyIcon>
-        <Eye onClick={() => params.functions.Details(item)} />
-        <Edit onClick={() => params.functions.Update(item)} />
-        <Block onClick={() => params.functions.Delete(Number(item.id))} />
+        <Eye color="#ffffffcc" onClick={() => params.functions.Details(item)} />
+        <Edit color="#ffffffa0" onClick={() => params.functions.Update(item)} />
+        <Block
+          color={item.isActive ? "#00ff00a7" : "#ff00007d"}
+          onClick={() => params.functions.Delete(Number(item.id))}
+        />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

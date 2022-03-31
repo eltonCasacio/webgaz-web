@@ -31,9 +31,9 @@ export const TableSuppliers: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.cnpj}</S.TableDataBody>
       <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
       <S.TableDataBodyIcon>
-        <Eye onClick={() => params.functions.Details(item)} />
-        <Edit onClick={() => params.functions.Update(item)} />
-        <Block onClick={() => params.functions.Delete(item.id)} />
+        <Eye color="#ffffffc5" onClick={() => params.functions.Details(item)} />
+        <Edit color="#ffffffa0" onClick={() => params.functions.Update(item)} />
+        <Block color="#ffffffa0" onClick={() => params.functions.Delete(item.id)} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

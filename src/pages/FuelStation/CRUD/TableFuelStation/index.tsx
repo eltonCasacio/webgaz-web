@@ -31,9 +31,15 @@ export const TableFuelStation: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.status}</S.TableDataBody>
       <S.TableDataBody>{item.telephone}</S.TableDataBody>
       <S.TableDataBodyIcon>
-        <Eye onClick={() => params.functions.Details(item)} />
-        <Check onClick={() => params.functions.Active(item.id)} />
-        <Block onClick={() => params.functions.Cancel(item.id)} />
+        <Eye color="#ffffffac" onClick={() => params.functions.Details(item)} />
+        <Check
+          color={item.status === "ACTIVE" ? "#00ff00a7" : "#ffffff7d"}
+          onClick={() => params.functions.Active(item.id)}
+        />
+        <Block
+          color={item.status === "BLOCKED" ? "#d64b4b" : "#ffffff7d"}
+          onClick={() => params.functions.Cancel(item.id)}
+        />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

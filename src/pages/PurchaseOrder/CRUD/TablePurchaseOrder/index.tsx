@@ -2,7 +2,6 @@ import React from "react";
 import * as S from "./styles";
 import { Cancel } from "styled-icons/material";
 import { Eye } from "styled-icons/bootstrap";
-import { Block } from "styled-icons/boxicons-regular";
 
 import { PurchaseOrderType } from "../../../../domain/types";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
@@ -32,8 +31,8 @@ export const TablePurchaseOrder: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.totalPrice}</S.TableDataBody>
       <S.TableDataBody>{item.status}</S.TableDataBody>
       <S.TableDataBodyIcon>
-        <Eye title="Detalhes" onClick={() => params.functions.Details(item)} />
-        <Cancel title="Cancelar" onClick={() => params.functions.Cancel(item.id)} />
+        <Eye color="#ffffffa0" title="Detalhes" onClick={() => params.functions.Details(item)} />
+        <Cancel color="#ffffffa0" title="Cancelar" onClick={() => params.functions.Cancel(item.id)} />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );

@@ -32,7 +32,7 @@ const FuelStation: React.FC = () => {
   handleActiveFuelStation(fuelStationId);    
 
   useEffect(() => {
-    hadleLoadFuelStations();
+    handleLoadFuelStations();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -60,7 +60,7 @@ const FuelStation: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
-  const hadleLoadFuelStations = () => {
+  const handleLoadFuelStations = () => {
     listfuelStation().then((fuelStation) => {
       setfuelStation(fuelStation);
       setfuelStationToShow(fuelStation);
@@ -70,7 +70,7 @@ const FuelStation: React.FC = () => {
   const handleBlockFuelStation = (fuelStationId: number) => {
     blockFuelStation(fuelStationId)
       .then(() => {
-        hadleLoadFuelStations();
+        handleLoadFuelStations();
         toast.success("Posto bloqueado com sucesso.");
       })
       .catch(() => {
@@ -81,7 +81,7 @@ const FuelStation: React.FC = () => {
   const handleActiveFuelStation = (fuelStationId: number) => {
     activeFuelStation(fuelStationId)
       .then(() => {
-        hadleLoadFuelStations();
+        handleLoadFuelStations();
         toast.success("Posto ativado com sucesso.");
       })
       .catch(() => {

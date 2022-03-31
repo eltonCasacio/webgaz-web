@@ -40,9 +40,12 @@ export const TableCustomPrice: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.price}</S.TableDataBody>
       <S.TableDataBody>{item.isActive}</S.TableDataBody>
       <S.TableDataBodyIcon>
-        <Eye onClick={() => params.functions.Details(item)} />
-        <Edit onClick={() => params.functions.Update(item)} />
-        <Block onClick={() => params.functions.Cancel(item.id)} />
+        <Eye color="#ffffffa0" onClick={() => params.functions.Details(item)} />
+        <Edit color="#ffffffa0" onClick={() => params.functions.Update(item)} />
+        <Block
+          color={item.isActive ? "#00ff00a7" : "#ff00007d"}
+          onClick={() => params.functions.Cancel(item.id)}
+        />
       </S.TableDataBodyIcon>
     </S.TableRowBody>
   );
