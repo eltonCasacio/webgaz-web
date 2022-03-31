@@ -53,7 +53,9 @@ export const TableDataBody = styled.td`
 `;
 
 export const TableDataBodyIcon = styled.td`
-  width: 85px;
+  width: 60px;
+  text-align: right;
+  padding-right: 10px;
   svg {
     margin-left: 10px;
     width: 14px;
