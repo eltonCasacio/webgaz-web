@@ -7,7 +7,7 @@ import { Block } from "styled-icons/boxicons-regular";
 import { UserType } from "../../../../domain/types/user";
 import { CrudNavigationProps } from "../../../../domain/types/crudNavigation";
 
-const HEADER = ["Nome", "Email", "Telefone", "Ações"];
+const HEADER = ["Nome", "Email", "Telefone", "Ativo?",  "Ações"];
 
 type PagintionProps = {
   users: UserType[];
@@ -28,6 +28,7 @@ export const TableUsers: React.FC<PagintionProps> = (params) => {
       <S.TableDataBody>{item.name}</S.TableDataBody>
       <S.TableDataBody>{item.email}</S.TableDataBody>
       <S.TableDataBody>{item.phoneNumber}</S.TableDataBody>
+      <S.TableDataBody>{item.isActive}</S.TableDataBody>
       <S.TableDataBodyIcon>
         <Eye color="#ffffffcc" onClick={() => params.functions.Details(item)} />
         <Edit color="#ffffffa0" onClick={() => params.functions.Update(item)} />

@@ -3,42 +3,42 @@ import { toast } from "../../../components/Toast";
 import { getMessageError } from "../../../domain/clientError";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { UserType } from "../../../domain/types/user";
-import { useUpdateUser } from "../hooks/user.hook";
+import { ConfigType } from "../../../domain/types";
+import { useUpdateConfig } from "../hooks/config.hook";
 
 const Update: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation() as any;
-  const [user, setUser] = useState({} as UserType);
-  const updateUser = useUpdateUser();
+  const [config, setConfig] = useState({} as ConfigType);
+  const updateConfig = useUpdateConfig();
 
   function cancel() {
-    navigate("/users");
+    navigate("/settings");
   }
 
   function confirm(): void {
-    updateUser(user).then(() => {
-      toast.success("Usuário atualizado com sucesso.");
-      navigate("/users");
+    updateConfig(config).then(() => {
+      toast.success("Configurações atualizadas com sucesso.");
+      navigate("/settings");
     }).catch((error) => {
       toast.error(getMessageError(error));
     })
   }
 
   function updateFields(name: string, value: string) {
-    setUser({ ...user, [name]: value });
+    setConfig({ ...config, [name]: value });
   }
 
   useEffect(() => {
-    setUser(location.state);
+    setConfig(location.state);
   }, [location]);
 
   return (
     <View
       type="update"
-      user={user}
+      config={config}
       title="Atualizar"
-      subtitle={user?.name}
+      subtitle={config?.blockOrders}
       cancel={cancel}
       confirm={confirm}
       updateFields={updateFields}
