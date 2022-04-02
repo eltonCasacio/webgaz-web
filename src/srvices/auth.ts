@@ -1,3 +1,4 @@
+import axios from "axios";
 import API from "./api";
 
 export type ResponseSignInProps = {
@@ -17,7 +18,7 @@ export async function signin({
   password,
 }: RequestSignInProps): Promise<ResponseSignInProps> {
   try {
-    // const { data } = await Api.post("/signin", { email, password });    
+    const { data } = await axios.post("/user-adm/signin", { email, password });    
   } catch (error) {
     console.debug("Erro ao tentar realizar o SIGNIN");
   }

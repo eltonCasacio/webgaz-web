@@ -42,14 +42,12 @@ import {
   CustomPriceUpdate,
 } from "../pages/CustomPrice/CRUD";
 
-// import Shippings from "../pages/Shippings";
-// import {
-//   ShippingCreate,
-//   ShippingDetails,
-//   ShippingUpdate,
-// } from "../pages/Shippings/CRUD";
-
 import Settings from "../pages/Settings";
+import {
+  ConfigDetails,
+  ConfigUpdate
+} from "../pages/Settings/CRUD";
+
 import Reports from "../pages/Reports";
 
 const authRoutes: React.FC = () => {
@@ -76,10 +74,6 @@ const authRoutes: React.FC = () => {
       <Route path="/suppliers/update" element={<SuppliersUpdate />} />
       <Route path="/suppliers/create" element={<SuppliersCreate />} />
 
-      {/* <Route path="/shippings" element={<Shippings />} />
-      <Route path="/shippings/details" element={<ShippingDetails />} />
-      <Route path="/shippings/update" element={<ShippingUpdate />} />
-      <Route path="/shippings/create" element={<ShippingCreate />} /> */}
 
       <Route path="/fuelstation" element={<FuelStation />} />
       <Route path="/fuelstation/details" element={<FuelStationDetails />} />
@@ -97,7 +91,11 @@ const authRoutes: React.FC = () => {
       <Route path="/customprice/create" element={<CustomPriceCreate />} />
 
       <Route path="/reports" element={<Reports />} />
+
       <Route path="/settings" element={<Settings />} />
+      <Route path="/settings/details" element={<ConfigDetails />} />
+      <Route path="/settings/update" element={<ConfigUpdate />} />
+
     </Routes>
   );
 };

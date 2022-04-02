@@ -87,32 +87,36 @@ const View: React.FC<ViewProps> = (props) => (
               ))}
             </S.InputSelect>
           </S.LineItem>
-          <S.LineItem>
-            <S.Label htmlFor="password">Senha</S.Label>
-            <S.Input
-              disabled={props.type === "details"}
-              type="text"
-              name="password"
-              id="password"
-              value={props.user?.password}
-              onChange={(e) =>
-                props.updateFields(e.target.name, e.target.value)
-              }
-            />
-          </S.LineItem>
-          <S.LineItem>
-            <S.Label htmlFor="passwordConfirmation">Confirmação Senha</S.Label>
-            <S.Input
-              disabled={props.type === "details"}
-              type="text"
-              name="passwordConfirmation"
-              id="passwordConfirmation"
-              value={props.user?.passwordConfirmation}
-              onChange={(e) =>
-                props.updateFields(e.target.name, e.target.value)
-              }
-            />
-          </S.LineItem>
+          {props.type === "create" &&
+            <>
+              <S.LineItem>
+                <S.Label htmlFor="password">Senha</S.Label>
+                <S.Input
+                  disabled={false}
+                  type="text"
+                  name="password"
+                  id="password"
+                  value={props.user?.password}
+                  onChange={(e) =>
+                    props.updateFields(e.target.name, e.target.value)
+                  }
+                />
+              </S.LineItem>
+              <S.LineItem>
+                <S.Label htmlFor="passwordConfirmation">Confirmação Senha</S.Label>
+                <S.Input
+                  disabled={false}
+                  type="text"
+                  name="passwordConfirmation"
+                  id="passwordConfirmation"
+                  value={props.user?.passwordConfirmation}
+                  onChange={(e) =>
+                    props.updateFields(e.target.name, e.target.value)
+                  }
+                />
+              </S.LineItem>             
+            </>       
+          }
         </S.Line>
       </div>
       <S.WrapperButtons>
