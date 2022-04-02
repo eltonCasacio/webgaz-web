@@ -73,8 +73,8 @@ const Shippings: React.FC = () => {
 
   return (
     <View
-      title="Dashboard - Fornecedor"
-      subtitle="Fornecedores Cadastrados"
+      title="Dashboard - Transportadora"
+      subtitle="Transportadora Cadastrados"
       functions={functions}
       InputSearchChange={setFilter}
       filter={filter}

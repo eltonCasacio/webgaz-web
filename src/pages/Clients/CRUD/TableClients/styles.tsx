@@ -58,5 +58,6 @@ export const TableDataBodyIcon = styled.td`
     margin-left: 10px;
     width: 14px;
     cursor: pointer;
+    color:"#ffffffa0";
   }
 `;
