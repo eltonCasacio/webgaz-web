@@ -152,7 +152,7 @@ const View: React.FC<ViewProps> = (props) => (
                 type="text"
                 name="shippingName"
                 id="shippingName"
-                value={props.purchaseOrders?.shippingName}
+                value={props.purchaseOrders?.shippingCompany?.shippingName}
                 onChange={(e) =>
                   props.updateFields(e.target.name, e.target.value)
                 }
@@ -166,7 +166,7 @@ const View: React.FC<ViewProps> = (props) => (
                 type="text"
                 name="shippingCnpj"
                 id="shippingCnpj"
-                value={props.purchaseOrders?.shippingCnpj}
+                value={props.purchaseOrders?.shippingCompany?.shippingCnpj}
                 onChange={(e) =>
                   props.updateFields(e.target.name, e.target.value)
                 }
@@ -180,7 +180,7 @@ const View: React.FC<ViewProps> = (props) => (
                 type="text"
                 name="shippingPlateNumber"
                 id="shippingPlateNumber"
-                value={props.purchaseOrders?.shippingPlateNumber?.toString()}
+                value={props.purchaseOrders?.shippingCompany?.shippingPlateNumber?.toString()}
                 onChange={(e) =>
                   props.updateFields(e.target.name, e.target.value)
                 }
@@ -199,7 +199,7 @@ const View: React.FC<ViewProps> = (props) => (
                 type="text"
                 name="shippingDriverName"
                 id="shippingDriverName"
-                value={props.purchaseOrders?.shippingDriverName}
+                value={props.purchaseOrders?.shippingCompany?.shippingDriverName}
                 onChange={(e) =>
                   props.updateFields(e.target.name, e.target.value)
                 }
@@ -213,7 +213,7 @@ const View: React.FC<ViewProps> = (props) => (
                 type="text"
                 name="shippingDriverCnh"
                 id="shippingDriverCnh"
-                value={props.purchaseOrders?.shippingDriverCnh}
+                value={props.purchaseOrders?.shippingCompany?.shippingDriverCnh}
                 onChange={(e) =>
                   props.updateFields(e.target.name, e.target.value)
                 }
