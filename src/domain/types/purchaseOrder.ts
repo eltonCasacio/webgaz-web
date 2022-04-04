@@ -1,3 +1,5 @@
+import { ShippingCompanyType } from "./shippingCompany"
+
 export type IsActive = 'SIM' | 'NÃO'
 export type FuelType = 'GASOLINA' | 'ETANOL'
 export type PaymentType = 'ANTECIPADO' | 'AVISTA' | '7DIAS' | '10DIAS'
@@ -12,14 +14,8 @@ export type PurchaseOrderType = {
   qtdLiters: Number
   status?: PurchaseOrderStatus
   fuelStationId: Number
-
   deliveryDate: string
   deliveryType: DeliveryType
-  
-  shippingName?: string
-  shippingCnpj?: string
-  shippingPlateNumber?: string
-  shippingDriverName?: string
-  shippingDriverCnh?: string
   createDate?: string
+  shippingCompany?: ShippingCompanyType
 }
